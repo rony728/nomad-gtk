@@ -1,3 +1,3 @@
 # nomad-gtk-theme
 
-Default nomad shell GTK theme.
+Default NXOS shell GTK theme.
