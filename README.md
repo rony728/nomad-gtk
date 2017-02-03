@@ -1,3 +1,3 @@
-# nomad-gtk-theme
+# haze-gtk-theme
 
 Default NXOS shell GTK theme.
