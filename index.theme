@@ -1,0 +1,11 @@
+[Desktop Entry]
+Type=X-GNOME-Metatheme
+Name=Haze
+Comment=Simple light theme
+Encoding=UTF-8
+
+[X-GNOME-Metatheme]
+GtkTheme=Haze
+IconTheme=Haze
+MetacityTheme=Haze
+ButtonLayout=:minimize,maximize,close
