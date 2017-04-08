@@ -1,0 +1,260 @@
+@import "button";
+
+@include exports("notebook") {
+    notebook {
+        &.frame {
+            border: solid 1px $borders_color;
+            &.top { margin-bottom: 0; }
+            &.right { margin-left: 0; }
+            &.bottom { margin-top: 0; }
+            &.left { margin-right: 0; }
+            &.top, &.bottom { padding-left: 0; padding-right: 0; }
+            &.left, &.right { padding-top: 0; padding-bottom: 0; }
+        }
+
+        > header {
+            margin: -1px;
+            background-color: $bg_color;
+            color: $text_color;
+            &.top { box-shadow: inset 0 -1px $borders_color; }
+            &.right { box-shadow: inset 1px 0 $borders_color; }
+            &.bottom { box-shadow: inset 0 1px $borders_color; }
+            &.left { box-shadow: inset -1px 0 $borders_color; }
+
+            &.top > tabs > arrow {
+                @extend %notebook_vert_arrows;
+
+                border-top-style: none;
+            }
+
+            &.bottom > tabs > arrow {
+                @extend %notebook_vert_arrows;
+
+                border-bottom-style: none;
+            }
+
+            @at-root %notebook_vert_arrows {
+                padding-left: 4px;
+                padding-right: 4px;
+
+                &.down { -gtk-icon-source: -gtk-icontheme('pan-start-symbolic'); }
+
+                &.up { -gtk-icon-source: -gtk-icontheme('pan-end-symbolic'); }
+            }
+
+            &.left > tabs > arrow {
+                @extend %notebook_horz_arrows;
+
+                border-left-style: none;
+            }
+
+            &.right > tabs > arrow {
+                @extend %notebook_horz_arrows;
+
+                border-right-style: none;
+            }
+
+            @at-root %notebook_horz_arrows {
+                margin-top: 0;
+                margin-bottom: 0;
+                padding-top: 4px;
+                padding-bottom: 4px;
+
+                &.down { -gtk-icon-source: -gtk-icontheme('pan-up-symbolic'); }
+
+                &.up { -gtk-icon-source: -gtk-icontheme('pan-down-symbolic'); }
+            }
+
+            > tabs > arrow {
+                @extend %close_button;
+
+                min-height: 16px;
+                min-width: 16px;
+
+                &:hover:not(:active):not(:backdrop) {
+                    background-clip: padding-box;
+                    background-image: none;
+                    background-color: transparentize($white, .7);
+                    border-color: transparent;
+                    box-shadow: none;
+                }
+
+                &:disabled { @extend %undecorated_button; }
+            }
+
+            tab {
+                border: solid 1px $base_color;
+                background-color: $base_color;
+                background-image: none;
+                box-shadow: none;
+                outline: none;
+                transition: all .2s linear;
+
+                > box,
+                > label,
+                > widget > box {
+                    padding: $spacing $spacing * 2;
+                    border: solid 1px transparent;
+                }
+
+                &.reorderable-page {
+                    > box,
+                    > label,
+                    > widget > box {
+                        padding: $spacing $spacing * 2;
+                    }
+                }
+
+                /* close button */
+                button,
+                button.flat {
+                    @extend %close_button;
+
+                    min-height: 16px;
+                    min-width: 16px;
+                    padding: 0;
+                    margin-left: $spacing * 2;
+                    border: none;
+                    transition: all .1s linear;
+                }
+
+                &:hover {
+                    background-color: shade($bg_color, .86);
+                    button,
+                    button.flat {
+                    	background-color: shade($selected_bg_color, 1.2);
+                    	border: none;
+                    }
+                }
+
+                &:checked {
+                    background-color: $selected_bg_color;
+                    border-color: shade($selected_bg_color, 0.88);
+                    button,
+                    button.flat {
+                    	background-color: shade($selected_bg_color, 1.2);
+                    	border: none;
+                    }
+                }
+
+                label {
+                    color: mix($text_color, $base_color, .3);
+                }
+            }
+
+            &.top tab {
+                border-style: solid;
+                border-bottom: 0;
+                border-color: $borders_color;
+                border-radius: 2px 2px 0 0;
+                margin: 0 2px;
+
+                &:checked {
+                    background-color: $selected_bg_color;
+                    border-color: shade($selected_bg_color, 0.88);
+
+                    > box,
+                    > label,
+                    > widget > box {
+                        background-color: $selected_bg_color;
+                    }
+
+                    label {
+                        margin-bottom: 0;
+                        color: $selected_fg_color;
+                    }
+
+                    &:hover {
+                        background-color: $selected_bg_color;
+                    }
+                }
+            }
+
+            &.right tab {
+                border-style: solid;
+                border-color: $borders_color;
+                border-radius: 0 2px 2px 0;
+                margin: 2px 0;
+
+                &:checked {
+                    background-color: $selected_bg_color;
+                    border-color: shade($selected_bg_color, 0.88);
+
+                    > box,
+                    > label,
+                    > widget > box {
+                        background-color: $selected_bg_color;
+                    }
+
+                    label {
+                        margin-left: 0;
+                        color: $selected_fg_color;
+                    }
+
+                    &:hover {
+                        background-color: $selected_bg_color;
+                    }
+                }
+            }
+
+            &.bottom tab {
+                border-style: solid;
+                border-color: $borders_color;
+                border-radius: 0 0 2px 2px;
+                margin: 0 2px;
+
+                &:checked {
+                    background-color: $selected_bg_color;
+                    border-color: shade($selected_bg_color, 0.88);
+
+                    > box,
+                    > label,
+                    > widget > box {
+                        background-color: $selected_bg_color;
+                    }
+
+                    label {
+                        margin-top: 0;
+                        color: $selected_fg_color;
+                    }
+
+                    &:hover {
+                        background-color: $selected_bg_color;
+                    }
+                }
+            }
+
+            &.left tab {
+                border-style: solid;
+                border-color: $borders_color;
+                border-radius: 2px 0 0 2px;
+                margin: 2px 0;
+
+                &:checked {
+                    background-color: $selected_bg_color;
+                    border-color: shade($selected_bg_color, 0.88);
+
+                    > box,
+                    > label,
+                    > widget > box {
+                        background-color: $selected_bg_color;
+                    }
+
+                    label {
+                        margin-right: 0;
+                        color: $selected_fg_color;
+                    }
+
+                    &:hover {
+                        background-color: $selected_bg_color;
+                    }
+                }
+            }
+        }
+
+        > stack:not(:only-child) {
+            background-color: $base_color;
+            &:backdrop { background-color: $backdrop_base_color; }
+        }
+    }
+}

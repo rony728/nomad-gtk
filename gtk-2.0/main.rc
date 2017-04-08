@@ -6,6 +6,7 @@ gtk-color-scheme = "base_color:#f5f5f5"
 gtk-color-scheme = "text_color:#0b0b0b"
 gtk-color-scheme = "selected_bg_color:#26c6da"
 gtk-color-scheme = "selected_fg_color:#ffffff"
+gtk-color-scheme = "insensitive_bg_color:#D2D8DD"
 gtk-color-scheme = "tooltip_bg_color:#f5f5f5"
 gtk-color-scheme = "tooltip_fg_color:#939fb4"
 gtk-color-scheme = "titlebar_bg_color:#f5f5f5"
@@ -25,7 +26,7 @@ gtk-auto-mnemonics = 1
 # Default Style
 
 style "murrine-default" {
-	GtkArrow::arrow-scaling= 1.0
+	GtkArrow::arrow-scaling = 0.7
 	GtkButton::child-displacement-x = 0
 	GtkButton::child-displacement-y = 0
 	GtkButton::default-border = { 0, 0, 0, 0 }
@@ -35,7 +36,7 @@ style "murrine-default" {
 	GtkEntry::state-hint = 0
 	GtkExpander::expander-size = 16
 	GtkImage::x-ayatana-indicator-dynamic = 1
-	GtkMenu::horizontal-padding = 0
+	GtkMenu::horizontal-padding = 4
 	GtkMenu::vertical-padding = 0
 	GtkMenuBar::internal-padding = 0
 	GtkMenuBar::window-dragging = 1
@@ -95,9 +96,9 @@ style "murrine-default" {
 
 	bg[NORMAL] = @bg_color
 	bg[PRELIGHT] = @bg_color
-	bg[SELECTED] = @selected_bg_color
-	bg[ACTIVE] = @bg_color
-	bg[INSENSITIVE] = @bg_color
+	bg[SELECTED] = @bg_color
+	bg[ACTIVE] = @selected_bg_color
+	bg[INSENSITIVE] = @insensitive_bg_color
 
 	base[NORMAL] = @base_color
 	base[PRELIGHT] = @base_color
@@ -113,55 +114,55 @@ style "murrine-default" {
 
 	engine "murrine" {
 		animation = FALSE
-		arrowstyle = 0 # 0 = normal arrows, 1 = filled arrows
-		border_shades = { 1.05, 1.05 } # gradient to draw on border
+		arrowstyle = 1
+		border_shades = { 1.05, 1.05 }
 		colorize_scrollbar = FALSE
-		comboboxstyle = 1 # 0 = normal combobox, 1 = colorized combobox below arrow
-		contrast = 0.5 # overal contrast with borders
-		focusstyle = 0 # 0 = none, 1 = grey dotted, 2 = colored with fill, 3 = colored glow
-		glazestyle = 0 # 0 = flat highlight, 1 = curved highlight, 2 = concave, 3 = top curved highlight, 4 = beryl highlight
-		glowstyle = 0 # 0 = glow on top, 1 = glow on bottom, 2 = glow on top and bottom, 3 = glow on middle vertically, 4 = glow on middle horizontally, 5 = glow on all sides
-		glow_shade = 1.0 # amount of glow
-		gradient_shades = { 1.0, 1.0, 1.0, 1.0 } # gradient to draw on widgets
-		highlight_shade = 1.0 # amount of highlight
-		lightborder_shade = 1.0 # amount of inset light border
-		lightborderstyle = 1 # 0 = lightborder on top side, 1 = lightborder on all sides
-		listviewheaderstyle = 0 # 0 = flat, 1 = glassy, 2 = raised
-		listviewstyle = 0 # 0 = none, 1 = dotted, 2 = line
-		menubaritemstyle = 0 # 0 = menuitem look, 1 = button look
-		menubarstyle = 0 # 0 = flat, 1 = glassy, 2 = gradient, 3 = striped
-		menuitemstyle = 0 # 0 = flat, 1 = glassy, 2 = striped
-		menustyle = 0 # 0 = none, 1 = vertical striped
-		progressbarstyle = 0 # 0 = none, 1 = diagonal striped, 2 = vertical striped
-		reliefstyle = 0 # 0 = flat, 1 = inset, 2 = shadow, 3 = shadow with gradient, 4 = stronger shadow with gradient
-		roundness = 2 # roundness of widgets
-		scrollbarstyle = 0 # 0 = none, 1 = circles, 2 = handles, 3 = diagonal stripes, 4 = diagonal stripes and handles, 5 = horizontal stripes, 6 = horizontal stripes and handles
-		sliderstyle = 0 # 0 = none, 1 = handles
-		stepperstyle = 1 # 0 = standard, 1 = integrated stepper handles
-		toolbarstyle = 0 # 0 = flat, 1 = glassy, 2 = gradient
+		comboboxstyle = 1
+		contrast = 0.5
+		focusstyle = 0
+		glazestyle = 0
+		glowstyle = 0
+		glow_shade = 1.0
+		gradient_shades = { 1.0, 1.0, 1.0, 1.0 }
+		highlight_shade = 1.0
+		lightborder_shade = 1.0
+		lightborderstyle = 1
+		listviewheaderstyle = 0
+		listviewstyle = 0
+		menubaritemstyle = 0
+		menubarstyle = 0
+		menuitemstyle = 0
+		menustyle = 0
+		progressbarstyle = 0
+		reliefstyle = 0
+		roundness = 2
+		scrollbarstyle = 0
+		sliderstyle = 0
+		stepperstyle = 1
+		toolbarstyle = 0
    }
 }
 
 style "murrine-wide" {
-	xthickness = 3
+	xthickness = 2
 	ythickness = 3
 }
 
 style "murrine-wider" {
-	xthickness = 4
+	xthickness = 3
 	ythickness = 4
 }
 
 style "murrine-thin" {
-	xthickness = 1
-	ythickness = 1
+	xthickness = 0
+	ythickness = 0
 }
 
 # Notebook
 
 style "murrine-notebook-bg" {
 	bg[NORMAL] = @base_color
-	bg[ACTIVE] = shade (0.92, @base_color)
+	bg[ACTIVE] = shade (0.87, @base_color)
 }
 
 style "murrine-notebook" = "murrine-notebook-bg" {
@@ -176,11 +177,11 @@ style "murrine-notebook" = "murrine-notebook-bg" {
 # Various Standard Widgets
 
 style "murrine-button"  = "murrine-wider" {
-	text[NORMAL] = @selected_bg_color
-	text[PRELIGHT] = @bg_color
-	text[ACTIVE] = @selected_bg_color
+	bg[NORMAL] = @bg_color
+	bg[PRELIGHT] = shade (1.10, @bg_color)
+	bg[ACTIVE] = shade (0.95, @bg_color)
 
-	engine "murrine" {
+  	engine "murrine" {
 	}
 }
 
@@ -190,7 +191,7 @@ style "murrine-scrollbar" {
 	bg[ACTIVE] = @selected_bg_color
 
 	engine "murrine" {
-		roundness = 2
+		roundness = 0
 		contrast = 0.0
 		border_shades = { 0.9, 0.9 }
 		trough_shades = { 0.97, 0.97 }
@@ -200,48 +201,49 @@ style "murrine-scrollbar" {
 
 style "murrine-overlay-scrollbar" {
 	bg[ACTIVE] = shade (0.8, @bg_color)
-	bg[INSENSITIVE] = shade (0.97, @bg_color)
+	#bg[INSENSITIVE] = shade (0.97, @bg_color)
 
 	base[SELECTED] = shade (0.6, @base_color)
 	base[INSENSITIVE] = shade (0.85, @base_color)
 }
 
 style "murrine-scale" = "murrine-thin" {
+	fg[ACTIVE] = @selected_bg_color
 	bg[NORMAL] = @bg_color
 	bg[ACTIVE] = @bg_color
 	bg[SELECTED] = @selected_bg_color
-	bg[INSENSITIVE] = shade (0.95, @bg_color)
 
 	engine "murrine" {
 		roundness = 8
 		gradient_shades = { 1.08, 1.08, 1.08, 1.08 }
 		border_shades = { 1.0, 1.0 }
-		trough_shades = { 1.0, 1.0 }
-		trough_border_shades = { 1.0, 1.0 }
+		trough_shades = { 1.08, 1.08 }
+		trough_border_shades = { 0.8, 0.8 }
 	}
 }
 
 style "murrine-progressbar" = "murrine-thin" {
 	bg[NORMAL] = @bg_color
-	bg[ACTIVE] = shade (1.08, @bg_color)
+	bg[ACTIVE] = @bg_color
+	bg[SELECTED] = @selected_bg_color
 
 	fg[PRELIGHT] = @selected_fg_color
 
 	engine "murrine" {
 		roundness = 2
-		border_shades = { 1.2, 1.2 }
-		trough_border_shades = { 1.0, 1.0 }
+		border_shades = { 1.0, 1.0 }
+		trough_border_shades = { 0.8, 0.8 }
 	}
 }
 
 style "murrine-treeview-header" = "murrine-button" {
-	engine "murrine" {
+  	engine "murrine" {
 		roundness = 0
 	}
 }
 
 style "murrine-treeview" {
-	engine "murrine" {
+  	engine "murrine" {
 		roundness = 0
 	}
 }
@@ -273,14 +275,12 @@ style "murrine-spinbutton" = "murrine-button" {
 
 style "murrine-radiocheck" = "murrine-default" {
 	bg[SELECTED] = @base_color
+
 	text[NORMAL] = @selected_bg_color
 	text[PRELIGHT] = @selected_bg_color
 }
 
 style "murrine-entry" = "murrine-wider" {
-	xthickness = 5
-	ythickness = 5
-
 	engine "murrine" {
 		border_shades = { 1.15, 1.15 }
 	}
@@ -299,7 +299,7 @@ style "murrine-vscrollbar" = "murrine-scrollbar" { }
 
 # Menus
 
-style "murrine-menu" {
+style "murrine-menu" = "murrine-thin" {
 	bg[NORMAL] = @menu_bg_color
 	bg[PRELIGHT] = @selected_bg_color
 	bg[SELECTED] = @selected_bg_color
@@ -318,13 +318,8 @@ style "murrine-menu" {
 	text[ACTIVE] = @selected_fg_color
 	text[INSENSITIVE] = mix (0.5, @menu_bg_color, @menu_fg_color)
 
-	xthickness = 0
-	ythickness = 0
-
 	engine "murrine" {
 		roundness = 0
-		contrast = 0.0
-		border_shades = { 0.0, 0.0 }
 	}
 }
 
@@ -333,7 +328,7 @@ style "murrine-menu-item" = "murrine-wider" {
 	bg[SELECTED] = @selected_bg_color
 	bg[ACTIVE] = @selected_bg_color
 
-	fg[NORMAL] = @menu_fg_color
+	fg[NORMAL] = @menu_fg_color # Fix for XFCE menu text
 	fg[PRELIGHT] = @selected_fg_color
 	fg[SELECTED] = @selected_fg_color
 	fg[ACTIVE] = @selected_fg_color
@@ -341,7 +336,7 @@ style "murrine-menu-item" = "murrine-wider" {
 
 	engine "murrine" {
 		textstyle = 0
-		border_shades = { 1.0, 1.0 }
+		border_shades = { 1.2, 1.2 }
 	}
 }
 
@@ -475,7 +470,7 @@ widget_class "*Applet*Tomboy*" style "murrine-panel"
 widget_class "*Applet*Netstatus*" style "murrine-panel"
 widget "*gdm-user-switch-menubar*" style "murrine-panel"
 
-# LXPanel
+# LXPanel (code based on Lubuntu-default theme's gtkrc file)
 widget "*.tclock.*" style "murrine-panel"
 widget "*.taskbar.*" style "murrine-panel"
 widget_class "*GtkBgbox*" style "murrine-panel"
@@ -490,6 +485,9 @@ style "bold-panel-item" {
 
 widget "*Panel*MenuBar*" style "bold-panel-item"
 widget "*gimmie*" style "bold-panel-item"
+
+# widget_class "*Mail*" style "murrine-panel" # Disabled to fix Evolution bug
+# class "*Panel*" style "murrine-panel" # Disabled to fix bug
 
 # XFCE Styles
 
@@ -717,6 +715,8 @@ widget "gtk-tooltip*" style "murrine-tooltips"
 
 widget_class "*<GtkScrolledWindow>*<OsScrollbar>" style "murrine-overlay-scrollbar"
 
+# Workarounds and Non-Standard Styling
+
 style "text-is-fg-color-workaround" {
 	text[NORMAL] = @text_color
 	text[PRELIGHT] = @fg_color
@@ -754,6 +754,9 @@ style "inkscape-toolbar-fix" {
 	}
 }
 
+#widget "*GtkHandleBox*" style "inkscape-toolbar-fix"
+#widget "*HandleBox*CommandsToolbar*" style "inkscape-toolbar-fix"
+#widget "*HandleBox*SnapToolbar*" style "inkscape-toolbar-fix"
 widget "*HandleBox*SelectToolbar*" style "inkscape-toolbar-fix"
 widget "*HandleBox*NodeToolbar*" style "inkscape-toolbar-fix"
 widget "*HandleBox*TweakToolbar*" style "inkscape-toolbar-fix"
@@ -772,18 +775,20 @@ widget "*HandleBox*DropperToolbar*" style "inkscape-toolbar-fix"
 widget "*HandleBox*ConnectorToolbar*" style "inkscape-toolbar-fix"
 widget "*HandleBox*PaintbucketToolbar*" style "inkscape-toolbar-fix"
 
+# Performance Fixes
+
 style "performance-fix" {
 	engine "murrine" {
 		textstyle = 0
 	}
 }
 
-widget_class "*gtkmm__GtkWindow*" style "performance-fix"
-widget_class "*GimpDisplayShell*" style "performance-fix"
+widget_class "*gtkmm__GtkWindow*" style "performance-fix" # Inkscape
+widget_class "*GimpDisplayShell*" style "performance-fix" # Gimp
 widget_class "*GimpToolbox*" style "performance-fix"
 widget_class "*GimpMenuDock*" style "performance-fix"
-widget "*OOoFixed*" style "performance-fix"
-widget_class "*MozContainer*" style "performance-fix"
+widget "*OOoFixed*" style "performance-fix" # Openoffice/Libreoffice
+widget_class "*MozContainer*" style "performance-fix" # Firefox (Not sure if this one does anything though.)
 
 widget_class "*XfceHeading*" style "xfce-header"
 widget_class "*XfceDesktop*" style "xfdesktop-windowlist"
