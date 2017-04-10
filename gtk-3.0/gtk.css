@@ -198,7 +198,7 @@ calendar.view, calendar.view:backdrop, calendar.button, calendar.button:hover, c
 .context-menu menuitem calendar.button, menu menuitem calendar.button:hover,
 .menu menuitem calendar.button:hover,
 .context-menu menuitem calendar.button:hover, modelbutton.flat,
-menuitem.button.flat, notebook > header > tabs > arrow:disabled {
+menuitem.button.flat, notebook > header > tabs > tab button.flat:hover, notebook > header > tabs > tab button.flat:active, notebook > header > tabs > tab button.flat:active:hover {
   border-color: transparent;
   background-color: transparent;
   background-image: none;
@@ -303,18 +303,27 @@ toolbar.inline-toolbar toolbutton:backdrop > button.flat {
   .linked.vertical > button:only-child, .linked.vertical > combobox:only-child > box > button.combo {
     border-radius: 2px; }
 
-infobar.info button.close, infobar.warning button.close, infobar.question button.close, infobar.error button.close, notebook > header > tabs > arrow, notebook > header tab button,
-notebook > header tab button.flat {
-  border: 1px solid transparent;
+* {
+  -GtkButton-child-displacement-x: 0;
+  -GtkButton-child-displacement-y: 0;
+  -GtkButton-default-border: 0;
+  -GtkButton-image-spacing: 0;
+  -GtkButton-inner-border: 1;
+  -GtkButton-interior-focus: true;
+  -GtkButtonBox-child-min-height: 24;
+  -GtkButtonBox-child-internal-pad-y: 1;
+  -GtkToolButton-icon-spacing: 6; }
+
+infobar.info button.close, infobar.warning button.close, infobar.question button.close, infobar.error button.close {
+  border: none;
   background-color: transparent;
   background-image: none;
   box-shadow: none; }
-  infobar.info button.close:focus, infobar.warning button.close:focus, infobar.question button.close:focus, infobar.error button.close:focus, notebook > header > tabs > arrow:focus, notebook > header tab button:focus, infobar.info button.close:hover, infobar.warning button.close:hover, infobar.question button.close:hover, infobar.error button.close:hover, notebook > header > tabs > arrow:hover, notebook > header tab button:hover {
-    border: 1px solid rgba(245, 245, 245, 0.1);
+  infobar.info button.close:focus, infobar.warning button.close:focus, infobar.question button.close:focus, infobar.error button.close:focus, infobar.info button.close:hover, infobar.warning button.close:hover, infobar.question button.close:hover, infobar.error button.close:hover {
     background-color: rgba(245, 245, 245, 0.2);
     background-image: none;
     box-shadow: none; }
-  infobar.info button.close:active, infobar.warning button.close:active, infobar.question button.close:active, infobar.error button.close:active, notebook > header > tabs > arrow:active, notebook > header tab button:active, infobar.info button.close:checked, infobar.warning button.close:checked, infobar.question button.close:checked, infobar.error button.close:checked, notebook > header > tabs > arrow:checked, notebook > header tab button:checked, infobar.info button.close:active:hover, infobar.warning button.close:active:hover, infobar.question button.close:active:hover, infobar.error button.close:active:hover, notebook > header > tabs > arrow:active:hover, notebook > header tab button:active:hover, infobar.info button.close:checked:hover, infobar.warning button.close:checked:hover, infobar.question button.close:checked:hover, infobar.error button.close:checked:hover, notebook > header > tabs > arrow:checked:hover, notebook > header tab button:checked:hover {
+  infobar.info button.close:active, infobar.warning button.close:active, infobar.question button.close:active, infobar.error button.close:active, infobar.info button.close:checked, infobar.warning button.close:checked, infobar.question button.close:checked, infobar.error button.close:checked, infobar.info button.close:active:hover, infobar.warning button.close:active:hover, infobar.question button.close:active:hover, infobar.error button.close:active:hover, infobar.info button.close:checked:hover, infobar.warning button.close:checked:hover, infobar.question button.close:checked:hover, infobar.error button.close:checked:hover {
     border: 1px solid rgba(38, 198, 218, 0.2);
     background-color: rgba(245, 245, 245, 0.2);
     background-image: none;
@@ -323,29 +332,47 @@ notebook > header tab button.flat {
 button {
   background-color: white;
   background-image: none;
-  border-color: #cccccc;
+  border-color: rgba(0, 0, 0, 0.12);
   color: #4d4d4d;
   box-shadow: none; }
+  button:focus, button:hover {
+    border-color: rgba(0, 0, 0, 0.12); }
+  button:active, button:active:hover, button:active:focus, button:active:hover:focus, button:checked, button:checked:hover, button:checked:focus, button:checked:hover:focus {
+    border-color: rgba(0, 0, 0, 0.12); }
+  button:disabled {
+    border-color: rgba(0, 0, 0, 0.12); }
+  button:active:disabled, button:checked:disabled {
+    border-color: rgba(0, 0, 0, 0.12); }
   button.flat {
     border-color: rgba(255, 255, 255, 0);
     background-color: rgba(255, 255, 255, 0);
     background-image: none;
     box-shadow: none; }
   button:focus, button:hover, button.flat:focus, button.flat:hover {
-    box-shadow: none;
-    background-color: #26c6da;
-    border-color: #1e9faf; }
-  button:checked, button:active, button.flat:checked, button.flat:active {
+    background-color: white;
+    background-image: none;
+    border-color: rgba(0, 0, 0, 0.2);
+    box-shadow: none; }
+    button:focus:focus, button:focus:hover, button:hover:focus, button:hover:hover, button.flat:focus:focus, button.flat:focus:hover, button.flat:hover:focus, button.flat:hover:hover {
+      border-color: rgba(0, 0, 0, 0.2); }
+    button:focus:active, button:focus:active:hover, button:focus:active:focus, button:focus:active:hover:focus, button:focus:checked, button:focus:checked:hover, button:focus:checked:focus, button:focus:checked:hover:focus, button:hover:active, button:hover:active:hover, button:hover:active:focus, button:hover:active:hover:focus, button:hover:checked, button:hover:checked:hover, button:hover:checked:focus, button:hover:checked:hover:focus, button.flat:focus:active, button.flat:focus:active:hover, button.flat:focus:active:focus, button.flat:focus:active:hover:focus, button.flat:focus:checked, button.flat:focus:checked:hover, button.flat:focus:checked:focus, button.flat:focus:checked:hover:focus, button.flat:hover:active, button.flat:hover:active:hover, button.flat:hover:active:focus, button.flat:hover:active:hover:focus, button.flat:hover:checked, button.flat:hover:checked:hover, button.flat:hover:checked:focus, button.flat:hover:checked:hover:focus {
+      border-color: rgba(0, 0, 0, 0.2); }
+    button:focus:disabled, button:hover:disabled, button.flat:focus:disabled, button.flat:hover:disabled {
+      border-color: rgba(0, 0, 0, 0.2); }
+    button:focus:active:disabled, button:focus:checked:disabled, button:hover:active:disabled, button:hover:checked:disabled, button.flat:focus:active:disabled, button.flat:focus:checked:disabled, button.flat:hover:active:disabled, button.flat:hover:checked:disabled {
+      border-color: rgba(0, 0, 0, 0.2); }
+  button:active, button:checked, button.flat:active, button.flat:checked {
+    background-color: #b3b3b3;
+    background-image: none;
     color: #f5f5f5;
-    box-shadow: none;
-    border-color: #22b3c5;
     background-color: #26c6da; }
-    button:checked:focus, button:checked:hover, button:active:focus, button:active:hover, button.flat:checked:focus, button.flat:checked:hover, button.flat:active:focus, button.flat:active:hover {
+    button:active:focus, button:active:hover, button:checked:focus, button:checked:hover, button.flat:active:focus, button.flat:active:hover, button.flat:checked:focus, button.flat:checked:hover {
+      background-color: #a6a6a6;
+      background-image: none;
       color: #f5f5f5;
-      border-color: #1e9faf;
       background-color: #26c6da; }
   button:focus, button:hover, button.flat:focus, button.flat:hover {
-    color: #ffffff; }
+    color: #4d4d4d; }
   button:active:disabled, button:checked:disabled, button.flat:active:disabled, button.flat:checked:disabled {
     background-color: #e6e6e6;
     background-image: none;
@@ -355,7 +382,6 @@ button {
     background-color: #f2f2f2;
     background-image: none;
     color: mix(#f5f5f5,#4d4d4d,0.5);
-    border-color: mix(#f5f5f5,#4d4d4d,0.5);
     box-shadow: none; }
   button:active {
     color: #4d4d4d; }
@@ -765,29 +791,47 @@ headerbar, .titlebar:not(headerbar) {
   headerbar button, .titlebar:not(headerbar) button {
     background-color: #eff1f3;
     background-image: none;
-    border-color: #b8c1ca;
+    border-color: rgba(0, 0, 0, 0.12);
     color: #939fb4;
     box-shadow: none; }
+    headerbar button:focus, .titlebar:not(headerbar) button:focus, headerbar button:hover, .titlebar:not(headerbar) button:hover {
+      border-color: rgba(0, 0, 0, 0.12); }
+    headerbar button:active, .titlebar:not(headerbar) button:active, headerbar button:active:hover, .titlebar:not(headerbar) button:active:hover, headerbar button:active:focus, .titlebar:not(headerbar) button:active:focus, headerbar button:active:hover:focus, .titlebar:not(headerbar) button:active:hover:focus, headerbar button:checked, .titlebar:not(headerbar) button:checked, headerbar button:checked:hover, .titlebar:not(headerbar) button:checked:hover, headerbar button:checked:focus, .titlebar:not(headerbar) button:checked:focus, headerbar button:checked:hover:focus, .titlebar:not(headerbar) button:checked:hover:focus {
+      border-color: rgba(0, 0, 0, 0.12); }
+    headerbar button:disabled, .titlebar:not(headerbar) button:disabled {
+      border-color: rgba(0, 0, 0, 0.12); }
+    headerbar button:active:disabled, .titlebar:not(headerbar) button:active:disabled, headerbar button:checked:disabled, .titlebar:not(headerbar) button:checked:disabled {
+      border-color: rgba(0, 0, 0, 0.12); }
     headerbar button.flat, .titlebar:not(headerbar) button.flat {
       border-color: rgba(239, 241, 243, 0);
       background-color: rgba(239, 241, 243, 0);
       background-image: none;
       box-shadow: none; }
     headerbar button:focus, .titlebar:not(headerbar) button:focus, headerbar button:hover, .titlebar:not(headerbar) button:hover, headerbar button.flat:focus, .titlebar:not(headerbar) button.flat:focus, headerbar button.flat:hover, .titlebar:not(headerbar) button.flat:hover {
-      box-shadow: none;
-      background-color: #26c6da;
-      border-color: #1e9faf; }
-    headerbar button:checked, .titlebar:not(headerbar) button:checked, headerbar button:active, .titlebar:not(headerbar) button:active, headerbar button.flat:checked, .titlebar:not(headerbar) button.flat:checked, headerbar button.flat:active, .titlebar:not(headerbar) button.flat:active {
+      background-color: white;
+      background-image: none;
+      border-color: rgba(0, 0, 0, 0.2);
+      box-shadow: none; }
+      headerbar button:focus:focus, .titlebar:not(headerbar) button:focus:focus, headerbar button:focus:hover, .titlebar:not(headerbar) button:focus:hover, headerbar button:hover:focus, .titlebar:not(headerbar) button:hover:focus, headerbar button:hover:hover, .titlebar:not(headerbar) button:hover:hover, headerbar button.flat:focus:focus, .titlebar:not(headerbar) button.flat:focus:focus, headerbar button.flat:focus:hover, .titlebar:not(headerbar) button.flat:focus:hover, headerbar button.flat:hover:focus, .titlebar:not(headerbar) button.flat:hover:focus, headerbar button.flat:hover:hover, .titlebar:not(headerbar) button.flat:hover:hover {
+        border-color: rgba(0, 0, 0, 0.2); }
+      headerbar button:focus:active, .titlebar:not(headerbar) button:focus:active, headerbar button:focus:active:hover, .titlebar:not(headerbar) button:focus:active:hover, headerbar button:focus:active:focus, .titlebar:not(headerbar) button:focus:active:focus, headerbar button:focus:active:hover:focus, .titlebar:not(headerbar) button:focus:active:hover:focus, headerbar button:focus:checked, .titlebar:not(headerbar) button:focus:checked, headerbar button:focus:checked:hover, .titlebar:not(headerbar) button:focus:checked:hover, headerbar button:focus:checked:focus, .titlebar:not(headerbar) button:focus:checked:focus, headerbar button:focus:checked:hover:focus, .titlebar:not(headerbar) button:focus:checked:hover:focus, headerbar button:hover:active, .titlebar:not(headerbar) button:hover:active, headerbar button:hover:active:hover, .titlebar:not(headerbar) button:hover:active:hover, headerbar button:hover:active:focus, .titlebar:not(headerbar) button:hover:active:focus, headerbar button:hover:active:hover:focus, .titlebar:not(headerbar) button:hover:active:hover:focus, headerbar button:hover:checked, .titlebar:not(headerbar) button:hover:checked, headerbar button:hover:checked:hover, .titlebar:not(headerbar) button:hover:checked:hover, headerbar button:hover:checked:focus, .titlebar:not(headerbar) button:hover:checked:focus, headerbar button:hover:checked:hover:focus, .titlebar:not(headerbar) button:hover:checked:hover:focus, headerbar button.flat:focus:active, .titlebar:not(headerbar) button.flat:focus:active, headerbar button.flat:focus:active:hover, .titlebar:not(headerbar) button.flat:focus:active:hover, headerbar button.flat:focus:active:focus, .titlebar:not(headerbar) button.flat:focus:active:focus, headerbar button.flat:focus:active:hover:focus, .titlebar:not(headerbar) button.flat:focus:active:hover:focus, headerbar button.flat:focus:checked, .titlebar:not(headerbar) button.flat:focus:checked, headerbar button.flat:focus:checked:hover, .titlebar:not(headerbar) button.flat:focus:checked:hover, headerbar button.flat:focus:checked:focus, .titlebar:not(headerbar) button.flat:focus:checked:focus, headerbar button.flat:focus:checked:hover:focus, .titlebar:not(headerbar) button.flat:focus:checked:hover:focus, headerbar button.flat:hover:active, .titlebar:not(headerbar) button.flat:hover:active, headerbar button.flat:hover:active:hover, .titlebar:not(headerbar) button.flat:hover:active:hover, headerbar button.flat:hover:active:focus, .titlebar:not(headerbar) button.flat:hover:active:focus, headerbar button.flat:hover:active:hover:focus, .titlebar:not(headerbar) button.flat:hover:active:hover:focus, headerbar button.flat:hover:checked, .titlebar:not(headerbar) button.flat:hover:checked, headerbar button.flat:hover:checked:hover, .titlebar:not(headerbar) button.flat:hover:checked:hover, headerbar button.flat:hover:checked:focus, .titlebar:not(headerbar) button.flat:hover:checked:focus, headerbar button.flat:hover:checked:hover:focus, .titlebar:not(headerbar) button.flat:hover:checked:hover:focus {
+        border-color: rgba(0, 0, 0, 0.2); }
+      headerbar button:focus:disabled, .titlebar:not(headerbar) button:focus:disabled, headerbar button:hover:disabled, .titlebar:not(headerbar) button:hover:disabled, headerbar button.flat:focus:disabled, .titlebar:not(headerbar) button.flat:focus:disabled, headerbar button.flat:hover:disabled, .titlebar:not(headerbar) button.flat:hover:disabled {
+        border-color: rgba(0, 0, 0, 0.2); }
+      headerbar button:focus:active:disabled, .titlebar:not(headerbar) button:focus:active:disabled, headerbar button:focus:checked:disabled, .titlebar:not(headerbar) button:focus:checked:disabled, headerbar button:hover:active:disabled, .titlebar:not(headerbar) button:hover:active:disabled, headerbar button:hover:checked:disabled, .titlebar:not(headerbar) button:hover:checked:disabled, headerbar button.flat:focus:active:disabled, .titlebar:not(headerbar) button.flat:focus:active:disabled, headerbar button.flat:focus:checked:disabled, .titlebar:not(headerbar) button.flat:focus:checked:disabled, headerbar button.flat:hover:active:disabled, .titlebar:not(headerbar) button.flat:hover:active:disabled, headerbar button.flat:hover:checked:disabled, .titlebar:not(headerbar) button.flat:hover:checked:disabled {
+        border-color: rgba(0, 0, 0, 0.2); }
+    headerbar button:active, .titlebar:not(headerbar) button:active, headerbar button:checked, .titlebar:not(headerbar) button:checked, headerbar button.flat:active, .titlebar:not(headerbar) button.flat:active, headerbar button.flat:checked, .titlebar:not(headerbar) button.flat:checked {
+      background-color: #9ca9b5;
+      background-image: none;
       color: #f5f5f5;
-      box-shadow: none;
-      border-color: #22b3c5;
       background-color: #26c6da; }
-      headerbar button:checked:focus, .titlebar:not(headerbar) button:checked:focus, headerbar button:checked:hover, .titlebar:not(headerbar) button:checked:hover, headerbar button:active:focus, .titlebar:not(headerbar) button:active:focus, headerbar button:active:hover, .titlebar:not(headerbar) button:active:hover, headerbar button.flat:checked:focus, .titlebar:not(headerbar) button.flat:checked:focus, headerbar button.flat:checked:hover, .titlebar:not(headerbar) button.flat:checked:hover, headerbar button.flat:active:focus, .titlebar:not(headerbar) button.flat:active:focus, headerbar button.flat:active:hover, .titlebar:not(headerbar) button.flat:active:hover {
+      headerbar button:active:focus, .titlebar:not(headerbar) button:active:focus, headerbar button:active:hover, .titlebar:not(headerbar) button:active:hover, headerbar button:checked:focus, .titlebar:not(headerbar) button:checked:focus, headerbar button:checked:hover, .titlebar:not(headerbar) button:checked:hover, headerbar button.flat:active:focus, .titlebar:not(headerbar) button.flat:active:focus, headerbar button.flat:active:hover, .titlebar:not(headerbar) button.flat:active:hover, headerbar button.flat:checked:focus, .titlebar:not(headerbar) button.flat:checked:focus, headerbar button.flat:checked:hover, .titlebar:not(headerbar) button.flat:checked:hover {
+        background-color: #8f9dab;
+        background-image: none;
         color: #f5f5f5;
-        border-color: #1e9faf;
         background-color: #26c6da; }
     headerbar button:focus, .titlebar:not(headerbar) button:focus, headerbar button:hover, .titlebar:not(headerbar) button:hover, headerbar button.flat:focus, .titlebar:not(headerbar) button.flat:focus, headerbar button.flat:hover, .titlebar:not(headerbar) button.flat:hover {
-      color: #ffffff; }
+      color: #939fb4; }
     headerbar button:active:disabled, .titlebar:not(headerbar) button:active:disabled, headerbar button:checked:disabled, .titlebar:not(headerbar) button:checked:disabled, headerbar button.flat:active:disabled, .titlebar:not(headerbar) button.flat:active:disabled, headerbar button.flat:checked:disabled, .titlebar:not(headerbar) button.flat:checked:disabled {
       background-color: #d3d9de;
       background-image: none;
@@ -797,7 +841,6 @@ headerbar, .titlebar:not(headerbar) {
       background-color: #e1e5e9;
       background-image: none;
       color: mix(#eff1f3,#939fb4,0.5);
-      border-color: mix(#eff1f3,#939fb4,0.5);
       box-shadow: none; }
     headerbar button:active, .titlebar:not(headerbar) button:active {
       color: #939fb4; }
@@ -913,29 +956,47 @@ toolbar {
   toolbar button {
     background-color: white;
     background-image: none;
-    border-color: #cccccc;
+    border-color: rgba(0, 0, 0, 0.12);
     color: #4d4d4d;
     box-shadow: none; }
+    toolbar button:focus, toolbar button:hover {
+      border-color: rgba(0, 0, 0, 0.12); }
+    toolbar button:active, toolbar button:active:hover, toolbar button:active:focus, toolbar button:active:hover:focus, toolbar button:checked, toolbar button:checked:hover, toolbar button:checked:focus, toolbar button:checked:hover:focus {
+      border-color: rgba(0, 0, 0, 0.12); }
+    toolbar button:disabled {
+      border-color: rgba(0, 0, 0, 0.12); }
+    toolbar button:active:disabled, toolbar button:checked:disabled {
+      border-color: rgba(0, 0, 0, 0.12); }
     toolbar button.flat {
       border-color: rgba(255, 255, 255, 0);
       background-color: rgba(255, 255, 255, 0);
       background-image: none;
       box-shadow: none; }
     toolbar button:focus, toolbar button:hover, toolbar button.flat:focus, toolbar button.flat:hover {
-      box-shadow: none;
-      background-color: #26c6da;
-      border-color: #1e9faf; }
-    toolbar button:checked, toolbar button:active, toolbar button.flat:checked, toolbar button.flat:active {
+      background-color: white;
+      background-image: none;
+      border-color: rgba(0, 0, 0, 0.2);
+      box-shadow: none; }
+      toolbar button:focus:focus, toolbar button:focus:hover, toolbar button:hover:focus, toolbar button:hover:hover, toolbar button.flat:focus:focus, toolbar button.flat:focus:hover, toolbar button.flat:hover:focus, toolbar button.flat:hover:hover {
+        border-color: rgba(0, 0, 0, 0.2); }
+      toolbar button:focus:active, toolbar button:focus:active:hover, toolbar button:focus:active:focus, toolbar button:focus:active:hover:focus, toolbar button:focus:checked, toolbar button:focus:checked:hover, toolbar button:focus:checked:focus, toolbar button:focus:checked:hover:focus, toolbar button:hover:active, toolbar button:hover:active:hover, toolbar button:hover:active:focus, toolbar button:hover:active:hover:focus, toolbar button:hover:checked, toolbar button:hover:checked:hover, toolbar button:hover:checked:focus, toolbar button:hover:checked:hover:focus, toolbar button.flat:focus:active, toolbar button.flat:focus:active:hover, toolbar button.flat:focus:active:focus, toolbar button.flat:focus:active:hover:focus, toolbar button.flat:focus:checked, toolbar button.flat:focus:checked:hover, toolbar button.flat:focus:checked:focus, toolbar button.flat:focus:checked:hover:focus, toolbar button.flat:hover:active, toolbar button.flat:hover:active:hover, toolbar button.flat:hover:active:focus, toolbar button.flat:hover:active:hover:focus, toolbar button.flat:hover:checked, toolbar button.flat:hover:checked:hover, toolbar button.flat:hover:checked:focus, toolbar button.flat:hover:checked:hover:focus {
+        border-color: rgba(0, 0, 0, 0.2); }
+      toolbar button:focus:disabled, toolbar button:hover:disabled, toolbar button.flat:focus:disabled, toolbar button.flat:hover:disabled {
+        border-color: rgba(0, 0, 0, 0.2); }
+      toolbar button:focus:active:disabled, toolbar button:focus:checked:disabled, toolbar button:hover:active:disabled, toolbar button:hover:checked:disabled, toolbar button.flat:focus:active:disabled, toolbar button.flat:focus:checked:disabled, toolbar button.flat:hover:active:disabled, toolbar button.flat:hover:checked:disabled {
+        border-color: rgba(0, 0, 0, 0.2); }
+    toolbar button:active, toolbar button:checked, toolbar button.flat:active, toolbar button.flat:checked {
+      background-color: #b3b3b3;
+      background-image: none;
       color: #f5f5f5;
-      box-shadow: none;
-      border-color: #22b3c5;
       background-color: #26c6da; }
-      toolbar button:checked:focus, toolbar button:checked:hover, toolbar button:active:focus, toolbar button:active:hover, toolbar button.flat:checked:focus, toolbar button.flat:checked:hover, toolbar button.flat:active:focus, toolbar button.flat:active:hover {
+      toolbar button:active:focus, toolbar button:active:hover, toolbar button:checked:focus, toolbar button:checked:hover, toolbar button.flat:active:focus, toolbar button.flat:active:hover, toolbar button.flat:checked:focus, toolbar button.flat:checked:hover {
+        background-color: #a6a6a6;
+        background-image: none;
         color: #f5f5f5;
-        border-color: #1e9faf;
         background-color: #26c6da; }
     toolbar button:focus, toolbar button:hover, toolbar button.flat:focus, toolbar button.flat:hover {
-      color: #ffffff; }
+      color: #4d4d4d; }
     toolbar button:active:disabled, toolbar button:checked:disabled, toolbar button.flat:active:disabled, toolbar button.flat:checked:disabled {
       background-color: #e6e6e6;
       background-image: none;
@@ -945,7 +1006,6 @@ toolbar {
       background-color: #f2f2f2;
       background-image: none;
       color: mix(#f5f5f5,#4d4d4d,0.5);
-      border-color: mix(#f5f5f5,#4d4d4d,0.5);
       box-shadow: none; }
     toolbar button:active {
       color: #4d4d4d; }
@@ -1000,29 +1060,47 @@ toolbar {
     toolbar.inline-toolbar button {
       background-color: white;
       background-image: none;
-      border-color: #cccccc;
+      border-color: rgba(0, 0, 0, 0.12);
       color: #4d4d4d;
       box-shadow: none; }
+      toolbar.inline-toolbar button:focus, toolbar.inline-toolbar button:hover {
+        border-color: rgba(0, 0, 0, 0.12); }
+      toolbar.inline-toolbar button:active, toolbar.inline-toolbar button:active:hover, toolbar.inline-toolbar button:active:focus, toolbar.inline-toolbar button:active:hover:focus, toolbar.inline-toolbar button:checked, toolbar.inline-toolbar button:checked:hover, toolbar.inline-toolbar button:checked:focus, toolbar.inline-toolbar button:checked:hover:focus {
+        border-color: rgba(0, 0, 0, 0.12); }
+      toolbar.inline-toolbar button:disabled {
+        border-color: rgba(0, 0, 0, 0.12); }
+      toolbar.inline-toolbar button:active:disabled, toolbar.inline-toolbar button:checked:disabled {
+        border-color: rgba(0, 0, 0, 0.12); }
       toolbar.inline-toolbar button.flat {
         border-color: rgba(255, 255, 255, 0);
         background-color: rgba(255, 255, 255, 0);
         background-image: none;
         box-shadow: none; }
       toolbar.inline-toolbar button:focus, toolbar.inline-toolbar button:hover, toolbar.inline-toolbar button.flat:focus, toolbar.inline-toolbar button.flat:hover {
-        box-shadow: none;
-        background-color: #26c6da;
-        border-color: #1e9faf; }
-      toolbar.inline-toolbar button:checked, toolbar.inline-toolbar button:active, toolbar.inline-toolbar button.flat:checked, toolbar.inline-toolbar button.flat:active {
+        background-color: white;
+        background-image: none;
+        border-color: rgba(0, 0, 0, 0.2);
+        box-shadow: none; }
+        toolbar.inline-toolbar button:focus:focus, toolbar.inline-toolbar button:focus:hover, toolbar.inline-toolbar button:hover:focus, toolbar.inline-toolbar button:hover:hover, toolbar.inline-toolbar button.flat:focus:focus, toolbar.inline-toolbar button.flat:focus:hover, toolbar.inline-toolbar button.flat:hover:focus, toolbar.inline-toolbar button.flat:hover:hover {
+          border-color: rgba(0, 0, 0, 0.2); }
+        toolbar.inline-toolbar button:focus:active, toolbar.inline-toolbar button:focus:active:hover, toolbar.inline-toolbar button:focus:active:focus, toolbar.inline-toolbar button:focus:active:hover:focus, toolbar.inline-toolbar button:focus:checked, toolbar.inline-toolbar button:focus:checked:hover, toolbar.inline-toolbar button:focus:checked:focus, toolbar.inline-toolbar button:focus:checked:hover:focus, toolbar.inline-toolbar button:hover:active, toolbar.inline-toolbar button:hover:active:hover, toolbar.inline-toolbar button:hover:active:focus, toolbar.inline-toolbar button:hover:active:hover:focus, toolbar.inline-toolbar button:hover:checked, toolbar.inline-toolbar button:hover:checked:hover, toolbar.inline-toolbar button:hover:checked:focus, toolbar.inline-toolbar button:hover:checked:hover:focus, toolbar.inline-toolbar button.flat:focus:active, toolbar.inline-toolbar button.flat:focus:active:hover, toolbar.inline-toolbar button.flat:focus:active:focus, toolbar.inline-toolbar button.flat:focus:active:hover:focus, toolbar.inline-toolbar button.flat:focus:checked, toolbar.inline-toolbar button.flat:focus:checked:hover, toolbar.inline-toolbar button.flat:focus:checked:focus, toolbar.inline-toolbar button.flat:focus:checked:hover:focus, toolbar.inline-toolbar button.flat:hover:active, toolbar.inline-toolbar button.flat:hover:active:hover, toolbar.inline-toolbar button.flat:hover:active:focus, toolbar.inline-toolbar button.flat:hover:active:hover:focus, toolbar.inline-toolbar button.flat:hover:checked, toolbar.inline-toolbar button.flat:hover:checked:hover, toolbar.inline-toolbar button.flat:hover:checked:focus, toolbar.inline-toolbar button.flat:hover:checked:hover:focus {
+          border-color: rgba(0, 0, 0, 0.2); }
+        toolbar.inline-toolbar button:focus:disabled, toolbar.inline-toolbar button:hover:disabled, toolbar.inline-toolbar button.flat:focus:disabled, toolbar.inline-toolbar button.flat:hover:disabled {
+          border-color: rgba(0, 0, 0, 0.2); }
+        toolbar.inline-toolbar button:focus:active:disabled, toolbar.inline-toolbar button:focus:checked:disabled, toolbar.inline-toolbar button:hover:active:disabled, toolbar.inline-toolbar button:hover:checked:disabled, toolbar.inline-toolbar button.flat:focus:active:disabled, toolbar.inline-toolbar button.flat:focus:checked:disabled, toolbar.inline-toolbar button.flat:hover:active:disabled, toolbar.inline-toolbar button.flat:hover:checked:disabled {
+          border-color: rgba(0, 0, 0, 0.2); }
+      toolbar.inline-toolbar button:active, toolbar.inline-toolbar button:checked, toolbar.inline-toolbar button.flat:active, toolbar.inline-toolbar button.flat:checked {
+        background-color: #b3b3b3;
+        background-image: none;
         color: #f5f5f5;
-        box-shadow: none;
-        border-color: #22b3c5;
         background-color: #26c6da; }
-        toolbar.inline-toolbar button:checked:focus, toolbar.inline-toolbar button:checked:hover, toolbar.inline-toolbar button:active:focus, toolbar.inline-toolbar button:active:hover, toolbar.inline-toolbar button.flat:checked:focus, toolbar.inline-toolbar button.flat:checked:hover, toolbar.inline-toolbar button.flat:active:focus, toolbar.inline-toolbar button.flat:active:hover {
+        toolbar.inline-toolbar button:active:focus, toolbar.inline-toolbar button:active:hover, toolbar.inline-toolbar button:checked:focus, toolbar.inline-toolbar button:checked:hover, toolbar.inline-toolbar button.flat:active:focus, toolbar.inline-toolbar button.flat:active:hover, toolbar.inline-toolbar button.flat:checked:focus, toolbar.inline-toolbar button.flat:checked:hover {
+          background-color: #a6a6a6;
+          background-image: none;
           color: #f5f5f5;
-          border-color: #1e9faf;
           background-color: #26c6da; }
       toolbar.inline-toolbar button:focus, toolbar.inline-toolbar button:hover, toolbar.inline-toolbar button.flat:focus, toolbar.inline-toolbar button.flat:hover {
-        color: #ffffff; }
+        color: #4d4d4d; }
       toolbar.inline-toolbar button:active:disabled, toolbar.inline-toolbar button:checked:disabled, toolbar.inline-toolbar button.flat:active:disabled, toolbar.inline-toolbar button.flat:checked:disabled {
         background-color: #e6e6e6;
         background-image: none;
@@ -1032,7 +1110,6 @@ toolbar {
         background-color: #f2f2f2;
         background-image: none;
         color: mix(#f5f5f5,#4d4d4d,0.5);
-        border-color: mix(#f5f5f5,#4d4d4d,0.5);
         box-shadow: none; }
       toolbar.inline-toolbar button:active {
         color: #4d4d4d; }
@@ -1085,9 +1162,28 @@ searchbar,
 .titlebar:not(headerbar).selection-mode button.suggested-action {
   background-color: #009b7c;
   background-image: none;
-  border-color: #007c63;
+  border-color: rgba(0, 0, 0, 0.22);
   color: #ffffff;
   box-shadow: none; }
+  .suggested-action:focus, headerbar.selection-mode button.suggested-action:focus,
+  .titlebar:not(headerbar).selection-mode button.suggested-action:focus, .suggested-action:hover, headerbar.selection-mode button.suggested-action:hover,
+  .titlebar:not(headerbar).selection-mode button.suggested-action:hover {
+    border-color: rgba(0, 0, 0, 0.22); }
+  .suggested-action:active, headerbar.selection-mode button.suggested-action:active,
+  .titlebar:not(headerbar).selection-mode button.suggested-action:active, .suggested-action:active:hover,
+  .titlebar:not(headerbar).selection-mode button.suggested-action:active:hover, .suggested-action:active:focus,
+  .titlebar:not(headerbar).selection-mode button.suggested-action:active:focus, .suggested-action:active:hover:focus, .suggested-action:checked, headerbar.selection-mode button.suggested-action:checked,
+  .titlebar:not(headerbar).selection-mode button.suggested-action:checked, .suggested-action:checked:hover,
+  .titlebar:not(headerbar).selection-mode button.suggested-action:checked:hover, .suggested-action:checked:focus,
+  .titlebar:not(headerbar).selection-mode button.suggested-action:checked:focus, .suggested-action:checked:hover:focus {
+    border-color: rgba(0, 0, 0, 0.22); }
+  .suggested-action:disabled, headerbar.selection-mode button.suggested-action:disabled,
+  .titlebar:not(headerbar).selection-mode button.suggested-action:disabled {
+    border-color: rgba(0, 0, 0, 0.22); }
+  .suggested-action:active:disabled,
+  .titlebar:not(headerbar).selection-mode button.suggested-action:active:disabled, .suggested-action:checked:disabled,
+  .titlebar:not(headerbar).selection-mode button.suggested-action:checked:disabled {
+    border-color: rgba(0, 0, 0, 0.22); }
   .suggested-action.flat, headerbar.selection-mode button.flat.suggested-action,
   .titlebar:not(headerbar).selection-mode button.flat.suggested-action {
     border-color: rgba(0, 155, 124, 0);
@@ -1099,25 +1195,45 @@ searchbar,
   .titlebar:not(headerbar).selection-mode button.suggested-action:hover, .suggested-action.flat:focus,
   .titlebar:not(headerbar).selection-mode button.flat.suggested-action:focus, .suggested-action.flat:hover,
   .titlebar:not(headerbar).selection-mode button.flat.suggested-action:hover {
-    box-shadow: none;
-    background-color: #26c6da;
-    border-color: #1e9faf; }
-  .suggested-action:checked, headerbar.selection-mode button.suggested-action:checked,
-  .titlebar:not(headerbar).selection-mode button.suggested-action:checked, .suggested-action:active, headerbar.selection-mode button.suggested-action:active,
-  .titlebar:not(headerbar).selection-mode button.suggested-action:active, .suggested-action.flat:checked,
-  .titlebar:not(headerbar).selection-mode button.flat.suggested-action:checked, .suggested-action.flat:active,
-  .titlebar:not(headerbar).selection-mode button.flat.suggested-action:active {
+    background-color: #00ba95;
+    background-image: none;
+    border-color: rgba(0, 0, 0, 0.3);
+    box-shadow: none; }
+    .suggested-action:focus:focus,
+    .titlebar:not(headerbar).selection-mode button.suggested-action:focus:focus, .suggested-action:focus:hover,
+    .titlebar:not(headerbar).selection-mode button.suggested-action:focus:hover, .suggested-action:hover:focus,
+    .titlebar:not(headerbar).selection-mode button.suggested-action:hover:focus, .suggested-action:hover:hover,
+    .titlebar:not(headerbar).selection-mode button.suggested-action:hover:hover, .suggested-action.flat:focus:focus, .suggested-action.flat:focus:hover, .suggested-action.flat:hover:focus, .suggested-action.flat:hover:hover {
+      border-color: rgba(0, 0, 0, 0.3); }
+    .suggested-action:focus:active,
+    .titlebar:not(headerbar).selection-mode button.suggested-action:focus:active, .suggested-action:focus:active:hover, .suggested-action:focus:active:focus, .suggested-action:focus:active:hover:focus, .suggested-action:focus:checked,
+    .titlebar:not(headerbar).selection-mode button.suggested-action:focus:checked, .suggested-action:focus:checked:hover, .suggested-action:focus:checked:focus, .suggested-action:focus:checked:hover:focus, .suggested-action:hover:active,
+    .titlebar:not(headerbar).selection-mode button.suggested-action:hover:active, .suggested-action:hover:active:hover, .suggested-action:hover:active:focus, .suggested-action:hover:active:hover:focus, .suggested-action:hover:checked,
+    .titlebar:not(headerbar).selection-mode button.suggested-action:hover:checked, .suggested-action:hover:checked:hover, .suggested-action:hover:checked:focus, .suggested-action:hover:checked:hover:focus, .suggested-action.flat:focus:active, .suggested-action.flat:focus:active:hover, .suggested-action.flat:focus:active:focus, .suggested-action.flat:focus:active:hover:focus, .suggested-action.flat:focus:checked, .suggested-action.flat:focus:checked:hover, .suggested-action.flat:focus:checked:focus, .suggested-action.flat:focus:checked:hover:focus, .suggested-action.flat:hover:active, .suggested-action.flat:hover:active:hover, .suggested-action.flat:hover:active:focus, .suggested-action.flat:hover:active:hover:focus, .suggested-action.flat:hover:checked, .suggested-action.flat:hover:checked:hover, .suggested-action.flat:hover:checked:focus, .suggested-action.flat:hover:checked:hover:focus {
+      border-color: rgba(0, 0, 0, 0.3); }
+    .suggested-action:focus:disabled,
+    .titlebar:not(headerbar).selection-mode button.suggested-action:focus:disabled, .suggested-action:hover:disabled,
+    .titlebar:not(headerbar).selection-mode button.suggested-action:hover:disabled, .suggested-action.flat:focus:disabled, .suggested-action.flat:hover:disabled {
+      border-color: rgba(0, 0, 0, 0.3); }
+    .suggested-action:focus:active:disabled, .suggested-action:focus:checked:disabled, .suggested-action:hover:active:disabled, .suggested-action:hover:checked:disabled, .suggested-action.flat:focus:active:disabled, .suggested-action.flat:focus:checked:disabled, .suggested-action.flat:hover:active:disabled, .suggested-action.flat:hover:checked:disabled {
+      border-color: rgba(0, 0, 0, 0.3); }
+  .suggested-action:active, headerbar.selection-mode button.suggested-action:active,
+  .titlebar:not(headerbar).selection-mode button.suggested-action:active, .suggested-action:checked, headerbar.selection-mode button.suggested-action:checked,
+  .titlebar:not(headerbar).selection-mode button.suggested-action:checked, .suggested-action.flat:active,
+  .titlebar:not(headerbar).selection-mode button.flat.suggested-action:active, .suggested-action.flat:checked,
+  .titlebar:not(headerbar).selection-mode button.flat.suggested-action:checked {
+    background-color: #006d57;
+    background-image: none;
     color: #f5f5f5;
-    box-shadow: none;
-    border-color: #22b3c5;
     background-color: #26c6da; }
-    .suggested-action:checked:focus,
-    .titlebar:not(headerbar).selection-mode button.suggested-action:checked:focus, .suggested-action:checked:hover,
-    .titlebar:not(headerbar).selection-mode button.suggested-action:checked:hover, .suggested-action:active:focus,
+    .suggested-action:active:focus,
     .titlebar:not(headerbar).selection-mode button.suggested-action:active:focus, .suggested-action:active:hover,
-    .titlebar:not(headerbar).selection-mode button.suggested-action:active:hover, .suggested-action.flat:checked:focus, .suggested-action.flat:checked:hover, .suggested-action.flat:active:focus, .suggested-action.flat:active:hover {
+    .titlebar:not(headerbar).selection-mode button.suggested-action:active:hover, .suggested-action:checked:focus,
+    .titlebar:not(headerbar).selection-mode button.suggested-action:checked:focus, .suggested-action:checked:hover,
+    .titlebar:not(headerbar).selection-mode button.suggested-action:checked:hover, .suggested-action.flat:active:focus, .suggested-action.flat:active:hover, .suggested-action.flat:checked:focus, .suggested-action.flat:checked:hover {
+      background-color: #006551;
+      background-image: none;
       color: #f5f5f5;
-      border-color: #1e9faf;
       background-color: #26c6da; }
   .suggested-action:focus, headerbar.selection-mode button.suggested-action:focus,
   .titlebar:not(headerbar).selection-mode button.suggested-action:focus, .suggested-action:hover, headerbar.selection-mode button.suggested-action:hover,
@@ -1137,7 +1253,6 @@ searchbar,
     background-color: rgba(0, 155, 124, 0.3);
     background-image: none;
     color: mix(#009b7c,#ffffff,0.5);
-    border-color: mix(#009b7c,#ffffff,0.5);
     box-shadow: none; }
   .suggested-action:active, headerbar.selection-mode button.suggested-action:active,
   .titlebar:not(headerbar).selection-mode button.suggested-action:active {
@@ -1160,26 +1275,44 @@ searchbar,
 .destructive-action {
   background-color: #d85882;
   background-image: none;
-  border-color: #c52e60;
+  border-color: rgba(0, 0, 0, 0.12);
   color: #ffffff;
   box-shadow: none; }
+  .destructive-action:focus, .destructive-action:hover {
+    border-color: rgba(0, 0, 0, 0.12); }
+  .destructive-action:active, .destructive-action:active:hover, .destructive-action:active:focus, .destructive-action:active:hover:focus, .destructive-action:checked, .destructive-action:checked:hover, .destructive-action:checked:focus, .destructive-action:checked:hover:focus {
+    border-color: rgba(0, 0, 0, 0.12); }
+  .destructive-action:disabled {
+    border-color: rgba(0, 0, 0, 0.12); }
+  .destructive-action:active:disabled, .destructive-action:checked:disabled {
+    border-color: rgba(0, 0, 0, 0.12); }
   .destructive-action.flat {
     border-color: rgba(216, 88, 130, 0);
     background-color: rgba(216, 88, 130, 0);
     background-image: none;
     box-shadow: none; }
   .destructive-action:focus, .destructive-action:hover, .destructive-action.flat:focus, .destructive-action.flat:hover {
-    box-shadow: none;
-    background-color: #26c6da;
-    border-color: #1e9faf; }
-  .destructive-action:checked, .destructive-action:active, .destructive-action.flat:checked, .destructive-action.flat:active {
+    background-color: #e489a7;
+    background-image: none;
+    border-color: rgba(0, 0, 0, 0.2);
+    box-shadow: none; }
+    .destructive-action:focus:focus, .destructive-action:focus:hover, .destructive-action:hover:focus, .destructive-action:hover:hover, .destructive-action.flat:focus:focus, .destructive-action.flat:focus:hover, .destructive-action.flat:hover:focus, .destructive-action.flat:hover:hover {
+      border-color: rgba(0, 0, 0, 0.2); }
+    .destructive-action:focus:active, .destructive-action:focus:active:hover, .destructive-action:focus:active:focus, .destructive-action:focus:active:hover:focus, .destructive-action:focus:checked, .destructive-action:focus:checked:hover, .destructive-action:focus:checked:focus, .destructive-action:focus:checked:hover:focus, .destructive-action:hover:active, .destructive-action:hover:active:hover, .destructive-action:hover:active:focus, .destructive-action:hover:active:hover:focus, .destructive-action:hover:checked, .destructive-action:hover:checked:hover, .destructive-action:hover:checked:focus, .destructive-action:hover:checked:hover:focus, .destructive-action.flat:focus:active, .destructive-action.flat:focus:active:hover, .destructive-action.flat:focus:active:focus, .destructive-action.flat:focus:active:hover:focus, .destructive-action.flat:focus:checked, .destructive-action.flat:focus:checked:hover, .destructive-action.flat:focus:checked:focus, .destructive-action.flat:focus:checked:hover:focus, .destructive-action.flat:hover:active, .destructive-action.flat:hover:active:hover, .destructive-action.flat:hover:active:focus, .destructive-action.flat:hover:active:hover:focus, .destructive-action.flat:hover:checked, .destructive-action.flat:hover:checked:hover, .destructive-action.flat:hover:checked:focus, .destructive-action.flat:hover:checked:hover:focus {
+      border-color: rgba(0, 0, 0, 0.2); }
+    .destructive-action:focus:disabled, .destructive-action:hover:disabled, .destructive-action.flat:focus:disabled, .destructive-action.flat:hover:disabled {
+      border-color: rgba(0, 0, 0, 0.2); }
+    .destructive-action:focus:active:disabled, .destructive-action:focus:checked:disabled, .destructive-action:hover:active:disabled, .destructive-action:hover:checked:disabled, .destructive-action.flat:focus:active:disabled, .destructive-action.flat:focus:checked:disabled, .destructive-action.flat:hover:active:disabled, .destructive-action.flat:hover:checked:disabled {
+      border-color: rgba(0, 0, 0, 0.2); }
+  .destructive-action:active, .destructive-action:checked, .destructive-action.flat:active, .destructive-action.flat:checked {
+    background-color: #ad2854;
+    background-image: none;
     color: #f5f5f5;
-    box-shadow: none;
-    border-color: #22b3c5;
     background-color: #26c6da; }
-    .destructive-action:checked:focus, .destructive-action:checked:hover, .destructive-action:active:focus, .destructive-action:active:hover, .destructive-action.flat:checked:focus, .destructive-action.flat:checked:hover, .destructive-action.flat:active:focus, .destructive-action.flat:active:hover {
+    .destructive-action:active:focus, .destructive-action:active:hover, .destructive-action:checked:focus, .destructive-action:checked:hover, .destructive-action.flat:active:focus, .destructive-action.flat:active:hover, .destructive-action.flat:checked:focus, .destructive-action.flat:checked:hover {
+      background-color: #a0254e;
+      background-image: none;
       color: #f5f5f5;
-      border-color: #1e9faf;
       background-color: #26c6da; }
   .destructive-action:focus, .destructive-action:hover, .destructive-action.flat:focus, .destructive-action.flat:hover {
     color: #ffffff; }
@@ -1192,7 +1325,6 @@ searchbar,
     background-color: #d54c79;
     background-image: none;
     color: mix(#d85882,#ffffff,0.5);
-    border-color: mix(#d85882,#ffffff,0.5);
     box-shadow: none; }
   .destructive-action:active {
     color: #ffffff; }
@@ -1251,9 +1383,30 @@ headerbar.selection-mode,
   .titlebar:not(headerbar).selection-mode button {
     background-color: #26c6da;
     background-image: none;
-    border-color: #1e9faf;
+    border-color: rgba(0, 0, 0, 0.12);
     color: #ffffff;
     box-shadow: none; }
+    headerbar.selection-mode button:focus, headerbar.selection-mode button:hover,
+    .titlebar:not(headerbar).selection-mode button:focus,
+    .titlebar:not(headerbar).selection-mode button:hover {
+      border-color: rgba(0, 0, 0, 0.12); }
+    headerbar.selection-mode button:active, headerbar.selection-mode button:active:hover, headerbar.selection-mode button:active:focus, headerbar.selection-mode button:active:hover:focus, headerbar.selection-mode button:checked, headerbar.selection-mode button:checked:hover, headerbar.selection-mode button:checked:focus, headerbar.selection-mode button:checked:hover:focus,
+    .titlebar:not(headerbar).selection-mode button:active,
+    .titlebar:not(headerbar).selection-mode button:active:hover,
+    .titlebar:not(headerbar).selection-mode button:active:focus,
+    .titlebar:not(headerbar).selection-mode button:active:hover:focus,
+    .titlebar:not(headerbar).selection-mode button:checked,
+    .titlebar:not(headerbar).selection-mode button:checked:hover,
+    .titlebar:not(headerbar).selection-mode button:checked:focus,
+    .titlebar:not(headerbar).selection-mode button:checked:hover:focus {
+      border-color: rgba(0, 0, 0, 0.12); }
+    headerbar.selection-mode button:disabled,
+    .titlebar:not(headerbar).selection-mode button:disabled {
+      border-color: rgba(0, 0, 0, 0.12); }
+    headerbar.selection-mode button:active:disabled, headerbar.selection-mode button:checked:disabled,
+    .titlebar:not(headerbar).selection-mode button:active:disabled,
+    .titlebar:not(headerbar).selection-mode button:checked:disabled {
+      border-color: rgba(0, 0, 0, 0.12); }
     headerbar.selection-mode button.flat,
     .titlebar:not(headerbar).selection-mode button.flat {
       border-color: rgba(38, 198, 218, 0);
@@ -1265,29 +1418,91 @@ headerbar.selection-mode,
     .titlebar:not(headerbar).selection-mode button:hover,
     .titlebar:not(headerbar).selection-mode button.flat:focus,
     .titlebar:not(headerbar).selection-mode button.flat:hover {
-      box-shadow: none;
-      background-color: #26c6da;
-      border-color: #1e9faf; }
-    headerbar.selection-mode button:checked, headerbar.selection-mode button:active, headerbar.selection-mode button.flat:checked, headerbar.selection-mode button.flat:active,
-    .titlebar:not(headerbar).selection-mode button:checked,
+      background-color: #52d1e1;
+      background-image: none;
+      border-color: rgba(0, 0, 0, 0.2);
+      box-shadow: none; }
+      headerbar.selection-mode button:focus:focus, headerbar.selection-mode button:focus:hover, headerbar.selection-mode button:hover:focus, headerbar.selection-mode button:hover:hover, headerbar.selection-mode button.flat:focus:focus, headerbar.selection-mode button.flat:focus:hover, headerbar.selection-mode button.flat:hover:focus, headerbar.selection-mode button.flat:hover:hover,
+      .titlebar:not(headerbar).selection-mode button:focus:focus,
+      .titlebar:not(headerbar).selection-mode button:focus:hover,
+      .titlebar:not(headerbar).selection-mode button:hover:focus,
+      .titlebar:not(headerbar).selection-mode button:hover:hover,
+      .titlebar:not(headerbar).selection-mode button.flat:focus:focus,
+      .titlebar:not(headerbar).selection-mode button.flat:focus:hover,
+      .titlebar:not(headerbar).selection-mode button.flat:hover:focus,
+      .titlebar:not(headerbar).selection-mode button.flat:hover:hover {
+        border-color: rgba(0, 0, 0, 0.2); }
+      headerbar.selection-mode button:focus:active, headerbar.selection-mode button:focus:active:hover, headerbar.selection-mode button:focus:active:focus, headerbar.selection-mode button:focus:active:hover:focus, headerbar.selection-mode button:focus:checked, headerbar.selection-mode button:focus:checked:hover, headerbar.selection-mode button:focus:checked:focus, headerbar.selection-mode button:focus:checked:hover:focus, headerbar.selection-mode button:hover:active, headerbar.selection-mode button:hover:active:hover, headerbar.selection-mode button:hover:active:focus, headerbar.selection-mode button:hover:active:hover:focus, headerbar.selection-mode button:hover:checked, headerbar.selection-mode button:hover:checked:hover, headerbar.selection-mode button:hover:checked:focus, headerbar.selection-mode button:hover:checked:hover:focus, headerbar.selection-mode button.flat:focus:active, headerbar.selection-mode button.flat:focus:active:hover, headerbar.selection-mode button.flat:focus:active:focus, headerbar.selection-mode button.flat:focus:active:hover:focus, headerbar.selection-mode button.flat:focus:checked, headerbar.selection-mode button.flat:focus:checked:hover, headerbar.selection-mode button.flat:focus:checked:focus, headerbar.selection-mode button.flat:focus:checked:hover:focus, headerbar.selection-mode button.flat:hover:active, headerbar.selection-mode button.flat:hover:active:hover, headerbar.selection-mode button.flat:hover:active:focus, headerbar.selection-mode button.flat:hover:active:hover:focus, headerbar.selection-mode button.flat:hover:checked, headerbar.selection-mode button.flat:hover:checked:hover, headerbar.selection-mode button.flat:hover:checked:focus, headerbar.selection-mode button.flat:hover:checked:hover:focus,
+      .titlebar:not(headerbar).selection-mode button:focus:active,
+      .titlebar:not(headerbar).selection-mode button:focus:active:hover,
+      .titlebar:not(headerbar).selection-mode button:focus:active:focus,
+      .titlebar:not(headerbar).selection-mode button:focus:active:hover:focus,
+      .titlebar:not(headerbar).selection-mode button:focus:checked,
+      .titlebar:not(headerbar).selection-mode button:focus:checked:hover,
+      .titlebar:not(headerbar).selection-mode button:focus:checked:focus,
+      .titlebar:not(headerbar).selection-mode button:focus:checked:hover:focus,
+      .titlebar:not(headerbar).selection-mode button:hover:active,
+      .titlebar:not(headerbar).selection-mode button:hover:active:hover,
+      .titlebar:not(headerbar).selection-mode button:hover:active:focus,
+      .titlebar:not(headerbar).selection-mode button:hover:active:hover:focus,
+      .titlebar:not(headerbar).selection-mode button:hover:checked,
+      .titlebar:not(headerbar).selection-mode button:hover:checked:hover,
+      .titlebar:not(headerbar).selection-mode button:hover:checked:focus,
+      .titlebar:not(headerbar).selection-mode button:hover:checked:hover:focus,
+      .titlebar:not(headerbar).selection-mode button.flat:focus:active,
+      .titlebar:not(headerbar).selection-mode button.flat:focus:active:hover,
+      .titlebar:not(headerbar).selection-mode button.flat:focus:active:focus,
+      .titlebar:not(headerbar).selection-mode button.flat:focus:active:hover:focus,
+      .titlebar:not(headerbar).selection-mode button.flat:focus:checked,
+      .titlebar:not(headerbar).selection-mode button.flat:focus:checked:hover,
+      .titlebar:not(headerbar).selection-mode button.flat:focus:checked:focus,
+      .titlebar:not(headerbar).selection-mode button.flat:focus:checked:hover:focus,
+      .titlebar:not(headerbar).selection-mode button.flat:hover:active,
+      .titlebar:not(headerbar).selection-mode button.flat:hover:active:hover,
+      .titlebar:not(headerbar).selection-mode button.flat:hover:active:focus,
+      .titlebar:not(headerbar).selection-mode button.flat:hover:active:hover:focus,
+      .titlebar:not(headerbar).selection-mode button.flat:hover:checked,
+      .titlebar:not(headerbar).selection-mode button.flat:hover:checked:hover,
+      .titlebar:not(headerbar).selection-mode button.flat:hover:checked:focus,
+      .titlebar:not(headerbar).selection-mode button.flat:hover:checked:hover:focus {
+        border-color: rgba(0, 0, 0, 0.2); }
+      headerbar.selection-mode button:focus:disabled, headerbar.selection-mode button:hover:disabled, headerbar.selection-mode button.flat:focus:disabled, headerbar.selection-mode button.flat:hover:disabled,
+      .titlebar:not(headerbar).selection-mode button:focus:disabled,
+      .titlebar:not(headerbar).selection-mode button:hover:disabled,
+      .titlebar:not(headerbar).selection-mode button.flat:focus:disabled,
+      .titlebar:not(headerbar).selection-mode button.flat:hover:disabled {
+        border-color: rgba(0, 0, 0, 0.2); }
+      headerbar.selection-mode button:focus:active:disabled, headerbar.selection-mode button:focus:checked:disabled, headerbar.selection-mode button:hover:active:disabled, headerbar.selection-mode button:hover:checked:disabled, headerbar.selection-mode button.flat:focus:active:disabled, headerbar.selection-mode button.flat:focus:checked:disabled, headerbar.selection-mode button.flat:hover:active:disabled, headerbar.selection-mode button.flat:hover:checked:disabled,
+      .titlebar:not(headerbar).selection-mode button:focus:active:disabled,
+      .titlebar:not(headerbar).selection-mode button:focus:checked:disabled,
+      .titlebar:not(headerbar).selection-mode button:hover:active:disabled,
+      .titlebar:not(headerbar).selection-mode button:hover:checked:disabled,
+      .titlebar:not(headerbar).selection-mode button.flat:focus:active:disabled,
+      .titlebar:not(headerbar).selection-mode button.flat:focus:checked:disabled,
+      .titlebar:not(headerbar).selection-mode button.flat:hover:active:disabled,
+      .titlebar:not(headerbar).selection-mode button.flat:hover:checked:disabled {
+        border-color: rgba(0, 0, 0, 0.2); }
+    headerbar.selection-mode button:active, headerbar.selection-mode button:checked, headerbar.selection-mode button.flat:active, headerbar.selection-mode button.flat:checked,
     .titlebar:not(headerbar).selection-mode button:active,
-    .titlebar:not(headerbar).selection-mode button.flat:checked,
-    .titlebar:not(headerbar).selection-mode button.flat:active {
+    .titlebar:not(headerbar).selection-mode button:checked,
+    .titlebar:not(headerbar).selection-mode button.flat:active,
+    .titlebar:not(headerbar).selection-mode button.flat:checked {
+      background-color: #1a8b99;
+      background-image: none;
       color: #f5f5f5;
-      box-shadow: none;
-      border-color: #22b3c5;
       background-color: #26c6da; }
-      headerbar.selection-mode button:checked:focus, headerbar.selection-mode button:checked:hover, headerbar.selection-mode button:active:focus, headerbar.selection-mode button:active:hover, headerbar.selection-mode button.flat:checked:focus, headerbar.selection-mode button.flat:checked:hover, headerbar.selection-mode button.flat:active:focus, headerbar.selection-mode button.flat:active:hover,
-      .titlebar:not(headerbar).selection-mode button:checked:focus,
-      .titlebar:not(headerbar).selection-mode button:checked:hover,
+      headerbar.selection-mode button:active:focus, headerbar.selection-mode button:active:hover, headerbar.selection-mode button:checked:focus, headerbar.selection-mode button:checked:hover, headerbar.selection-mode button.flat:active:focus, headerbar.selection-mode button.flat:active:hover, headerbar.selection-mode button.flat:checked:focus, headerbar.selection-mode button.flat:checked:hover,
       .titlebar:not(headerbar).selection-mode button:active:focus,
       .titlebar:not(headerbar).selection-mode button:active:hover,
-      .titlebar:not(headerbar).selection-mode button.flat:checked:focus,
-      .titlebar:not(headerbar).selection-mode button.flat:checked:hover,
+      .titlebar:not(headerbar).selection-mode button:checked:focus,
+      .titlebar:not(headerbar).selection-mode button:checked:hover,
       .titlebar:not(headerbar).selection-mode button.flat:active:focus,
-      .titlebar:not(headerbar).selection-mode button.flat:active:hover {
+      .titlebar:not(headerbar).selection-mode button.flat:active:hover,
+      .titlebar:not(headerbar).selection-mode button.flat:checked:focus,
+      .titlebar:not(headerbar).selection-mode button.flat:checked:hover {
+        background-color: #18818e;
+        background-image: none;
         color: #f5f5f5;
-        border-color: #1e9faf;
         background-color: #26c6da; }
     headerbar.selection-mode button:focus, headerbar.selection-mode button:hover, headerbar.selection-mode button.flat:focus, headerbar.selection-mode button.flat:hover,
     .titlebar:not(headerbar).selection-mode button:focus,
@@ -1310,7 +1525,6 @@ headerbar.selection-mode,
       background-color: #23bdd0;
       background-image: none;
       color: mix(#26c6da,#ffffff,0.5);
-      border-color: mix(#26c6da,#ffffff,0.5);
       box-shadow: none; }
     headerbar.selection-mode button:active,
     .titlebar:not(headerbar).selection-mode button:active {
@@ -1408,9 +1622,30 @@ headerbar.selection-mode,
   .titlebar:not(headerbar).selection-mode button {
     background-color: #26c6da;
     background-image: none;
-    border-color: #1e9faf;
+    border-color: rgba(0, 0, 0, 0.12);
     color: #ffffff;
     box-shadow: none; }
+    headerbar.selection-mode button:focus, headerbar.selection-mode button:hover,
+    .titlebar:not(headerbar).selection-mode button:focus,
+    .titlebar:not(headerbar).selection-mode button:hover {
+      border-color: rgba(0, 0, 0, 0.12); }
+    headerbar.selection-mode button:active, headerbar.selection-mode button:active:hover, headerbar.selection-mode button:active:focus, headerbar.selection-mode button:active:hover:focus, headerbar.selection-mode button:checked, headerbar.selection-mode button:checked:hover, headerbar.selection-mode button:checked:focus, headerbar.selection-mode button:checked:hover:focus,
+    .titlebar:not(headerbar).selection-mode button:active,
+    .titlebar:not(headerbar).selection-mode button:active:hover,
+    .titlebar:not(headerbar).selection-mode button:active:focus,
+    .titlebar:not(headerbar).selection-mode button:active:hover:focus,
+    .titlebar:not(headerbar).selection-mode button:checked,
+    .titlebar:not(headerbar).selection-mode button:checked:hover,
+    .titlebar:not(headerbar).selection-mode button:checked:focus,
+    .titlebar:not(headerbar).selection-mode button:checked:hover:focus {
+      border-color: rgba(0, 0, 0, 0.12); }
+    headerbar.selection-mode button:disabled,
+    .titlebar:not(headerbar).selection-mode button:disabled {
+      border-color: rgba(0, 0, 0, 0.12); }
+    headerbar.selection-mode button:active:disabled, headerbar.selection-mode button:checked:disabled,
+    .titlebar:not(headerbar).selection-mode button:active:disabled,
+    .titlebar:not(headerbar).selection-mode button:checked:disabled {
+      border-color: rgba(0, 0, 0, 0.12); }
     headerbar.selection-mode button.flat,
     .titlebar:not(headerbar).selection-mode button.flat {
       border-color: rgba(38, 198, 218, 0);
@@ -1422,29 +1657,91 @@ headerbar.selection-mode,
     .titlebar:not(headerbar).selection-mode button:hover,
     .titlebar:not(headerbar).selection-mode button.flat:focus,
     .titlebar:not(headerbar).selection-mode button.flat:hover {
-      box-shadow: none;
-      background-color: #26c6da;
-      border-color: #1e9faf; }
-    headerbar.selection-mode button:checked, headerbar.selection-mode button:active, headerbar.selection-mode button.flat:checked, headerbar.selection-mode button.flat:active,
-    .titlebar:not(headerbar).selection-mode button:checked,
+      background-color: #52d1e1;
+      background-image: none;
+      border-color: rgba(0, 0, 0, 0.2);
+      box-shadow: none; }
+      headerbar.selection-mode button:focus:focus, headerbar.selection-mode button:focus:hover, headerbar.selection-mode button:hover:focus, headerbar.selection-mode button:hover:hover, headerbar.selection-mode button.flat:focus:focus, headerbar.selection-mode button.flat:focus:hover, headerbar.selection-mode button.flat:hover:focus, headerbar.selection-mode button.flat:hover:hover,
+      .titlebar:not(headerbar).selection-mode button:focus:focus,
+      .titlebar:not(headerbar).selection-mode button:focus:hover,
+      .titlebar:not(headerbar).selection-mode button:hover:focus,
+      .titlebar:not(headerbar).selection-mode button:hover:hover,
+      .titlebar:not(headerbar).selection-mode button.flat:focus:focus,
+      .titlebar:not(headerbar).selection-mode button.flat:focus:hover,
+      .titlebar:not(headerbar).selection-mode button.flat:hover:focus,
+      .titlebar:not(headerbar).selection-mode button.flat:hover:hover {
+        border-color: rgba(0, 0, 0, 0.2); }
+      headerbar.selection-mode button:focus:active, headerbar.selection-mode button:focus:active:hover, headerbar.selection-mode button:focus:active:focus, headerbar.selection-mode button:focus:active:hover:focus, headerbar.selection-mode button:focus:checked, headerbar.selection-mode button:focus:checked:hover, headerbar.selection-mode button:focus:checked:focus, headerbar.selection-mode button:focus:checked:hover:focus, headerbar.selection-mode button:hover:active, headerbar.selection-mode button:hover:active:hover, headerbar.selection-mode button:hover:active:focus, headerbar.selection-mode button:hover:active:hover:focus, headerbar.selection-mode button:hover:checked, headerbar.selection-mode button:hover:checked:hover, headerbar.selection-mode button:hover:checked:focus, headerbar.selection-mode button:hover:checked:hover:focus, headerbar.selection-mode button.flat:focus:active, headerbar.selection-mode button.flat:focus:active:hover, headerbar.selection-mode button.flat:focus:active:focus, headerbar.selection-mode button.flat:focus:active:hover:focus, headerbar.selection-mode button.flat:focus:checked, headerbar.selection-mode button.flat:focus:checked:hover, headerbar.selection-mode button.flat:focus:checked:focus, headerbar.selection-mode button.flat:focus:checked:hover:focus, headerbar.selection-mode button.flat:hover:active, headerbar.selection-mode button.flat:hover:active:hover, headerbar.selection-mode button.flat:hover:active:focus, headerbar.selection-mode button.flat:hover:active:hover:focus, headerbar.selection-mode button.flat:hover:checked, headerbar.selection-mode button.flat:hover:checked:hover, headerbar.selection-mode button.flat:hover:checked:focus, headerbar.selection-mode button.flat:hover:checked:hover:focus,
+      .titlebar:not(headerbar).selection-mode button:focus:active,
+      .titlebar:not(headerbar).selection-mode button:focus:active:hover,
+      .titlebar:not(headerbar).selection-mode button:focus:active:focus,
+      .titlebar:not(headerbar).selection-mode button:focus:active:hover:focus,
+      .titlebar:not(headerbar).selection-mode button:focus:checked,
+      .titlebar:not(headerbar).selection-mode button:focus:checked:hover,
+      .titlebar:not(headerbar).selection-mode button:focus:checked:focus,
+      .titlebar:not(headerbar).selection-mode button:focus:checked:hover:focus,
+      .titlebar:not(headerbar).selection-mode button:hover:active,
+      .titlebar:not(headerbar).selection-mode button:hover:active:hover,
+      .titlebar:not(headerbar).selection-mode button:hover:active:focus,
+      .titlebar:not(headerbar).selection-mode button:hover:active:hover:focus,
+      .titlebar:not(headerbar).selection-mode button:hover:checked,
+      .titlebar:not(headerbar).selection-mode button:hover:checked:hover,
+      .titlebar:not(headerbar).selection-mode button:hover:checked:focus,
+      .titlebar:not(headerbar).selection-mode button:hover:checked:hover:focus,
+      .titlebar:not(headerbar).selection-mode button.flat:focus:active,
+      .titlebar:not(headerbar).selection-mode button.flat:focus:active:hover,
+      .titlebar:not(headerbar).selection-mode button.flat:focus:active:focus,
+      .titlebar:not(headerbar).selection-mode button.flat:focus:active:hover:focus,
+      .titlebar:not(headerbar).selection-mode button.flat:focus:checked,
+      .titlebar:not(headerbar).selection-mode button.flat:focus:checked:hover,
+      .titlebar:not(headerbar).selection-mode button.flat:focus:checked:focus,
+      .titlebar:not(headerbar).selection-mode button.flat:focus:checked:hover:focus,
+      .titlebar:not(headerbar).selection-mode button.flat:hover:active,
+      .titlebar:not(headerbar).selection-mode button.flat:hover:active:hover,
+      .titlebar:not(headerbar).selection-mode button.flat:hover:active:focus,
+      .titlebar:not(headerbar).selection-mode button.flat:hover:active:hover:focus,
+      .titlebar:not(headerbar).selection-mode button.flat:hover:checked,
+      .titlebar:not(headerbar).selection-mode button.flat:hover:checked:hover,
+      .titlebar:not(headerbar).selection-mode button.flat:hover:checked:focus,
+      .titlebar:not(headerbar).selection-mode button.flat:hover:checked:hover:focus {
+        border-color: rgba(0, 0, 0, 0.2); }
+      headerbar.selection-mode button:focus:disabled, headerbar.selection-mode button:hover:disabled, headerbar.selection-mode button.flat:focus:disabled, headerbar.selection-mode button.flat:hover:disabled,
+      .titlebar:not(headerbar).selection-mode button:focus:disabled,
+      .titlebar:not(headerbar).selection-mode button:hover:disabled,
+      .titlebar:not(headerbar).selection-mode button.flat:focus:disabled,
+      .titlebar:not(headerbar).selection-mode button.flat:hover:disabled {
+        border-color: rgba(0, 0, 0, 0.2); }
+      headerbar.selection-mode button:focus:active:disabled, headerbar.selection-mode button:focus:checked:disabled, headerbar.selection-mode button:hover:active:disabled, headerbar.selection-mode button:hover:checked:disabled, headerbar.selection-mode button.flat:focus:active:disabled, headerbar.selection-mode button.flat:focus:checked:disabled, headerbar.selection-mode button.flat:hover:active:disabled, headerbar.selection-mode button.flat:hover:checked:disabled,
+      .titlebar:not(headerbar).selection-mode button:focus:active:disabled,
+      .titlebar:not(headerbar).selection-mode button:focus:checked:disabled,
+      .titlebar:not(headerbar).selection-mode button:hover:active:disabled,
+      .titlebar:not(headerbar).selection-mode button:hover:checked:disabled,
+      .titlebar:not(headerbar).selection-mode button.flat:focus:active:disabled,
+      .titlebar:not(headerbar).selection-mode button.flat:focus:checked:disabled,
+      .titlebar:not(headerbar).selection-mode button.flat:hover:active:disabled,
+      .titlebar:not(headerbar).selection-mode button.flat:hover:checked:disabled {
+        border-color: rgba(0, 0, 0, 0.2); }
+    headerbar.selection-mode button:active, headerbar.selection-mode button:checked, headerbar.selection-mode button.flat:active, headerbar.selection-mode button.flat:checked,
     .titlebar:not(headerbar).selection-mode button:active,
-    .titlebar:not(headerbar).selection-mode button.flat:checked,
-    .titlebar:not(headerbar).selection-mode button.flat:active {
+    .titlebar:not(headerbar).selection-mode button:checked,
+    .titlebar:not(headerbar).selection-mode button.flat:active,
+    .titlebar:not(headerbar).selection-mode button.flat:checked {
+      background-color: #1a8b99;
+      background-image: none;
       color: #f5f5f5;
-      box-shadow: none;
-      border-color: #22b3c5;
       background-color: #26c6da; }
-      headerbar.selection-mode button:checked:focus, headerbar.selection-mode button:checked:hover, headerbar.selection-mode button:active:focus, headerbar.selection-mode button:active:hover, headerbar.selection-mode button.flat:checked:focus, headerbar.selection-mode button.flat:checked:hover, headerbar.selection-mode button.flat:active:focus, headerbar.selection-mode button.flat:active:hover,
-      .titlebar:not(headerbar).selection-mode button:checked:focus,
-      .titlebar:not(headerbar).selection-mode button:checked:hover,
+      headerbar.selection-mode button:active:focus, headerbar.selection-mode button:active:hover, headerbar.selection-mode button:checked:focus, headerbar.selection-mode button:checked:hover, headerbar.selection-mode button.flat:active:focus, headerbar.selection-mode button.flat:active:hover, headerbar.selection-mode button.flat:checked:focus, headerbar.selection-mode button.flat:checked:hover,
       .titlebar:not(headerbar).selection-mode button:active:focus,
       .titlebar:not(headerbar).selection-mode button:active:hover,
-      .titlebar:not(headerbar).selection-mode button.flat:checked:focus,
-      .titlebar:not(headerbar).selection-mode button.flat:checked:hover,
+      .titlebar:not(headerbar).selection-mode button:checked:focus,
+      .titlebar:not(headerbar).selection-mode button:checked:hover,
       .titlebar:not(headerbar).selection-mode button.flat:active:focus,
-      .titlebar:not(headerbar).selection-mode button.flat:active:hover {
+      .titlebar:not(headerbar).selection-mode button.flat:active:hover,
+      .titlebar:not(headerbar).selection-mode button.flat:checked:focus,
+      .titlebar:not(headerbar).selection-mode button.flat:checked:hover {
+        background-color: #18818e;
+        background-image: none;
         color: #f5f5f5;
-        border-color: #1e9faf;
         background-color: #26c6da; }
     headerbar.selection-mode button:focus, headerbar.selection-mode button:hover, headerbar.selection-mode button.flat:focus, headerbar.selection-mode button.flat:hover,
     .titlebar:not(headerbar).selection-mode button:focus,
@@ -1467,7 +1764,6 @@ headerbar.selection-mode,
       background-color: #23bdd0;
       background-image: none;
       color: mix(#26c6da,#ffffff,0.5);
-      border-color: mix(#26c6da,#ffffff,0.5);
       box-shadow: none; }
     headerbar.selection-mode button:active,
     .titlebar:not(headerbar).selection-mode button:active {
@@ -1709,29 +2005,47 @@ infobar {
   infobar.info button {
     background-color: #03a9f4;
     background-image: none;
-    border-color: #0287c3;
+    border-color: rgba(0, 0, 0, 0.22);
     color: #f5f5f5;
     box-shadow: none; }
+    infobar.info button:focus, infobar.info button:hover {
+      border-color: rgba(0, 0, 0, 0.22); }
+    infobar.info button:active, infobar.info button:active:hover, infobar.info button:active:focus, infobar.info button:active:hover:focus, infobar.info button:checked, infobar.info button:checked:hover, infobar.info button:checked:focus, infobar.info button:checked:hover:focus {
+      border-color: rgba(0, 0, 0, 0.22); }
+    infobar.info button:disabled {
+      border-color: rgba(0, 0, 0, 0.22); }
+    infobar.info button:active:disabled, infobar.info button:checked:disabled {
+      border-color: rgba(0, 0, 0, 0.22); }
     infobar.info button.flat {
       border-color: rgba(3, 169, 244, 0);
       background-color: rgba(3, 169, 244, 0);
       background-image: none;
       box-shadow: none; }
     infobar.info button:focus, infobar.info button:hover, infobar.info button.flat:focus, infobar.info button.flat:hover {
-      box-shadow: none;
-      background-color: #26c6da;
-      border-color: #1e9faf; }
-    infobar.info button:checked, infobar.info button:active, infobar.info button.flat:checked, infobar.info button.flat:active {
+      background-color: #2cbcfc;
+      background-image: none;
+      border-color: rgba(0, 0, 0, 0.3);
+      box-shadow: none; }
+      infobar.info button:focus:focus, infobar.info button:focus:hover, infobar.info button:hover:focus, infobar.info button:hover:hover, infobar.info button.flat:focus:focus, infobar.info button.flat:focus:hover, infobar.info button.flat:hover:focus, infobar.info button.flat:hover:hover {
+        border-color: rgba(0, 0, 0, 0.3); }
+      infobar.info button:focus:active, infobar.info button:focus:active:hover, infobar.info button:focus:active:focus, infobar.info button:focus:active:hover:focus, infobar.info button:focus:checked, infobar.info button:focus:checked:hover, infobar.info button:focus:checked:focus, infobar.info button:focus:checked:hover:focus, infobar.info button:hover:active, infobar.info button:hover:active:hover, infobar.info button:hover:active:focus, infobar.info button:hover:active:hover:focus, infobar.info button:hover:checked, infobar.info button:hover:checked:hover, infobar.info button:hover:checked:focus, infobar.info button:hover:checked:hover:focus, infobar.info button.flat:focus:active, infobar.info button.flat:focus:active:hover, infobar.info button.flat:focus:active:focus, infobar.info button.flat:focus:active:hover:focus, infobar.info button.flat:focus:checked, infobar.info button.flat:focus:checked:hover, infobar.info button.flat:focus:checked:focus, infobar.info button.flat:focus:checked:hover:focus, infobar.info button.flat:hover:active, infobar.info button.flat:hover:active:hover, infobar.info button.flat:hover:active:focus, infobar.info button.flat:hover:active:hover:focus, infobar.info button.flat:hover:checked, infobar.info button.flat:hover:checked:hover, infobar.info button.flat:hover:checked:focus, infobar.info button.flat:hover:checked:hover:focus {
+        border-color: rgba(0, 0, 0, 0.3); }
+      infobar.info button:focus:disabled, infobar.info button:hover:disabled, infobar.info button.flat:focus:disabled, infobar.info button.flat:hover:disabled {
+        border-color: rgba(0, 0, 0, 0.3); }
+      infobar.info button:focus:active:disabled, infobar.info button:focus:checked:disabled, infobar.info button:hover:active:disabled, infobar.info button:hover:checked:disabled, infobar.info button.flat:focus:active:disabled, infobar.info button.flat:focus:checked:disabled, infobar.info button.flat:hover:active:disabled, infobar.info button.flat:hover:checked:disabled {
+        border-color: rgba(0, 0, 0, 0.3); }
+    infobar.info button:active, infobar.info button:checked, infobar.info button.flat:active, infobar.info button.flat:checked {
+      background-color: #0276ab;
+      background-image: none;
       color: #f5f5f5;
-      box-shadow: none;
-      border-color: #22b3c5;
       background-color: #26c6da; }
-      infobar.info button:checked:focus, infobar.info button:checked:hover, infobar.info button:active:focus, infobar.info button:active:hover, infobar.info button.flat:checked:focus, infobar.info button.flat:checked:hover, infobar.info button.flat:active:focus, infobar.info button.flat:active:hover {
+      infobar.info button:active:focus, infobar.info button:active:hover, infobar.info button:checked:focus, infobar.info button:checked:hover, infobar.info button.flat:active:focus, infobar.info button.flat:active:hover, infobar.info button.flat:checked:focus, infobar.info button.flat:checked:hover {
+        background-color: #026e9f;
+        background-image: none;
         color: #f5f5f5;
-        border-color: #1e9faf;
         background-color: #26c6da; }
     infobar.info button:focus, infobar.info button:hover, infobar.info button.flat:focus, infobar.info button.flat:hover {
-      color: #ffffff; }
+      color: #f5f5f5; }
     infobar.info button:active:disabled, infobar.info button:checked:disabled, infobar.info button.flat:active:disabled, infobar.info button.flat:checked:disabled {
       background-color: #0398dc;
       background-image: none;
@@ -1741,7 +2055,6 @@ infobar {
       background-color: rgba(3, 169, 244, 0.3);
       background-image: none;
       color: mix(#03a9f4,#f5f5f5,0.5);
-      border-color: mix(#03a9f4,#f5f5f5,0.5);
       box-shadow: none; }
     infobar.info button:active {
       color: #f5f5f5; }
@@ -1765,29 +2078,47 @@ infobar {
   infobar.warning button {
     background-color: #dca22c;
     background-image: none;
-    border-color: #b5831e;
+    border-color: rgba(0, 0, 0, 0.12);
     color: #f5f5f5;
     box-shadow: none; }
+    infobar.warning button:focus, infobar.warning button:hover {
+      border-color: rgba(0, 0, 0, 0.12); }
+    infobar.warning button:active, infobar.warning button:active:hover, infobar.warning button:active:focus, infobar.warning button:active:hover:focus, infobar.warning button:checked, infobar.warning button:checked:hover, infobar.warning button:checked:focus, infobar.warning button:checked:hover:focus {
+      border-color: rgba(0, 0, 0, 0.12); }
+    infobar.warning button:disabled {
+      border-color: rgba(0, 0, 0, 0.12); }
+    infobar.warning button:active:disabled, infobar.warning button:checked:disabled {
+      border-color: rgba(0, 0, 0, 0.12); }
     infobar.warning button.flat {
       border-color: rgba(220, 162, 44, 0);
       background-color: rgba(220, 162, 44, 0);
       background-image: none;
       box-shadow: none; }
     infobar.warning button:focus, infobar.warning button:hover, infobar.warning button.flat:focus, infobar.warning button.flat:hover {
-      box-shadow: none;
-      background-color: #26c6da;
-      border-color: #1e9faf; }
-    infobar.warning button:checked, infobar.warning button:active, infobar.warning button.flat:checked, infobar.warning button.flat:active {
+      background-color: #e4b659;
+      background-image: none;
+      border-color: rgba(0, 0, 0, 0.2);
+      box-shadow: none; }
+      infobar.warning button:focus:focus, infobar.warning button:focus:hover, infobar.warning button:hover:focus, infobar.warning button:hover:hover, infobar.warning button.flat:focus:focus, infobar.warning button.flat:focus:hover, infobar.warning button.flat:hover:focus, infobar.warning button.flat:hover:hover {
+        border-color: rgba(0, 0, 0, 0.2); }
+      infobar.warning button:focus:active, infobar.warning button:focus:active:hover, infobar.warning button:focus:active:focus, infobar.warning button:focus:active:hover:focus, infobar.warning button:focus:checked, infobar.warning button:focus:checked:hover, infobar.warning button:focus:checked:focus, infobar.warning button:focus:checked:hover:focus, infobar.warning button:hover:active, infobar.warning button:hover:active:hover, infobar.warning button:hover:active:focus, infobar.warning button:hover:active:hover:focus, infobar.warning button:hover:checked, infobar.warning button:hover:checked:hover, infobar.warning button:hover:checked:focus, infobar.warning button:hover:checked:hover:focus, infobar.warning button.flat:focus:active, infobar.warning button.flat:focus:active:hover, infobar.warning button.flat:focus:active:focus, infobar.warning button.flat:focus:active:hover:focus, infobar.warning button.flat:focus:checked, infobar.warning button.flat:focus:checked:hover, infobar.warning button.flat:focus:checked:focus, infobar.warning button.flat:focus:checked:hover:focus, infobar.warning button.flat:hover:active, infobar.warning button.flat:hover:active:hover, infobar.warning button.flat:hover:active:focus, infobar.warning button.flat:hover:active:hover:focus, infobar.warning button.flat:hover:checked, infobar.warning button.flat:hover:checked:hover, infobar.warning button.flat:hover:checked:focus, infobar.warning button.flat:hover:checked:hover:focus {
+        border-color: rgba(0, 0, 0, 0.2); }
+      infobar.warning button:focus:disabled, infobar.warning button:hover:disabled, infobar.warning button.flat:focus:disabled, infobar.warning button.flat:hover:disabled {
+        border-color: rgba(0, 0, 0, 0.2); }
+      infobar.warning button:focus:active:disabled, infobar.warning button:focus:checked:disabled, infobar.warning button:hover:active:disabled, infobar.warning button:hover:checked:disabled, infobar.warning button.flat:focus:active:disabled, infobar.warning button.flat:focus:checked:disabled, infobar.warning button.flat:hover:active:disabled, infobar.warning button.flat:hover:checked:disabled {
+        border-color: rgba(0, 0, 0, 0.2); }
+    infobar.warning button:active, infobar.warning button:checked, infobar.warning button.flat:active, infobar.warning button.flat:checked {
+      background-color: #9f731a;
+      background-image: none;
       color: #f5f5f5;
-      box-shadow: none;
-      border-color: #22b3c5;
       background-color: #26c6da; }
-      infobar.warning button:checked:focus, infobar.warning button:checked:hover, infobar.warning button:active:focus, infobar.warning button:active:hover, infobar.warning button.flat:checked:focus, infobar.warning button.flat:checked:hover, infobar.warning button.flat:active:focus, infobar.warning button.flat:active:hover {
+      infobar.warning button:active:focus, infobar.warning button:active:hover, infobar.warning button:checked:focus, infobar.warning button:checked:hover, infobar.warning button.flat:active:focus, infobar.warning button.flat:active:hover, infobar.warning button.flat:checked:focus, infobar.warning button.flat:checked:hover {
+        background-color: #936b18;
+        background-image: none;
         color: #f5f5f5;
-        border-color: #1e9faf;
         background-color: #26c6da; }
     infobar.warning button:focus, infobar.warning button:hover, infobar.warning button.flat:focus, infobar.warning button.flat:hover {
-      color: #ffffff; }
+      color: #f5f5f5; }
     infobar.warning button:active:disabled, infobar.warning button:checked:disabled, infobar.warning button.flat:active:disabled, infobar.warning button.flat:checked:disabled {
       background-color: #cc9422;
       background-image: none;
@@ -1797,7 +2128,6 @@ infobar {
       background-color: #d79c24;
       background-image: none;
       color: mix(#dca22c,#f5f5f5,0.5);
-      border-color: mix(#dca22c,#f5f5f5,0.5);
       box-shadow: none; }
     infobar.warning button:active {
       color: #f5f5f5; }
@@ -1821,29 +2151,47 @@ infobar {
   infobar.question button {
     background-color: #a782e8;
     background-image: none;
-    border-color: #7c45dd;
+    border-color: rgba(0, 0, 0, 0.12);
     color: #f5f5f5;
     box-shadow: none; }
+    infobar.question button:focus, infobar.question button:hover {
+      border-color: rgba(0, 0, 0, 0.12); }
+    infobar.question button:active, infobar.question button:active:hover, infobar.question button:active:focus, infobar.question button:active:hover:focus, infobar.question button:checked, infobar.question button:checked:hover, infobar.question button:checked:focus, infobar.question button:checked:hover:focus {
+      border-color: rgba(0, 0, 0, 0.12); }
+    infobar.question button:disabled {
+      border-color: rgba(0, 0, 0, 0.12); }
+    infobar.question button:active:disabled, infobar.question button:checked:disabled {
+      border-color: rgba(0, 0, 0, 0.12); }
     infobar.question button.flat {
       border-color: rgba(167, 130, 232, 0);
       background-color: rgba(167, 130, 232, 0);
       background-image: none;
       box-shadow: none; }
     infobar.question button:focus, infobar.question button:hover, infobar.question button.flat:focus, infobar.question button.flat:hover {
-      box-shadow: none;
-      background-color: #26c6da;
-      border-color: #1e9faf; }
-    infobar.question button:checked, infobar.question button:active, infobar.question button.flat:checked, infobar.question button.flat:active {
+      background-color: #d2bff3;
+      background-image: none;
+      border-color: rgba(0, 0, 0, 0.2);
+      box-shadow: none; }
+      infobar.question button:focus:focus, infobar.question button:focus:hover, infobar.question button:hover:focus, infobar.question button:hover:hover, infobar.question button.flat:focus:focus, infobar.question button.flat:focus:hover, infobar.question button.flat:hover:focus, infobar.question button.flat:hover:hover {
+        border-color: rgba(0, 0, 0, 0.2); }
+      infobar.question button:focus:active, infobar.question button:focus:active:hover, infobar.question button:focus:active:focus, infobar.question button:focus:active:hover:focus, infobar.question button:focus:checked, infobar.question button:focus:checked:hover, infobar.question button:focus:checked:focus, infobar.question button:focus:checked:hover:focus, infobar.question button:hover:active, infobar.question button:hover:active:hover, infobar.question button:hover:active:focus, infobar.question button:hover:active:hover:focus, infobar.question button:hover:checked, infobar.question button:hover:checked:hover, infobar.question button:hover:checked:focus, infobar.question button:hover:checked:hover:focus, infobar.question button.flat:focus:active, infobar.question button.flat:focus:active:hover, infobar.question button.flat:focus:active:focus, infobar.question button.flat:focus:active:hover:focus, infobar.question button.flat:focus:checked, infobar.question button.flat:focus:checked:hover, infobar.question button.flat:focus:checked:focus, infobar.question button.flat:focus:checked:hover:focus, infobar.question button.flat:hover:active, infobar.question button.flat:hover:active:hover, infobar.question button.flat:hover:active:focus, infobar.question button.flat:hover:active:hover:focus, infobar.question button.flat:hover:checked, infobar.question button.flat:hover:checked:hover, infobar.question button.flat:hover:checked:focus, infobar.question button.flat:hover:checked:hover:focus {
+        border-color: rgba(0, 0, 0, 0.2); }
+      infobar.question button:focus:disabled, infobar.question button:hover:disabled, infobar.question button.flat:focus:disabled, infobar.question button.flat:hover:disabled {
+        border-color: rgba(0, 0, 0, 0.2); }
+      infobar.question button:focus:active:disabled, infobar.question button:focus:checked:disabled, infobar.question button:hover:active:disabled, infobar.question button:hover:checked:disabled, infobar.question button.flat:focus:active:disabled, infobar.question button.flat:focus:checked:disabled, infobar.question button.flat:hover:active:disabled, infobar.question button.flat:hover:checked:disabled {
+        border-color: rgba(0, 0, 0, 0.2); }
+    infobar.question button:active, infobar.question button:checked, infobar.question button.flat:active, infobar.question button.flat:checked {
+      background-color: #6727d6;
+      background-image: none;
       color: #f5f5f5;
-      box-shadow: none;
-      border-color: #22b3c5;
       background-color: #26c6da; }
-      infobar.question button:checked:focus, infobar.question button:checked:hover, infobar.question button:active:focus, infobar.question button:active:hover, infobar.question button.flat:checked:focus, infobar.question button.flat:checked:hover, infobar.question button.flat:active:focus, infobar.question button.flat:active:hover {
+      infobar.question button:active:focus, infobar.question button:active:hover, infobar.question button:checked:focus, infobar.question button:checked:hover, infobar.question button.flat:active:focus, infobar.question button.flat:active:hover, infobar.question button.flat:checked:focus, infobar.question button.flat:checked:hover {
+        background-color: #5f25c7;
+        background-image: none;
         color: #f5f5f5;
-        border-color: #1e9faf;
         background-color: #26c6da; }
     infobar.question button:focus, infobar.question button:hover, infobar.question button.flat:focus, infobar.question button.flat:hover {
-      color: #ffffff; }
+      color: #f5f5f5; }
     infobar.question button:active:disabled, infobar.question button:checked:disabled, infobar.question button.flat:active:disabled, infobar.question button.flat:checked:disabled {
       background-color: #9163e2;
       background-image: none;
@@ -1853,7 +2201,6 @@ infobar {
       background-color: #9c73e5;
       background-image: none;
       color: mix(#a782e8,#f5f5f5,0.5);
-      border-color: mix(#a782e8,#f5f5f5,0.5);
       box-shadow: none; }
     infobar.question button:active {
       color: #f5f5f5; }
@@ -1877,29 +2224,47 @@ infobar {
   infobar.error button {
     background-color: #f44336;
     background-image: none;
-    border-color: #e21b0c;
+    border-color: rgba(0, 0, 0, 0.12);
     color: #f5f5f5;
     box-shadow: none; }
+    infobar.error button:focus, infobar.error button:hover {
+      border-color: rgba(0, 0, 0, 0.12); }
+    infobar.error button:active, infobar.error button:active:hover, infobar.error button:active:focus, infobar.error button:active:hover:focus, infobar.error button:checked, infobar.error button:checked:hover, infobar.error button:checked:focus, infobar.error button:checked:hover:focus {
+      border-color: rgba(0, 0, 0, 0.12); }
+    infobar.error button:disabled {
+      border-color: rgba(0, 0, 0, 0.12); }
+    infobar.error button:active:disabled, infobar.error button:checked:disabled {
+      border-color: rgba(0, 0, 0, 0.12); }
     infobar.error button.flat {
       border-color: rgba(244, 67, 54, 0);
       background-color: rgba(244, 67, 54, 0);
       background-image: none;
       box-shadow: none; }
     infobar.error button:focus, infobar.error button:hover, infobar.error button.flat:focus, infobar.error button.flat:hover {
-      box-shadow: none;
-      background-color: #26c6da;
-      border-color: #1e9faf; }
-    infobar.error button:checked, infobar.error button:active, infobar.error button.flat:checked, infobar.error button.flat:active {
+      background-color: #f7786f;
+      background-image: none;
+      border-color: rgba(0, 0, 0, 0.2);
+      box-shadow: none; }
+      infobar.error button:focus:focus, infobar.error button:focus:hover, infobar.error button:hover:focus, infobar.error button:hover:hover, infobar.error button.flat:focus:focus, infobar.error button.flat:focus:hover, infobar.error button.flat:hover:focus, infobar.error button.flat:hover:hover {
+        border-color: rgba(0, 0, 0, 0.2); }
+      infobar.error button:focus:active, infobar.error button:focus:active:hover, infobar.error button:focus:active:focus, infobar.error button:focus:active:hover:focus, infobar.error button:focus:checked, infobar.error button:focus:checked:hover, infobar.error button:focus:checked:focus, infobar.error button:focus:checked:hover:focus, infobar.error button:hover:active, infobar.error button:hover:active:hover, infobar.error button:hover:active:focus, infobar.error button:hover:active:hover:focus, infobar.error button:hover:checked, infobar.error button:hover:checked:hover, infobar.error button:hover:checked:focus, infobar.error button:hover:checked:hover:focus, infobar.error button.flat:focus:active, infobar.error button.flat:focus:active:hover, infobar.error button.flat:focus:active:focus, infobar.error button.flat:focus:active:hover:focus, infobar.error button.flat:focus:checked, infobar.error button.flat:focus:checked:hover, infobar.error button.flat:focus:checked:focus, infobar.error button.flat:focus:checked:hover:focus, infobar.error button.flat:hover:active, infobar.error button.flat:hover:active:hover, infobar.error button.flat:hover:active:focus, infobar.error button.flat:hover:active:hover:focus, infobar.error button.flat:hover:checked, infobar.error button.flat:hover:checked:hover, infobar.error button.flat:hover:checked:focus, infobar.error button.flat:hover:checked:hover:focus {
+        border-color: rgba(0, 0, 0, 0.2); }
+      infobar.error button:focus:disabled, infobar.error button:hover:disabled, infobar.error button.flat:focus:disabled, infobar.error button.flat:hover:disabled {
+        border-color: rgba(0, 0, 0, 0.2); }
+      infobar.error button:focus:active:disabled, infobar.error button:focus:checked:disabled, infobar.error button:hover:active:disabled, infobar.error button:hover:checked:disabled, infobar.error button.flat:focus:active:disabled, infobar.error button.flat:focus:checked:disabled, infobar.error button.flat:hover:active:disabled, infobar.error button.flat:hover:checked:disabled {
+        border-color: rgba(0, 0, 0, 0.2); }
+    infobar.error button:active, infobar.error button:checked, infobar.error button.flat:active, infobar.error button.flat:checked {
+      background-color: #c6180b;
+      background-image: none;
       color: #f5f5f5;
-      box-shadow: none;
-      border-color: #22b3c5;
       background-color: #26c6da; }
-      infobar.error button:checked:focus, infobar.error button:checked:hover, infobar.error button:active:focus, infobar.error button:active:hover, infobar.error button.flat:checked:focus, infobar.error button.flat:checked:hover, infobar.error button.flat:active:focus, infobar.error button.flat:active:hover {
+      infobar.error button:active:focus, infobar.error button:active:hover, infobar.error button:checked:focus, infobar.error button:checked:hover, infobar.error button.flat:active:focus, infobar.error button.flat:active:hover, infobar.error button.flat:checked:focus, infobar.error button.flat:checked:hover {
+        background-color: #b8160a;
+        background-image: none;
         color: #f5f5f5;
-        border-color: #1e9faf;
         background-color: #26c6da; }
     infobar.error button:focus, infobar.error button:hover, infobar.error button.flat:focus, infobar.error button.flat:hover {
-      color: #ffffff; }
+      color: #f5f5f5; }
     infobar.error button:active:disabled, infobar.error button:checked:disabled, infobar.error button.flat:active:disabled, infobar.error button.flat:checked:disabled {
       background-color: #f2291a;
       background-image: none;
@@ -1909,7 +2274,6 @@ infobar {
       background-color: #f33628;
       background-image: none;
       color: mix(#f44336,#f5f5f5,0.5);
-      border-color: mix(#f44336,#f5f5f5,0.5);
       box-shadow: none; }
     infobar.error button:active {
       color: #f5f5f5; }
@@ -2400,29 +2764,47 @@ popover.background {
   popover.background button {
     background-color: #eff1f3;
     background-image: none;
-    border-color: #b8c1ca;
+    border-color: rgba(0, 0, 0, 0.12);
     color: #939fb4;
     box-shadow: none; }
+    popover.background button:focus, popover.background button:hover {
+      border-color: rgba(0, 0, 0, 0.12); }
+    popover.background button:active, popover.background button:active:hover, popover.background button:active:focus, popover.background button:active:hover:focus, popover.background button:checked, popover.background button:checked:hover, popover.background button:checked:focus, popover.background button:checked:hover:focus {
+      border-color: rgba(0, 0, 0, 0.12); }
+    popover.background button:disabled {
+      border-color: rgba(0, 0, 0, 0.12); }
+    popover.background button:active:disabled, popover.background button:checked:disabled {
+      border-color: rgba(0, 0, 0, 0.12); }
     popover.background button.flat {
       border-color: rgba(239, 241, 243, 0);
       background-color: rgba(239, 241, 243, 0);
       background-image: none;
       box-shadow: none; }
     popover.background button:focus, popover.background button:hover, popover.background button.flat:focus, popover.background button.flat:hover {
-      box-shadow: none;
-      background-color: #26c6da;
-      border-color: #1e9faf; }
-    popover.background button:checked, popover.background button:active, popover.background button.flat:checked, popover.background button.flat:active {
+      background-color: white;
+      background-image: none;
+      border-color: rgba(0, 0, 0, 0.2);
+      box-shadow: none; }
+      popover.background button:focus:focus, popover.background button:focus:hover, popover.background button:hover:focus, popover.background button:hover:hover, popover.background button.flat:focus:focus, popover.background button.flat:focus:hover, popover.background button.flat:hover:focus, popover.background button.flat:hover:hover {
+        border-color: rgba(0, 0, 0, 0.2); }
+      popover.background button:focus:active, popover.background button:focus:active:hover, popover.background button:focus:active:focus, popover.background button:focus:active:hover:focus, popover.background button:focus:checked, popover.background button:focus:checked:hover, popover.background button:focus:checked:focus, popover.background button:focus:checked:hover:focus, popover.background button:hover:active, popover.background button:hover:active:hover, popover.background button:hover:active:focus, popover.background button:hover:active:hover:focus, popover.background button:hover:checked, popover.background button:hover:checked:hover, popover.background button:hover:checked:focus, popover.background button:hover:checked:hover:focus, popover.background button.flat:focus:active, popover.background button.flat:focus:active:hover, popover.background button.flat:focus:active:focus, popover.background button.flat:focus:active:hover:focus, popover.background button.flat:focus:checked, popover.background button.flat:focus:checked:hover, popover.background button.flat:focus:checked:focus, popover.background button.flat:focus:checked:hover:focus, popover.background button.flat:hover:active, popover.background button.flat:hover:active:hover, popover.background button.flat:hover:active:focus, popover.background button.flat:hover:active:hover:focus, popover.background button.flat:hover:checked, popover.background button.flat:hover:checked:hover, popover.background button.flat:hover:checked:focus, popover.background button.flat:hover:checked:hover:focus {
+        border-color: rgba(0, 0, 0, 0.2); }
+      popover.background button:focus:disabled, popover.background button:hover:disabled, popover.background button.flat:focus:disabled, popover.background button.flat:hover:disabled {
+        border-color: rgba(0, 0, 0, 0.2); }
+      popover.background button:focus:active:disabled, popover.background button:focus:checked:disabled, popover.background button:hover:active:disabled, popover.background button:hover:checked:disabled, popover.background button.flat:focus:active:disabled, popover.background button.flat:focus:checked:disabled, popover.background button.flat:hover:active:disabled, popover.background button.flat:hover:checked:disabled {
+        border-color: rgba(0, 0, 0, 0.2); }
+    popover.background button:active, popover.background button:checked, popover.background button.flat:active, popover.background button.flat:checked {
+      background-color: #9ca9b5;
+      background-image: none;
       color: #f5f5f5;
-      box-shadow: none;
-      border-color: #22b3c5;
       background-color: #26c6da; }
-      popover.background button:checked:focus, popover.background button:checked:hover, popover.background button:active:focus, popover.background button:active:hover, popover.background button.flat:checked:focus, popover.background button.flat:checked:hover, popover.background button.flat:active:focus, popover.background button.flat:active:hover {
+      popover.background button:active:focus, popover.background button:active:hover, popover.background button:checked:focus, popover.background button:checked:hover, popover.background button.flat:active:focus, popover.background button.flat:active:hover, popover.background button.flat:checked:focus, popover.background button.flat:checked:hover {
+        background-color: #8f9dab;
+        background-image: none;
         color: #f5f5f5;
-        border-color: #1e9faf;
         background-color: #26c6da; }
     popover.background button:focus, popover.background button:hover, popover.background button.flat:focus, popover.background button.flat:hover {
-      color: #ffffff; }
+      color: #939fb4; }
     popover.background button:active:disabled, popover.background button:checked:disabled, popover.background button.flat:active:disabled, popover.background button.flat:checked:disabled {
       background-color: #d3d9de;
       background-image: none;
@@ -2432,7 +2814,6 @@ popover.background {
       background-color: #e1e5e9;
       background-image: none;
       color: mix(#eff1f3,#939fb4,0.5);
-      border-color: mix(#eff1f3,#939fb4,0.5);
       box-shadow: none; }
     popover.background button:active {
       color: #939fb4; }
@@ -2528,29 +2909,47 @@ frame.app-notification {
   frame.app-notification button {
     background-color: rgba(239, 241, 243, 0.8);
     background-image: none;
-    border-color: rgba(184, 193, 202, 0.8);
+    border-color: rgba(0, 0, 0, 0.12);
     color: #939fb4;
     box-shadow: none; }
+    frame.app-notification button:focus, frame.app-notification button:hover {
+      border-color: rgba(0, 0, 0, 0.12); }
+    frame.app-notification button:active, frame.app-notification button:active:hover, frame.app-notification button:active:focus, frame.app-notification button:active:hover:focus, frame.app-notification button:checked, frame.app-notification button:checked:hover, frame.app-notification button:checked:focus, frame.app-notification button:checked:hover:focus {
+      border-color: rgba(0, 0, 0, 0.12); }
+    frame.app-notification button:disabled {
+      border-color: rgba(0, 0, 0, 0.12); }
+    frame.app-notification button:active:disabled, frame.app-notification button:checked:disabled {
+      border-color: rgba(0, 0, 0, 0.12); }
     frame.app-notification button.flat {
       border-color: rgba(239, 241, 243, 0);
       background-color: rgba(239, 241, 243, 0);
       background-image: none;
       box-shadow: none; }
     frame.app-notification button:focus, frame.app-notification button:hover, frame.app-notification button.flat:focus, frame.app-notification button.flat:hover {
-      box-shadow: none;
-      background-color: #26c6da;
-      border-color: #1e9faf; }
-    frame.app-notification button:checked, frame.app-notification button:active, frame.app-notification button.flat:checked, frame.app-notification button.flat:active {
+      background-color: rgba(255, 255, 255, 0.8);
+      background-image: none;
+      border-color: rgba(0, 0, 0, 0.2);
+      box-shadow: none; }
+      frame.app-notification button:focus:focus, frame.app-notification button:focus:hover, frame.app-notification button:hover:focus, frame.app-notification button:hover:hover, frame.app-notification button.flat:focus:focus, frame.app-notification button.flat:focus:hover, frame.app-notification button.flat:hover:focus, frame.app-notification button.flat:hover:hover {
+        border-color: rgba(0, 0, 0, 0.2); }
+      frame.app-notification button:focus:active, frame.app-notification button:focus:active:hover, frame.app-notification button:focus:active:focus, frame.app-notification button:focus:active:hover:focus, frame.app-notification button:focus:checked, frame.app-notification button:focus:checked:hover, frame.app-notification button:focus:checked:focus, frame.app-notification button:focus:checked:hover:focus, frame.app-notification button:hover:active, frame.app-notification button:hover:active:hover, frame.app-notification button:hover:active:focus, frame.app-notification button:hover:active:hover:focus, frame.app-notification button:hover:checked, frame.app-notification button:hover:checked:hover, frame.app-notification button:hover:checked:focus, frame.app-notification button:hover:checked:hover:focus, frame.app-notification button.flat:focus:active, frame.app-notification button.flat:focus:active:hover, frame.app-notification button.flat:focus:active:focus, frame.app-notification button.flat:focus:active:hover:focus, frame.app-notification button.flat:focus:checked, frame.app-notification button.flat:focus:checked:hover, frame.app-notification button.flat:focus:checked:focus, frame.app-notification button.flat:focus:checked:hover:focus, frame.app-notification button.flat:hover:active, frame.app-notification button.flat:hover:active:hover, frame.app-notification button.flat:hover:active:focus, frame.app-notification button.flat:hover:active:hover:focus, frame.app-notification button.flat:hover:checked, frame.app-notification button.flat:hover:checked:hover, frame.app-notification button.flat:hover:checked:focus, frame.app-notification button.flat:hover:checked:hover:focus {
+        border-color: rgba(0, 0, 0, 0.2); }
+      frame.app-notification button:focus:disabled, frame.app-notification button:hover:disabled, frame.app-notification button.flat:focus:disabled, frame.app-notification button.flat:hover:disabled {
+        border-color: rgba(0, 0, 0, 0.2); }
+      frame.app-notification button:focus:active:disabled, frame.app-notification button:focus:checked:disabled, frame.app-notification button:hover:active:disabled, frame.app-notification button:hover:checked:disabled, frame.app-notification button.flat:focus:active:disabled, frame.app-notification button.flat:focus:checked:disabled, frame.app-notification button.flat:hover:active:disabled, frame.app-notification button.flat:hover:checked:disabled {
+        border-color: rgba(0, 0, 0, 0.2); }
+    frame.app-notification button:active, frame.app-notification button:checked, frame.app-notification button.flat:active, frame.app-notification button.flat:checked {
+      background-color: rgba(156, 169, 181, 0.8);
+      background-image: none;
       color: #f5f5f5;
-      box-shadow: none;
-      border-color: #22b3c5;
       background-color: #26c6da; }
-      frame.app-notification button:checked:focus, frame.app-notification button:checked:hover, frame.app-notification button:active:focus, frame.app-notification button:active:hover, frame.app-notification button.flat:checked:focus, frame.app-notification button.flat:checked:hover, frame.app-notification button.flat:active:focus, frame.app-notification button.flat:active:hover {
+      frame.app-notification button:active:focus, frame.app-notification button:active:hover, frame.app-notification button:checked:focus, frame.app-notification button:checked:hover, frame.app-notification button.flat:active:focus, frame.app-notification button.flat:active:hover, frame.app-notification button.flat:checked:focus, frame.app-notification button.flat:checked:hover {
+        background-color: rgba(143, 157, 171, 0.8);
+        background-image: none;
         color: #f5f5f5;
-        border-color: #1e9faf;
         background-color: #26c6da; }
     frame.app-notification button:focus, frame.app-notification button:hover, frame.app-notification button.flat:focus, frame.app-notification button.flat:hover {
-      color: #ffffff; }
+      color: #939fb4; }
     frame.app-notification button:active:disabled, frame.app-notification button:checked:disabled, frame.app-notification button.flat:active:disabled, frame.app-notification button.flat:checked:disabled {
       background-color: rgba(211, 217, 222, 0.8);
       background-image: none;
@@ -2560,7 +2959,6 @@ frame.app-notification {
       background-color: rgba(225, 229, 233, 0.8);
       background-image: none;
       color: mix(rgba(239, 241, 243, 0.8),#939fb4,0.5);
-      border-color: mix(rgba(239, 241, 243, 0.8),#939fb4,0.5);
       box-shadow: none; }
     frame.app-notification button:active {
       color: #939fb4; }
@@ -2732,182 +3130,139 @@ textview text selection, treeview.view:selected:focus, treeview.view:selected, .
       textview text selection:backdrop:disabled, .cs-category-view:backdrop:disabled:selected, .background:not(.csd):not(.solid-csd) > box.vertical > notebook.frame > stack > scrolledwindow > viewport > box.vertical > frame > box.vertical iconview:backdrop:disabled:selected, .nemo-window .sidebar .nemo-places-sidebar .view:backdrop:disabled:selected, .nemo-window .sidebar .nemo-places-sidebar iconview:backdrop:disabled:selected {
         color: mix(#eff1f3,#26c6da,0.3); }
 
-notebook.frame {
-  border: solid 1px #d0d0d0; }
-  notebook.frame.top {
-    margin-bottom: 0; }
-  notebook.frame.right {
-    margin-left: 0; }
-  notebook.frame.bottom {
-    margin-top: 0; }
-  notebook.frame.left {
-    margin-right: 0; }
-  notebook.frame.top, notebook.frame.bottom {
-    padding-left: 0;
-    padding-right: 0; }
-  notebook.frame.left, notebook.frame.right {
-    padding-top: 0;
-    padding-bottom: 0; }
-
-notebook > header {
-  margin: -1px;
-  background-color: #f5f5f5;
-  color: #0b0b0b; }
-  notebook > header.top {
-    box-shadow: inset 0 -1px #d0d0d0; }
-  notebook > header.right {
-    box-shadow: inset 1px 0 #d0d0d0; }
-  notebook > header.bottom {
-    box-shadow: inset 0 1px #d0d0d0; }
-  notebook > header.left {
-    box-shadow: inset -1px 0 #d0d0d0; }
-  notebook > header.top > tabs > arrow {
-    border-top-style: none; }
-  notebook > header.bottom > tabs > arrow {
-    border-bottom-style: none; }
-  notebook > header.top > tabs > arrow, notebook > header.bottom > tabs > arrow {
-    padding-left: 4px;
-    padding-right: 4px; }
-    notebook > header.top > tabs > arrow.down, notebook > header.bottom > tabs > arrow.down {
-      -gtk-icon-source: -gtk-icontheme("pan-start-symbolic"); }
+notebook {
+  padding: 0; }
+  notebook.frame {
+    border: 1px solid #d0d0d0; }
+    notebook.frame > header {
+      margin: -1px; }
+      notebook.frame > header.top {
+        margin-bottom: 0; }
+      notebook.frame > header.bottom {
+        margin-top: 0; }
+      notebook.frame > header.left {
+        margin-right: 0; }
+      notebook.frame > header.right {
+        margin-left: 0; }
+      notebook.frame > header.top, notebook.frame > header.bottom {
+        padding-left: 0;
+        padding-right: 0; }
+      notebook.frame > header.left, notebook.frame > header.right {
+        padding-top: 0;
+        padding-bottom: 0; }
+  notebook > stack:not(:only-child) {
+    background-color: #eff1f3; }
+  notebook > header {
+    padding: 2px;
+    background-color: #f5f5f5; }
+    notebook > header.top {
+      box-shadow: inset 0 -1px #d0d0d0; }
+    notebook > header.bottom {
+      box-shadow: inset 0 1px #d0d0d0; }
+    notebook > header.right {
+      box-shadow: inset 1px 0 #d0d0d0; }
+    notebook > header.left {
+      box-shadow: inset -1px 0 #d0d0d0; }
+    notebook > header.top {
+      padding-bottom: 0; }
+      notebook > header.top > tabs > tab {
+        padding: 2px 10px;
+        min-width: 20px;
+        min-height: 20px;
+        outline-offset: -4px;
+        border: 1px solid transparent;
+        border-bottom: none;
+        border-radius: 1px 1px 0 0; }
+        notebook > header.top > tabs > tab + tab {
+          margin-left: -1px; }
+    notebook > header.bottom {
+      padding-top: 0; }
+      notebook > header.bottom > tabs > tab {
+        padding: 2px 10px;
+        min-width: 20px;
+        min-height: 20px;
+        outline-offset: -4px;
+        border: 1px solid transparent;
+        border-top: none;
+        border-radius: 0 0 1px 1px; }
+        notebook > header.bottom > tabs > tab + tab {
+          margin-left: -1px; }
+    notebook > header.right {
+      padding-left: 0; }
+      notebook > header.right > tabs > tab {
+        padding: 2px 10px;
+        min-width: 20px;
+        min-height: 20px;
+        outline-offset: -4px;
+        border: 1px solid transparent;
+        border-left: none;
+        border-radius: 0 1px 1px 0; }
+        notebook > header.right > tabs > tab + tab {
+          margin-top: -1px; }
+    notebook > header.left {
+      padding-right: 0; }
+      notebook > header.left > tabs > tab {
+        padding: 2px 10px;
+        min-width: 20px;
+        min-height: 20px;
+        outline-offset: -4px;
+        border: 1px solid transparent;
+        border-right: none;
+        border-radius: 1px 0 0 1px; }
+        notebook > header.left > tabs > tab + tab {
+          margin-top: -1px; }
     notebook > header.top > tabs > arrow.up, notebook > header.bottom > tabs > arrow.up {
       -gtk-icon-source: -gtk-icontheme("pan-end-symbolic"); }
-  notebook > header.left > tabs > arrow {
-    border-left-style: none; }
-  notebook > header.right > tabs > arrow {
-    border-right-style: none; }
-  notebook > header.left > tabs > arrow, notebook > header.right > tabs > arrow {
-    margin-top: 0;
-    margin-bottom: 0;
-    padding-top: 4px;
-    padding-bottom: 4px; }
-    notebook > header.left > tabs > arrow.down, notebook > header.right > tabs > arrow.down {
-      -gtk-icon-source: -gtk-icontheme("pan-up-symbolic"); }
+      notebook > header.top > tabs > arrow.up:last-child, notebook > header.bottom > tabs > arrow.up:last-child {
+        margin-left: 2px; }
+    notebook > header.top > tabs > arrow.down, notebook > header.bottom > tabs > arrow.down {
+      -gtk-icon-source: -gtk-icontheme("pan-start-symbolic"); }
+      notebook > header.top > tabs > arrow.down:first-child, notebook > header.bottom > tabs > arrow.down:first-child {
+        margin-right: 2px; }
     notebook > header.left > tabs > arrow.up, notebook > header.right > tabs > arrow.up {
       -gtk-icon-source: -gtk-icontheme("pan-down-symbolic"); }
-  notebook > header > tabs > arrow {
-    min-height: 16px;
-    min-width: 16px; }
-    notebook > header > tabs > arrow:hover:not(:active):not(:backdrop) {
-      background-clip: padding-box;
-      background-image: none;
-      background-color: rgba(245, 245, 245, 0.3);
-      border-color: transparent;
-      box-shadow: none; }
-  notebook > header tab {
-    border: solid 1px #eff1f3;
-    background-color: #eff1f3;
-    background-image: none;
-    box-shadow: none;
-    outline: none;
-    transition: all .2s linear;
-    /* close button */ }
-    notebook > header tab > box,
-    notebook > header tab > label,
-    notebook > header tab > widget > box {
-      padding: 5px 10px;
-      border: solid 1px transparent; }
-    notebook > header tab.reorderable-page > box,
-    notebook > header tab.reorderable-page > label,
-    notebook > header tab.reorderable-page > widget > box {
-      padding: 5px 10px; }
-    notebook > header tab button,
-    notebook > header tab button.flat {
-      min-height: 16px;
-      min-width: 16px;
-      padding: 0;
-      margin-left: 10px;
-      border: none;
-      transition: all .1s linear; }
-    notebook > header tab:hover {
-      background-color: lightgray; }
-      notebook > header tab:hover button,
-      notebook > header tab:hover button.flat {
-        background-color: #52d1e1;
-        border: none; }
-    notebook > header tab:checked {
-      background-color: #26c6da;
-      border-color: #21afc0; }
-      notebook > header tab:checked button,
-      notebook > header tab:checked button.flat {
-        background-color: #52d1e1;
-        border: none; }
-    notebook > header tab label {
-      color: mix(#0b0b0b,#eff1f3,0.3); }
-  notebook > header.top tab {
-    border-style: solid;
-    border-bottom: 0;
-    border-color: #d0d0d0;
-    border-radius: 2px 2px 0 0;
-    margin: 0 2px; }
-    notebook > header.top tab:checked {
-      background-color: #26c6da;
-      border-color: #21afc0; }
-      notebook > header.top tab:checked > box,
-      notebook > header.top tab:checked > label,
-      notebook > header.top tab:checked > widget > box {
-        background-color: #26c6da; }
-      notebook > header.top tab:checked label {
-        margin-bottom: 0;
-        color: #ffffff; }
-      notebook > header.top tab:checked:hover {
-        background-color: #26c6da; }
-  notebook > header.right tab {
-    border-style: solid;
-    border-color: #d0d0d0;
-    border-radius: 0 2px 2px 0;
-    margin: 2px 0; }
-    notebook > header.right tab:checked {
-      background-color: #26c6da;
-      border-color: #21afc0; }
-      notebook > header.right tab:checked > box,
-      notebook > header.right tab:checked > label,
-      notebook > header.right tab:checked > widget > box {
-        background-color: #26c6da; }
-      notebook > header.right tab:checked label {
-        margin-left: 0;
-        color: #ffffff; }
-      notebook > header.right tab:checked:hover {
-        background-color: #26c6da; }
-  notebook > header.bottom tab {
-    border-style: solid;
-    border-color: #d0d0d0;
-    border-radius: 0 0 2px 2px;
-    margin: 0 2px; }
-    notebook > header.bottom tab:checked {
-      background-color: #26c6da;
-      border-color: #21afc0; }
-      notebook > header.bottom tab:checked > box,
-      notebook > header.bottom tab:checked > label,
-      notebook > header.bottom tab:checked > widget > box {
-        background-color: #26c6da; }
-      notebook > header.bottom tab:checked label {
-        margin-top: 0;
-        color: #ffffff; }
-      notebook > header.bottom tab:checked:hover {
-        background-color: #26c6da; }
-  notebook > header.left tab {
-    border-style: solid;
-    border-color: #d0d0d0;
-    border-radius: 2px 0 0 2px;
-    margin: 2px 0; }
-    notebook > header.left tab:checked {
-      background-color: #26c6da;
-      border-color: #21afc0; }
-      notebook > header.left tab:checked > box,
-      notebook > header.left tab:checked > label,
-      notebook > header.left tab:checked > widget > box {
-        background-color: #26c6da; }
-      notebook > header.left tab:checked label {
-        margin-right: 0;
-        color: #ffffff; }
-      notebook > header.left tab:checked:hover {
-        background-color: #26c6da; }
-
-notebook > stack:not(:only-child) {
-  background-color: #eff1f3; }
-  notebook > stack:not(:only-child):backdrop {
-    background-color: #eff1f3; }
+      notebook > header.left > tabs > arrow.up:last-child, notebook > header.right > tabs > arrow.up:last-child {
+        margin-top: 2px; }
+    notebook > header.left > tabs > arrow.down, notebook > header.right > tabs > arrow.down {
+      -gtk-icon-source: -gtk-icontheme("pan-up-symbolic"); }
+      notebook > header.left > tabs > arrow.down:first-child, notebook > header.right > tabs > arrow.down:first-child {
+        margin-bottom: 2px; }
+    notebook > header > tabs > arrow {
+      color: mix(#4d4d4d,#f5f5f5,0.5); }
+      notebook > header > tabs > arrow:hover {
+        color: #4d4d4d; }
+      notebook > header > tabs > arrow:active {
+        color: #4d4d4d; }
+      notebook > header > tabs > arrow:disabled {
+        color: rgba(77, 77, 77, 0.7); }
+    notebook > header.top > tabs > tab:hover:not(:checked) {
+      box-shadow: inset 0 -1px #d0d0d0; }
+    notebook > header.bottom > tabs > tab:hover:not(:checked) {
+      box-shadow: inset 0 1px #d0d0d0; }
+    notebook > header.left > tabs > tab:hover:not(:checked) {
+      box-shadow: inset -1px 0 #d0d0d0; }
+    notebook > header.right > tabs > tab:hover:not(:checked) {
+      box-shadow: inset 1px 0 #d0d0d0; }
+    notebook > header > tabs > tab {
+      color: mix(#4d4d4d,#f5f5f5,0.5);
+      background-color: rgba(239, 241, 243, 0); }
+      notebook > header > tabs > tab:hover:not(:checked) {
+        color: mix(#4d4d4d,#f5f5f5,0.5);
+        background-color: rgba(239, 241, 243, 0.5);
+        border-color: #d0d0d0; }
+      notebook > header > tabs > tab:checked {
+        color: #4d4d4d;
+        background-color: #eff1f3;
+        border-color: #d0d0d0; }
+      notebook > header > tabs > tab button.flat {
+        min-height: 22px;
+        min-width: 16px;
+        padding: 0;
+        color: #f5f5f5; }
+        notebook > header > tabs > tab button.flat:hover {
+          color: #ff4d4d; }
+        notebook > header > tabs > tab button.flat:active, notebook > header > tabs > tab button.flat:active:hover {
+          color: #26c6da; }
 
 overlay.osd {
   background-color: transparent; }
@@ -2925,9 +3280,30 @@ button.osd,
 #XfceNotifyWindow button {
   background-color: rgba(239, 241, 243, 0.8);
   background-image: none;
-  border-color: rgba(184, 193, 202, 0.8);
+  border-color: rgba(0, 0, 0, 0.12);
   color: #939fb4;
   box-shadow: none; }
+  button.osd:focus, button.osd:hover,
+  #XfceNotifyWindow button:focus,
+  #XfceNotifyWindow button:hover {
+    border-color: rgba(0, 0, 0, 0.12); }
+  button.osd:active, button.osd:active:hover, button.osd:active:focus, button.osd:active:hover:focus, button.osd:checked, button.osd:checked:hover, button.osd:checked:focus, button.osd:checked:hover:focus,
+  #XfceNotifyWindow button:active,
+  #XfceNotifyWindow button:active:hover,
+  #XfceNotifyWindow button:active:focus,
+  #XfceNotifyWindow button:active:hover:focus,
+  #XfceNotifyWindow button:checked,
+  #XfceNotifyWindow button:checked:hover,
+  #XfceNotifyWindow button:checked:focus,
+  #XfceNotifyWindow button:checked:hover:focus {
+    border-color: rgba(0, 0, 0, 0.12); }
+  button.osd:disabled,
+  #XfceNotifyWindow button:disabled {
+    border-color: rgba(0, 0, 0, 0.12); }
+  button.osd:active:disabled, button.osd:checked:disabled,
+  #XfceNotifyWindow button:active:disabled,
+  #XfceNotifyWindow button:checked:disabled {
+    border-color: rgba(0, 0, 0, 0.12); }
   button.osd.flat,
   #XfceNotifyWindow button.flat {
     border-color: rgba(239, 241, 243, 0);
@@ -2939,36 +3315,98 @@ button.osd,
   #XfceNotifyWindow button:hover,
   #XfceNotifyWindow button.flat:focus,
   #XfceNotifyWindow button.flat:hover {
-    box-shadow: none;
-    background-color: #26c6da;
-    border-color: #1e9faf; }
-  button.osd:checked, button.osd:active, button.osd.flat:checked, button.osd.flat:active,
-  #XfceNotifyWindow button:checked,
+    background-color: rgba(255, 255, 255, 0.8);
+    background-image: none;
+    border-color: rgba(0, 0, 0, 0.2);
+    box-shadow: none; }
+    button.osd:focus:focus, button.osd:focus:hover, button.osd:hover:focus, button.osd:hover:hover, button.osd.flat:focus:focus, button.osd.flat:focus:hover, button.osd.flat:hover:focus, button.osd.flat:hover:hover,
+    #XfceNotifyWindow button:focus:focus,
+    #XfceNotifyWindow button:focus:hover,
+    #XfceNotifyWindow button:hover:focus,
+    #XfceNotifyWindow button:hover:hover,
+    #XfceNotifyWindow button.flat:focus:focus,
+    #XfceNotifyWindow button.flat:focus:hover,
+    #XfceNotifyWindow button.flat:hover:focus,
+    #XfceNotifyWindow button.flat:hover:hover {
+      border-color: rgba(0, 0, 0, 0.2); }
+    button.osd:focus:active, button.osd:focus:active:hover, button.osd:focus:active:focus, button.osd:focus:active:hover:focus, button.osd:focus:checked, button.osd:focus:checked:hover, button.osd:focus:checked:focus, button.osd:focus:checked:hover:focus, button.osd:hover:active, button.osd:hover:active:hover, button.osd:hover:active:focus, button.osd:hover:active:hover:focus, button.osd:hover:checked, button.osd:hover:checked:hover, button.osd:hover:checked:focus, button.osd:hover:checked:hover:focus, button.osd.flat:focus:active, button.osd.flat:focus:active:hover, button.osd.flat:focus:active:focus, button.osd.flat:focus:active:hover:focus, button.osd.flat:focus:checked, button.osd.flat:focus:checked:hover, button.osd.flat:focus:checked:focus, button.osd.flat:focus:checked:hover:focus, button.osd.flat:hover:active, button.osd.flat:hover:active:hover, button.osd.flat:hover:active:focus, button.osd.flat:hover:active:hover:focus, button.osd.flat:hover:checked, button.osd.flat:hover:checked:hover, button.osd.flat:hover:checked:focus, button.osd.flat:hover:checked:hover:focus,
+    #XfceNotifyWindow button:focus:active,
+    #XfceNotifyWindow button:focus:active:hover,
+    #XfceNotifyWindow button:focus:active:focus,
+    #XfceNotifyWindow button:focus:active:hover:focus,
+    #XfceNotifyWindow button:focus:checked,
+    #XfceNotifyWindow button:focus:checked:hover,
+    #XfceNotifyWindow button:focus:checked:focus,
+    #XfceNotifyWindow button:focus:checked:hover:focus,
+    #XfceNotifyWindow button:hover:active,
+    #XfceNotifyWindow button:hover:active:hover,
+    #XfceNotifyWindow button:hover:active:focus,
+    #XfceNotifyWindow button:hover:active:hover:focus,
+    #XfceNotifyWindow button:hover:checked,
+    #XfceNotifyWindow button:hover:checked:hover,
+    #XfceNotifyWindow button:hover:checked:focus,
+    #XfceNotifyWindow button:hover:checked:hover:focus,
+    #XfceNotifyWindow button.flat:focus:active,
+    #XfceNotifyWindow button.flat:focus:active:hover,
+    #XfceNotifyWindow button.flat:focus:active:focus,
+    #XfceNotifyWindow button.flat:focus:active:hover:focus,
+    #XfceNotifyWindow button.flat:focus:checked,
+    #XfceNotifyWindow button.flat:focus:checked:hover,
+    #XfceNotifyWindow button.flat:focus:checked:focus,
+    #XfceNotifyWindow button.flat:focus:checked:hover:focus,
+    #XfceNotifyWindow button.flat:hover:active,
+    #XfceNotifyWindow button.flat:hover:active:hover,
+    #XfceNotifyWindow button.flat:hover:active:focus,
+    #XfceNotifyWindow button.flat:hover:active:hover:focus,
+    #XfceNotifyWindow button.flat:hover:checked,
+    #XfceNotifyWindow button.flat:hover:checked:hover,
+    #XfceNotifyWindow button.flat:hover:checked:focus,
+    #XfceNotifyWindow button.flat:hover:checked:hover:focus {
+      border-color: rgba(0, 0, 0, 0.2); }
+    button.osd:focus:disabled, button.osd:hover:disabled, button.osd.flat:focus:disabled, button.osd.flat:hover:disabled,
+    #XfceNotifyWindow button:focus:disabled,
+    #XfceNotifyWindow button:hover:disabled,
+    #XfceNotifyWindow button.flat:focus:disabled,
+    #XfceNotifyWindow button.flat:hover:disabled {
+      border-color: rgba(0, 0, 0, 0.2); }
+    button.osd:focus:active:disabled, button.osd:focus:checked:disabled, button.osd:hover:active:disabled, button.osd:hover:checked:disabled, button.osd.flat:focus:active:disabled, button.osd.flat:focus:checked:disabled, button.osd.flat:hover:active:disabled, button.osd.flat:hover:checked:disabled,
+    #XfceNotifyWindow button:focus:active:disabled,
+    #XfceNotifyWindow button:focus:checked:disabled,
+    #XfceNotifyWindow button:hover:active:disabled,
+    #XfceNotifyWindow button:hover:checked:disabled,
+    #XfceNotifyWindow button.flat:focus:active:disabled,
+    #XfceNotifyWindow button.flat:focus:checked:disabled,
+    #XfceNotifyWindow button.flat:hover:active:disabled,
+    #XfceNotifyWindow button.flat:hover:checked:disabled {
+      border-color: rgba(0, 0, 0, 0.2); }
+  button.osd:active, button.osd:checked, button.osd.flat:active, button.osd.flat:checked,
   #XfceNotifyWindow button:active,
-  #XfceNotifyWindow button.flat:checked,
-  #XfceNotifyWindow button.flat:active {
+  #XfceNotifyWindow button:checked,
+  #XfceNotifyWindow button.flat:active,
+  #XfceNotifyWindow button.flat:checked {
+    background-color: rgba(156, 169, 181, 0.8);
+    background-image: none;
     color: #f5f5f5;
-    box-shadow: none;
-    border-color: #22b3c5;
     background-color: #26c6da; }
-    button.osd:checked:focus, button.osd:checked:hover, button.osd:active:focus, button.osd:active:hover, button.osd.flat:checked:focus, button.osd.flat:checked:hover, button.osd.flat:active:focus, button.osd.flat:active:hover,
-    #XfceNotifyWindow button:checked:focus,
-    #XfceNotifyWindow button:checked:hover,
+    button.osd:active:focus, button.osd:active:hover, button.osd:checked:focus, button.osd:checked:hover, button.osd.flat:active:focus, button.osd.flat:active:hover, button.osd.flat:checked:focus, button.osd.flat:checked:hover,
     #XfceNotifyWindow button:active:focus,
     #XfceNotifyWindow button:active:hover,
-    #XfceNotifyWindow button.flat:checked:focus,
-    #XfceNotifyWindow button.flat:checked:hover,
+    #XfceNotifyWindow button:checked:focus,
+    #XfceNotifyWindow button:checked:hover,
     #XfceNotifyWindow button.flat:active:focus,
-    #XfceNotifyWindow button.flat:active:hover {
+    #XfceNotifyWindow button.flat:active:hover,
+    #XfceNotifyWindow button.flat:checked:focus,
+    #XfceNotifyWindow button.flat:checked:hover {
+      background-color: rgba(143, 157, 171, 0.8);
+      background-image: none;
       color: #f5f5f5;
-      border-color: #1e9faf;
       background-color: #26c6da; }
   button.osd:focus, button.osd:hover, button.osd.flat:focus, button.osd.flat:hover,
   #XfceNotifyWindow button:focus,
   #XfceNotifyWindow button:hover,
   #XfceNotifyWindow button.flat:focus,
   #XfceNotifyWindow button.flat:hover {
-    color: #ffffff; }
+    color: #939fb4; }
   button.osd:active:disabled, button.osd:checked:disabled, button.osd.flat:active:disabled, button.osd.flat:checked:disabled,
   #XfceNotifyWindow button:active:disabled,
   #XfceNotifyWindow button:checked:disabled,
@@ -2984,7 +3422,6 @@ button.osd,
     background-color: rgba(225, 229, 233, 0.8);
     background-image: none;
     color: mix(rgba(239, 241, 243, 0.8),#939fb4,0.5);
-    border-color: mix(rgba(239, 241, 243, 0.8),#939fb4,0.5);
     box-shadow: none; }
   button.osd:active,
   #XfceNotifyWindow button:active {
@@ -3056,9 +3493,30 @@ progressbar.osd {
   #XfceNotifyWindow button {
     background-color: rgba(239, 241, 243, 0.8);
     background-image: none;
-    border-color: rgba(184, 193, 202, 0.8);
+    border-color: rgba(0, 0, 0, 0.12);
     color: #939fb4;
     box-shadow: none; }
+    .osd button:focus, .osd button:hover,
+    #XfceNotifyWindow button:focus,
+    #XfceNotifyWindow button:hover {
+      border-color: rgba(0, 0, 0, 0.12); }
+    .osd button:active, .osd button:active:hover, .osd button:active:focus, .osd button:active:hover:focus, .osd button:checked, .osd button:checked:hover, .osd button:checked:focus, .osd button:checked:hover:focus,
+    #XfceNotifyWindow button:active,
+    #XfceNotifyWindow button:active:hover,
+    #XfceNotifyWindow button:active:focus,
+    #XfceNotifyWindow button:active:hover:focus,
+    #XfceNotifyWindow button:checked,
+    #XfceNotifyWindow button:checked:hover,
+    #XfceNotifyWindow button:checked:focus,
+    #XfceNotifyWindow button:checked:hover:focus {
+      border-color: rgba(0, 0, 0, 0.12); }
+    .osd button:disabled,
+    #XfceNotifyWindow button:disabled {
+      border-color: rgba(0, 0, 0, 0.12); }
+    .osd button:active:disabled, .osd button:checked:disabled,
+    #XfceNotifyWindow button:active:disabled,
+    #XfceNotifyWindow button:checked:disabled {
+      border-color: rgba(0, 0, 0, 0.12); }
     .osd button.flat,
     #XfceNotifyWindow button.flat {
       border-color: rgba(239, 241, 243, 0);
@@ -3070,36 +3528,98 @@ progressbar.osd {
     #XfceNotifyWindow button:hover,
     #XfceNotifyWindow button.flat:focus,
     #XfceNotifyWindow button.flat:hover {
-      box-shadow: none;
-      background-color: #26c6da;
-      border-color: #1e9faf; }
-    .osd button:checked, .osd button:active, .osd button.flat:checked, .osd button.flat:active,
-    #XfceNotifyWindow button:checked,
+      background-color: rgba(255, 255, 255, 0.8);
+      background-image: none;
+      border-color: rgba(0, 0, 0, 0.2);
+      box-shadow: none; }
+      .osd button:focus:focus, .osd button:focus:hover, .osd button:hover:focus, .osd button:hover:hover, .osd button.flat:focus:focus, .osd button.flat:focus:hover, .osd button.flat:hover:focus, .osd button.flat:hover:hover,
+      #XfceNotifyWindow button:focus:focus,
+      #XfceNotifyWindow button:focus:hover,
+      #XfceNotifyWindow button:hover:focus,
+      #XfceNotifyWindow button:hover:hover,
+      #XfceNotifyWindow button.flat:focus:focus,
+      #XfceNotifyWindow button.flat:focus:hover,
+      #XfceNotifyWindow button.flat:hover:focus,
+      #XfceNotifyWindow button.flat:hover:hover {
+        border-color: rgba(0, 0, 0, 0.2); }
+      .osd button:focus:active, .osd button:focus:active:hover, .osd button:focus:active:focus, .osd button:focus:active:hover:focus, .osd button:focus:checked, .osd button:focus:checked:hover, .osd button:focus:checked:focus, .osd button:focus:checked:hover:focus, .osd button:hover:active, .osd button:hover:active:hover, .osd button:hover:active:focus, .osd button:hover:active:hover:focus, .osd button:hover:checked, .osd button:hover:checked:hover, .osd button:hover:checked:focus, .osd button:hover:checked:hover:focus, .osd button.flat:focus:active, .osd button.flat:focus:active:hover, .osd button.flat:focus:active:focus, .osd button.flat:focus:active:hover:focus, .osd button.flat:focus:checked, .osd button.flat:focus:checked:hover, .osd button.flat:focus:checked:focus, .osd button.flat:focus:checked:hover:focus, .osd button.flat:hover:active, .osd button.flat:hover:active:hover, .osd button.flat:hover:active:focus, .osd button.flat:hover:active:hover:focus, .osd button.flat:hover:checked, .osd button.flat:hover:checked:hover, .osd button.flat:hover:checked:focus, .osd button.flat:hover:checked:hover:focus,
+      #XfceNotifyWindow button:focus:active,
+      #XfceNotifyWindow button:focus:active:hover,
+      #XfceNotifyWindow button:focus:active:focus,
+      #XfceNotifyWindow button:focus:active:hover:focus,
+      #XfceNotifyWindow button:focus:checked,
+      #XfceNotifyWindow button:focus:checked:hover,
+      #XfceNotifyWindow button:focus:checked:focus,
+      #XfceNotifyWindow button:focus:checked:hover:focus,
+      #XfceNotifyWindow button:hover:active,
+      #XfceNotifyWindow button:hover:active:hover,
+      #XfceNotifyWindow button:hover:active:focus,
+      #XfceNotifyWindow button:hover:active:hover:focus,
+      #XfceNotifyWindow button:hover:checked,
+      #XfceNotifyWindow button:hover:checked:hover,
+      #XfceNotifyWindow button:hover:checked:focus,
+      #XfceNotifyWindow button:hover:checked:hover:focus,
+      #XfceNotifyWindow button.flat:focus:active,
+      #XfceNotifyWindow button.flat:focus:active:hover,
+      #XfceNotifyWindow button.flat:focus:active:focus,
+      #XfceNotifyWindow button.flat:focus:active:hover:focus,
+      #XfceNotifyWindow button.flat:focus:checked,
+      #XfceNotifyWindow button.flat:focus:checked:hover,
+      #XfceNotifyWindow button.flat:focus:checked:focus,
+      #XfceNotifyWindow button.flat:focus:checked:hover:focus,
+      #XfceNotifyWindow button.flat:hover:active,
+      #XfceNotifyWindow button.flat:hover:active:hover,
+      #XfceNotifyWindow button.flat:hover:active:focus,
+      #XfceNotifyWindow button.flat:hover:active:hover:focus,
+      #XfceNotifyWindow button.flat:hover:checked,
+      #XfceNotifyWindow button.flat:hover:checked:hover,
+      #XfceNotifyWindow button.flat:hover:checked:focus,
+      #XfceNotifyWindow button.flat:hover:checked:hover:focus {
+        border-color: rgba(0, 0, 0, 0.2); }
+      .osd button:focus:disabled, .osd button:hover:disabled, .osd button.flat:focus:disabled, .osd button.flat:hover:disabled,
+      #XfceNotifyWindow button:focus:disabled,
+      #XfceNotifyWindow button:hover:disabled,
+      #XfceNotifyWindow button.flat:focus:disabled,
+      #XfceNotifyWindow button.flat:hover:disabled {
+        border-color: rgba(0, 0, 0, 0.2); }
+      .osd button:focus:active:disabled, .osd button:focus:checked:disabled, .osd button:hover:active:disabled, .osd button:hover:checked:disabled, .osd button.flat:focus:active:disabled, .osd button.flat:focus:checked:disabled, .osd button.flat:hover:active:disabled, .osd button.flat:hover:checked:disabled,
+      #XfceNotifyWindow button:focus:active:disabled,
+      #XfceNotifyWindow button:focus:checked:disabled,
+      #XfceNotifyWindow button:hover:active:disabled,
+      #XfceNotifyWindow button:hover:checked:disabled,
+      #XfceNotifyWindow button.flat:focus:active:disabled,
+      #XfceNotifyWindow button.flat:focus:checked:disabled,
+      #XfceNotifyWindow button.flat:hover:active:disabled,
+      #XfceNotifyWindow button.flat:hover:checked:disabled {
+        border-color: rgba(0, 0, 0, 0.2); }
+    .osd button:active, .osd button:checked, .osd button.flat:active, .osd button.flat:checked,
     #XfceNotifyWindow button:active,
-    #XfceNotifyWindow button.flat:checked,
-    #XfceNotifyWindow button.flat:active {
+    #XfceNotifyWindow button:checked,
+    #XfceNotifyWindow button.flat:active,
+    #XfceNotifyWindow button.flat:checked {
+      background-color: rgba(156, 169, 181, 0.8);
+      background-image: none;
       color: #f5f5f5;
-      box-shadow: none;
-      border-color: #22b3c5;
       background-color: #26c6da; }
-      .osd button:checked:focus, .osd button:checked:hover, .osd button:active:focus, .osd button:active:hover, .osd button.flat:checked:focus, .osd button.flat:checked:hover, .osd button.flat:active:focus, .osd button.flat:active:hover,
-      #XfceNotifyWindow button:checked:focus,
-      #XfceNotifyWindow button:checked:hover,
+      .osd button:active:focus, .osd button:active:hover, .osd button:checked:focus, .osd button:checked:hover, .osd button.flat:active:focus, .osd button.flat:active:hover, .osd button.flat:checked:focus, .osd button.flat:checked:hover,
       #XfceNotifyWindow button:active:focus,
       #XfceNotifyWindow button:active:hover,
-      #XfceNotifyWindow button.flat:checked:focus,
-      #XfceNotifyWindow button.flat:checked:hover,
+      #XfceNotifyWindow button:checked:focus,
+      #XfceNotifyWindow button:checked:hover,
       #XfceNotifyWindow button.flat:active:focus,
-      #XfceNotifyWindow button.flat:active:hover {
+      #XfceNotifyWindow button.flat:active:hover,
+      #XfceNotifyWindow button.flat:checked:focus,
+      #XfceNotifyWindow button.flat:checked:hover {
+        background-color: rgba(143, 157, 171, 0.8);
+        background-image: none;
         color: #f5f5f5;
-        border-color: #1e9faf;
         background-color: #26c6da; }
     .osd button:focus, .osd button:hover, .osd button.flat:focus, .osd button.flat:hover,
     #XfceNotifyWindow button:focus,
     #XfceNotifyWindow button:hover,
     #XfceNotifyWindow button.flat:focus,
     #XfceNotifyWindow button.flat:hover {
-      color: #ffffff; }
+      color: #939fb4; }
     .osd button:active:disabled, .osd button:checked:disabled, .osd button.flat:active:disabled, .osd button.flat:checked:disabled,
     #XfceNotifyWindow button:active:disabled,
     #XfceNotifyWindow button:checked:disabled,
@@ -3115,7 +3635,6 @@ progressbar.osd {
       background-color: rgba(225, 229, 233, 0.8);
       background-image: none;
       color: mix(rgba(239, 241, 243, 0.8),#939fb4,0.5);
-      border-color: mix(rgba(239, 241, 243, 0.8),#939fb4,0.5);
       box-shadow: none; }
     .osd button:active,
     #XfceNotifyWindow button:active {
@@ -3332,7 +3851,7 @@ progressbar.osd {
     #XfceNotifyWindow spinbutton:not(.vertical) button {
       background-color: rgba(239, 241, 243, 0.8);
       background-image: none;
-      border-color: rgba(184, 193, 202, 0.8);
+      border-color: rgba(0, 0, 0, 0.12);
       color: #939fb4;
       box-shadow: none;
       border-radius: 0;
@@ -3340,6 +3859,27 @@ progressbar.osd {
       border-style: none none none solid;
       background-image: none;
       box-shadow: none; }
+      .osd spinbutton:not(.vertical) button:focus, .osd spinbutton:not(.vertical) button:hover,
+      #XfceNotifyWindow spinbutton:not(.vertical) button:focus,
+      #XfceNotifyWindow spinbutton:not(.vertical) button:hover {
+        border-color: rgba(0, 0, 0, 0.12); }
+      .osd spinbutton:not(.vertical) button:active, .osd spinbutton:not(.vertical) button:active:hover, .osd spinbutton:not(.vertical) button:active:focus, .osd spinbutton:not(.vertical) button:active:hover:focus, .osd spinbutton:not(.vertical) button:checked, .osd spinbutton:not(.vertical) button:checked:hover, .osd spinbutton:not(.vertical) button:checked:focus, .osd spinbutton:not(.vertical) button:checked:hover:focus,
+      #XfceNotifyWindow spinbutton:not(.vertical) button:active,
+      #XfceNotifyWindow spinbutton:not(.vertical) button:active:hover,
+      #XfceNotifyWindow spinbutton:not(.vertical) button:active:focus,
+      #XfceNotifyWindow spinbutton:not(.vertical) button:active:hover:focus,
+      #XfceNotifyWindow spinbutton:not(.vertical) button:checked,
+      #XfceNotifyWindow spinbutton:not(.vertical) button:checked:hover,
+      #XfceNotifyWindow spinbutton:not(.vertical) button:checked:focus,
+      #XfceNotifyWindow spinbutton:not(.vertical) button:checked:hover:focus {
+        border-color: rgba(0, 0, 0, 0.12); }
+      .osd spinbutton:not(.vertical) button:disabled,
+      #XfceNotifyWindow spinbutton:not(.vertical) button:disabled {
+        border-color: rgba(0, 0, 0, 0.12); }
+      .osd spinbutton:not(.vertical) button:active:disabled, .osd spinbutton:not(.vertical) button:checked:disabled,
+      #XfceNotifyWindow spinbutton:not(.vertical) button:active:disabled,
+      #XfceNotifyWindow spinbutton:not(.vertical) button:checked:disabled {
+        border-color: rgba(0, 0, 0, 0.12); }
       .osd spinbutton:not(.vertical) button.flat,
       #XfceNotifyWindow spinbutton:not(.vertical) button.flat {
         border-color: rgba(239, 241, 243, 0);
@@ -3351,36 +3891,98 @@ progressbar.osd {
       #XfceNotifyWindow spinbutton:not(.vertical) button:hover,
       #XfceNotifyWindow spinbutton:not(.vertical) button.flat:focus,
       #XfceNotifyWindow spinbutton:not(.vertical) button.flat:hover {
-        box-shadow: none;
-        background-color: #26c6da;
-        border-color: #1e9faf; }
-      .osd spinbutton:not(.vertical) button:checked, .osd spinbutton:not(.vertical) button:active, .osd spinbutton:not(.vertical) button.flat:checked, .osd spinbutton:not(.vertical) button.flat:active,
-      #XfceNotifyWindow spinbutton:not(.vertical) button:checked,
+        background-color: rgba(255, 255, 255, 0.8);
+        background-image: none;
+        border-color: rgba(0, 0, 0, 0.2);
+        box-shadow: none; }
+        .osd spinbutton:not(.vertical) button:focus:focus, .osd spinbutton:not(.vertical) button:focus:hover, .osd spinbutton:not(.vertical) button:hover:focus, .osd spinbutton:not(.vertical) button:hover:hover, .osd spinbutton:not(.vertical) button.flat:focus:focus, .osd spinbutton:not(.vertical) button.flat:focus:hover, .osd spinbutton:not(.vertical) button.flat:hover:focus, .osd spinbutton:not(.vertical) button.flat:hover:hover,
+        #XfceNotifyWindow spinbutton:not(.vertical) button:focus:focus,
+        #XfceNotifyWindow spinbutton:not(.vertical) button:focus:hover,
+        #XfceNotifyWindow spinbutton:not(.vertical) button:hover:focus,
+        #XfceNotifyWindow spinbutton:not(.vertical) button:hover:hover,
+        #XfceNotifyWindow spinbutton:not(.vertical) button.flat:focus:focus,
+        #XfceNotifyWindow spinbutton:not(.vertical) button.flat:focus:hover,
+        #XfceNotifyWindow spinbutton:not(.vertical) button.flat:hover:focus,
+        #XfceNotifyWindow spinbutton:not(.vertical) button.flat:hover:hover {
+          border-color: rgba(0, 0, 0, 0.2); }
+        .osd spinbutton:not(.vertical) button:focus:active, .osd spinbutton:not(.vertical) button:focus:active:hover, .osd spinbutton:not(.vertical) button:focus:active:focus, .osd spinbutton:not(.vertical) button:focus:active:hover:focus, .osd spinbutton:not(.vertical) button:focus:checked, .osd spinbutton:not(.vertical) button:focus:checked:hover, .osd spinbutton:not(.vertical) button:focus:checked:focus, .osd spinbutton:not(.vertical) button:focus:checked:hover:focus, .osd spinbutton:not(.vertical) button:hover:active, .osd spinbutton:not(.vertical) button:hover:active:hover, .osd spinbutton:not(.vertical) button:hover:active:focus, .osd spinbutton:not(.vertical) button:hover:active:hover:focus, .osd spinbutton:not(.vertical) button:hover:checked, .osd spinbutton:not(.vertical) button:hover:checked:hover, .osd spinbutton:not(.vertical) button:hover:checked:focus, .osd spinbutton:not(.vertical) button:hover:checked:hover:focus, .osd spinbutton:not(.vertical) button.flat:focus:active, .osd spinbutton:not(.vertical) button.flat:focus:active:hover, .osd spinbutton:not(.vertical) button.flat:focus:active:focus, .osd spinbutton:not(.vertical) button.flat:focus:active:hover:focus, .osd spinbutton:not(.vertical) button.flat:focus:checked, .osd spinbutton:not(.vertical) button.flat:focus:checked:hover, .osd spinbutton:not(.vertical) button.flat:focus:checked:focus, .osd spinbutton:not(.vertical) button.flat:focus:checked:hover:focus, .osd spinbutton:not(.vertical) button.flat:hover:active, .osd spinbutton:not(.vertical) button.flat:hover:active:hover, .osd spinbutton:not(.vertical) button.flat:hover:active:focus, .osd spinbutton:not(.vertical) button.flat:hover:active:hover:focus, .osd spinbutton:not(.vertical) button.flat:hover:checked, .osd spinbutton:not(.vertical) button.flat:hover:checked:hover, .osd spinbutton:not(.vertical) button.flat:hover:checked:focus, .osd spinbutton:not(.vertical) button.flat:hover:checked:hover:focus,
+        #XfceNotifyWindow spinbutton:not(.vertical) button:focus:active,
+        #XfceNotifyWindow spinbutton:not(.vertical) button:focus:active:hover,
+        #XfceNotifyWindow spinbutton:not(.vertical) button:focus:active:focus,
+        #XfceNotifyWindow spinbutton:not(.vertical) button:focus:active:hover:focus,
+        #XfceNotifyWindow spinbutton:not(.vertical) button:focus:checked,
+        #XfceNotifyWindow spinbutton:not(.vertical) button:focus:checked:hover,
+        #XfceNotifyWindow spinbutton:not(.vertical) button:focus:checked:focus,
+        #XfceNotifyWindow spinbutton:not(.vertical) button:focus:checked:hover:focus,
+        #XfceNotifyWindow spinbutton:not(.vertical) button:hover:active,
+        #XfceNotifyWindow spinbutton:not(.vertical) button:hover:active:hover,
+        #XfceNotifyWindow spinbutton:not(.vertical) button:hover:active:focus,
+        #XfceNotifyWindow spinbutton:not(.vertical) button:hover:active:hover:focus,
+        #XfceNotifyWindow spinbutton:not(.vertical) button:hover:checked,
+        #XfceNotifyWindow spinbutton:not(.vertical) button:hover:checked:hover,
+        #XfceNotifyWindow spinbutton:not(.vertical) button:hover:checked:focus,
+        #XfceNotifyWindow spinbutton:not(.vertical) button:hover:checked:hover:focus,
+        #XfceNotifyWindow spinbutton:not(.vertical) button.flat:focus:active,
+        #XfceNotifyWindow spinbutton:not(.vertical) button.flat:focus:active:hover,
+        #XfceNotifyWindow spinbutton:not(.vertical) button.flat:focus:active:focus,
+        #XfceNotifyWindow spinbutton:not(.vertical) button.flat:focus:active:hover:focus,
+        #XfceNotifyWindow spinbutton:not(.vertical) button.flat:focus:checked,
+        #XfceNotifyWindow spinbutton:not(.vertical) button.flat:focus:checked:hover,
+        #XfceNotifyWindow spinbutton:not(.vertical) button.flat:focus:checked:focus,
+        #XfceNotifyWindow spinbutton:not(.vertical) button.flat:focus:checked:hover:focus,
+        #XfceNotifyWindow spinbutton:not(.vertical) button.flat:hover:active,
+        #XfceNotifyWindow spinbutton:not(.vertical) button.flat:hover:active:hover,
+        #XfceNotifyWindow spinbutton:not(.vertical) button.flat:hover:active:focus,
+        #XfceNotifyWindow spinbutton:not(.vertical) button.flat:hover:active:hover:focus,
+        #XfceNotifyWindow spinbutton:not(.vertical) button.flat:hover:checked,
+        #XfceNotifyWindow spinbutton:not(.vertical) button.flat:hover:checked:hover,
+        #XfceNotifyWindow spinbutton:not(.vertical) button.flat:hover:checked:focus,
+        #XfceNotifyWindow spinbutton:not(.vertical) button.flat:hover:checked:hover:focus {
+          border-color: rgba(0, 0, 0, 0.2); }
+        .osd spinbutton:not(.vertical) button:focus:disabled, .osd spinbutton:not(.vertical) button:hover:disabled, .osd spinbutton:not(.vertical) button.flat:focus:disabled, .osd spinbutton:not(.vertical) button.flat:hover:disabled,
+        #XfceNotifyWindow spinbutton:not(.vertical) button:focus:disabled,
+        #XfceNotifyWindow spinbutton:not(.vertical) button:hover:disabled,
+        #XfceNotifyWindow spinbutton:not(.vertical) button.flat:focus:disabled,
+        #XfceNotifyWindow spinbutton:not(.vertical) button.flat:hover:disabled {
+          border-color: rgba(0, 0, 0, 0.2); }
+        .osd spinbutton:not(.vertical) button:focus:active:disabled, .osd spinbutton:not(.vertical) button:focus:checked:disabled, .osd spinbutton:not(.vertical) button:hover:active:disabled, .osd spinbutton:not(.vertical) button:hover:checked:disabled, .osd spinbutton:not(.vertical) button.flat:focus:active:disabled, .osd spinbutton:not(.vertical) button.flat:focus:checked:disabled, .osd spinbutton:not(.vertical) button.flat:hover:active:disabled, .osd spinbutton:not(.vertical) button.flat:hover:checked:disabled,
+        #XfceNotifyWindow spinbutton:not(.vertical) button:focus:active:disabled,
+        #XfceNotifyWindow spinbutton:not(.vertical) button:focus:checked:disabled,
+        #XfceNotifyWindow spinbutton:not(.vertical) button:hover:active:disabled,
+        #XfceNotifyWindow spinbutton:not(.vertical) button:hover:checked:disabled,
+        #XfceNotifyWindow spinbutton:not(.vertical) button.flat:focus:active:disabled,
+        #XfceNotifyWindow spinbutton:not(.vertical) button.flat:focus:checked:disabled,
+        #XfceNotifyWindow spinbutton:not(.vertical) button.flat:hover:active:disabled,
+        #XfceNotifyWindow spinbutton:not(.vertical) button.flat:hover:checked:disabled {
+          border-color: rgba(0, 0, 0, 0.2); }
+      .osd spinbutton:not(.vertical) button:active, .osd spinbutton:not(.vertical) button:checked, .osd spinbutton:not(.vertical) button.flat:active, .osd spinbutton:not(.vertical) button.flat:checked,
       #XfceNotifyWindow spinbutton:not(.vertical) button:active,
-      #XfceNotifyWindow spinbutton:not(.vertical) button.flat:checked,
-      #XfceNotifyWindow spinbutton:not(.vertical) button.flat:active {
+      #XfceNotifyWindow spinbutton:not(.vertical) button:checked,
+      #XfceNotifyWindow spinbutton:not(.vertical) button.flat:active,
+      #XfceNotifyWindow spinbutton:not(.vertical) button.flat:checked {
+        background-color: rgba(156, 169, 181, 0.8);
+        background-image: none;
         color: #f5f5f5;
-        box-shadow: none;
-        border-color: #22b3c5;
         background-color: #26c6da; }
-        .osd spinbutton:not(.vertical) button:checked:focus, .osd spinbutton:not(.vertical) button:checked:hover, .osd spinbutton:not(.vertical) button:active:focus, .osd spinbutton:not(.vertical) button:active:hover, .osd spinbutton:not(.vertical) button.flat:checked:focus, .osd spinbutton:not(.vertical) button.flat:checked:hover, .osd spinbutton:not(.vertical) button.flat:active:focus, .osd spinbutton:not(.vertical) button.flat:active:hover,
-        #XfceNotifyWindow spinbutton:not(.vertical) button:checked:focus,
-        #XfceNotifyWindow spinbutton:not(.vertical) button:checked:hover,
+        .osd spinbutton:not(.vertical) button:active:focus, .osd spinbutton:not(.vertical) button:active:hover, .osd spinbutton:not(.vertical) button:checked:focus, .osd spinbutton:not(.vertical) button:checked:hover, .osd spinbutton:not(.vertical) button.flat:active:focus, .osd spinbutton:not(.vertical) button.flat:active:hover, .osd spinbutton:not(.vertical) button.flat:checked:focus, .osd spinbutton:not(.vertical) button.flat:checked:hover,
         #XfceNotifyWindow spinbutton:not(.vertical) button:active:focus,
         #XfceNotifyWindow spinbutton:not(.vertical) button:active:hover,
-        #XfceNotifyWindow spinbutton:not(.vertical) button.flat:checked:focus,
-        #XfceNotifyWindow spinbutton:not(.vertical) button.flat:checked:hover,
+        #XfceNotifyWindow spinbutton:not(.vertical) button:checked:focus,
+        #XfceNotifyWindow spinbutton:not(.vertical) button:checked:hover,
         #XfceNotifyWindow spinbutton:not(.vertical) button.flat:active:focus,
-        #XfceNotifyWindow spinbutton:not(.vertical) button.flat:active:hover {
+        #XfceNotifyWindow spinbutton:not(.vertical) button.flat:active:hover,
+        #XfceNotifyWindow spinbutton:not(.vertical) button.flat:checked:focus,
+        #XfceNotifyWindow spinbutton:not(.vertical) button.flat:checked:hover {
+          background-color: rgba(143, 157, 171, 0.8);
+          background-image: none;
           color: #f5f5f5;
-          border-color: #1e9faf;
           background-color: #26c6da; }
       .osd spinbutton:not(.vertical) button:focus, .osd spinbutton:not(.vertical) button:hover, .osd spinbutton:not(.vertical) button.flat:focus, .osd spinbutton:not(.vertical) button.flat:hover,
       #XfceNotifyWindow spinbutton:not(.vertical) button:focus,
       #XfceNotifyWindow spinbutton:not(.vertical) button:hover,
       #XfceNotifyWindow spinbutton:not(.vertical) button.flat:focus,
       #XfceNotifyWindow spinbutton:not(.vertical) button.flat:hover {
-        color: #ffffff; }
+        color: #939fb4; }
       .osd spinbutton:not(.vertical) button:active:disabled, .osd spinbutton:not(.vertical) button:checked:disabled, .osd spinbutton:not(.vertical) button.flat:active:disabled, .osd spinbutton:not(.vertical) button.flat:checked:disabled,
       #XfceNotifyWindow spinbutton:not(.vertical) button:active:disabled,
       #XfceNotifyWindow spinbutton:not(.vertical) button:checked:disabled,
@@ -3396,7 +3998,6 @@ progressbar.osd {
         background-color: rgba(225, 229, 233, 0.8);
         background-image: none;
         color: mix(rgba(239, 241, 243, 0.8),#939fb4,0.5);
-        border-color: mix(rgba(239, 241, 243, 0.8),#939fb4,0.5);
         box-shadow: none; }
       .osd spinbutton:not(.vertical) button:active,
       #XfceNotifyWindow spinbutton:not(.vertical) button:active {
@@ -3450,9 +4051,30 @@ progressbar.osd {
   #XfceNotifyWindow spinbutton.vertical button:first-child {
     background-color: rgba(239, 241, 243, 0.8);
     background-image: none;
-    border-color: rgba(184, 193, 202, 0.8);
+    border-color: rgba(0, 0, 0, 0.12);
     color: #939fb4;
     box-shadow: none; }
+    .osd spinbutton.vertical button:first-child:focus, .osd spinbutton.vertical button:first-child:hover,
+    #XfceNotifyWindow spinbutton.vertical button:first-child:focus,
+    #XfceNotifyWindow spinbutton.vertical button:first-child:hover {
+      border-color: rgba(0, 0, 0, 0.12); }
+    .osd spinbutton.vertical button:first-child:active, .osd spinbutton.vertical button:first-child:active:hover, .osd spinbutton.vertical button:first-child:active:focus, .osd spinbutton.vertical button:first-child:active:hover:focus, .osd spinbutton.vertical button:first-child:checked, .osd spinbutton.vertical button:first-child:checked:hover, .osd spinbutton.vertical button:first-child:checked:focus, .osd spinbutton.vertical button:first-child:checked:hover:focus,
+    #XfceNotifyWindow spinbutton.vertical button:first-child:active,
+    #XfceNotifyWindow spinbutton.vertical button:first-child:active:hover,
+    #XfceNotifyWindow spinbutton.vertical button:first-child:active:focus,
+    #XfceNotifyWindow spinbutton.vertical button:first-child:active:hover:focus,
+    #XfceNotifyWindow spinbutton.vertical button:first-child:checked,
+    #XfceNotifyWindow spinbutton.vertical button:first-child:checked:hover,
+    #XfceNotifyWindow spinbutton.vertical button:first-child:checked:focus,
+    #XfceNotifyWindow spinbutton.vertical button:first-child:checked:hover:focus {
+      border-color: rgba(0, 0, 0, 0.12); }
+    .osd spinbutton.vertical button:first-child:disabled,
+    #XfceNotifyWindow spinbutton.vertical button:first-child:disabled {
+      border-color: rgba(0, 0, 0, 0.12); }
+    .osd spinbutton.vertical button:first-child:active:disabled, .osd spinbutton.vertical button:first-child:checked:disabled,
+    #XfceNotifyWindow spinbutton.vertical button:first-child:active:disabled,
+    #XfceNotifyWindow spinbutton.vertical button:first-child:checked:disabled {
+      border-color: rgba(0, 0, 0, 0.12); }
     .osd spinbutton.vertical button:first-child.flat,
     #XfceNotifyWindow spinbutton.vertical button:first-child.flat {
       border-color: rgba(239, 241, 243, 0);
@@ -3464,36 +4086,98 @@ progressbar.osd {
     #XfceNotifyWindow spinbutton.vertical button:first-child:hover,
     #XfceNotifyWindow spinbutton.vertical button:first-child.flat:focus,
     #XfceNotifyWindow spinbutton.vertical button:first-child.flat:hover {
-      box-shadow: none;
-      background-color: #26c6da;
-      border-color: #1e9faf; }
-    .osd spinbutton.vertical button:first-child:checked, .osd spinbutton.vertical button:first-child:active, .osd spinbutton.vertical button:first-child.flat:checked, .osd spinbutton.vertical button:first-child.flat:active,
-    #XfceNotifyWindow spinbutton.vertical button:first-child:checked,
+      background-color: rgba(255, 255, 255, 0.8);
+      background-image: none;
+      border-color: rgba(0, 0, 0, 0.2);
+      box-shadow: none; }
+      .osd spinbutton.vertical button:first-child:focus:focus, .osd spinbutton.vertical button:first-child:focus:hover, .osd spinbutton.vertical button:first-child:hover:focus, .osd spinbutton.vertical button:first-child:hover:hover, .osd spinbutton.vertical button:first-child.flat:focus:focus, .osd spinbutton.vertical button:first-child.flat:focus:hover, .osd spinbutton.vertical button:first-child.flat:hover:focus, .osd spinbutton.vertical button:first-child.flat:hover:hover,
+      #XfceNotifyWindow spinbutton.vertical button:first-child:focus:focus,
+      #XfceNotifyWindow spinbutton.vertical button:first-child:focus:hover,
+      #XfceNotifyWindow spinbutton.vertical button:first-child:hover:focus,
+      #XfceNotifyWindow spinbutton.vertical button:first-child:hover:hover,
+      #XfceNotifyWindow spinbutton.vertical button:first-child.flat:focus:focus,
+      #XfceNotifyWindow spinbutton.vertical button:first-child.flat:focus:hover,
+      #XfceNotifyWindow spinbutton.vertical button:first-child.flat:hover:focus,
+      #XfceNotifyWindow spinbutton.vertical button:first-child.flat:hover:hover {
+        border-color: rgba(0, 0, 0, 0.2); }
+      .osd spinbutton.vertical button:first-child:focus:active, .osd spinbutton.vertical button:first-child:focus:active:hover, .osd spinbutton.vertical button:first-child:focus:active:focus, .osd spinbutton.vertical button:first-child:focus:active:hover:focus, .osd spinbutton.vertical button:first-child:focus:checked, .osd spinbutton.vertical button:first-child:focus:checked:hover, .osd spinbutton.vertical button:first-child:focus:checked:focus, .osd spinbutton.vertical button:first-child:focus:checked:hover:focus, .osd spinbutton.vertical button:first-child:hover:active, .osd spinbutton.vertical button:first-child:hover:active:hover, .osd spinbutton.vertical button:first-child:hover:active:focus, .osd spinbutton.vertical button:first-child:hover:active:hover:focus, .osd spinbutton.vertical button:first-child:hover:checked, .osd spinbutton.vertical button:first-child:hover:checked:hover, .osd spinbutton.vertical button:first-child:hover:checked:focus, .osd spinbutton.vertical button:first-child:hover:checked:hover:focus, .osd spinbutton.vertical button:first-child.flat:focus:active, .osd spinbutton.vertical button:first-child.flat:focus:active:hover, .osd spinbutton.vertical button:first-child.flat:focus:active:focus, .osd spinbutton.vertical button:first-child.flat:focus:active:hover:focus, .osd spinbutton.vertical button:first-child.flat:focus:checked, .osd spinbutton.vertical button:first-child.flat:focus:checked:hover, .osd spinbutton.vertical button:first-child.flat:focus:checked:focus, .osd spinbutton.vertical button:first-child.flat:focus:checked:hover:focus, .osd spinbutton.vertical button:first-child.flat:hover:active, .osd spinbutton.vertical button:first-child.flat:hover:active:hover, .osd spinbutton.vertical button:first-child.flat:hover:active:focus, .osd spinbutton.vertical button:first-child.flat:hover:active:hover:focus, .osd spinbutton.vertical button:first-child.flat:hover:checked, .osd spinbutton.vertical button:first-child.flat:hover:checked:hover, .osd spinbutton.vertical button:first-child.flat:hover:checked:focus, .osd spinbutton.vertical button:first-child.flat:hover:checked:hover:focus,
+      #XfceNotifyWindow spinbutton.vertical button:first-child:focus:active,
+      #XfceNotifyWindow spinbutton.vertical button:first-child:focus:active:hover,
+      #XfceNotifyWindow spinbutton.vertical button:first-child:focus:active:focus,
+      #XfceNotifyWindow spinbutton.vertical button:first-child:focus:active:hover:focus,
+      #XfceNotifyWindow spinbutton.vertical button:first-child:focus:checked,
+      #XfceNotifyWindow spinbutton.vertical button:first-child:focus:checked:hover,
+      #XfceNotifyWindow spinbutton.vertical button:first-child:focus:checked:focus,
+      #XfceNotifyWindow spinbutton.vertical button:first-child:focus:checked:hover:focus,
+      #XfceNotifyWindow spinbutton.vertical button:first-child:hover:active,
+      #XfceNotifyWindow spinbutton.vertical button:first-child:hover:active:hover,
+      #XfceNotifyWindow spinbutton.vertical button:first-child:hover:active:focus,
+      #XfceNotifyWindow spinbutton.vertical button:first-child:hover:active:hover:focus,
+      #XfceNotifyWindow spinbutton.vertical button:first-child:hover:checked,
+      #XfceNotifyWindow spinbutton.vertical button:first-child:hover:checked:hover,
+      #XfceNotifyWindow spinbutton.vertical button:first-child:hover:checked:focus,
+      #XfceNotifyWindow spinbutton.vertical button:first-child:hover:checked:hover:focus,
+      #XfceNotifyWindow spinbutton.vertical button:first-child.flat:focus:active,
+      #XfceNotifyWindow spinbutton.vertical button:first-child.flat:focus:active:hover,
+      #XfceNotifyWindow spinbutton.vertical button:first-child.flat:focus:active:focus,
+      #XfceNotifyWindow spinbutton.vertical button:first-child.flat:focus:active:hover:focus,
+      #XfceNotifyWindow spinbutton.vertical button:first-child.flat:focus:checked,
+      #XfceNotifyWindow spinbutton.vertical button:first-child.flat:focus:checked:hover,
+      #XfceNotifyWindow spinbutton.vertical button:first-child.flat:focus:checked:focus,
+      #XfceNotifyWindow spinbutton.vertical button:first-child.flat:focus:checked:hover:focus,
+      #XfceNotifyWindow spinbutton.vertical button:first-child.flat:hover:active,
+      #XfceNotifyWindow spinbutton.vertical button:first-child.flat:hover:active:hover,
+      #XfceNotifyWindow spinbutton.vertical button:first-child.flat:hover:active:focus,
+      #XfceNotifyWindow spinbutton.vertical button:first-child.flat:hover:active:hover:focus,
+      #XfceNotifyWindow spinbutton.vertical button:first-child.flat:hover:checked,
+      #XfceNotifyWindow spinbutton.vertical button:first-child.flat:hover:checked:hover,
+      #XfceNotifyWindow spinbutton.vertical button:first-child.flat:hover:checked:focus,
+      #XfceNotifyWindow spinbutton.vertical button:first-child.flat:hover:checked:hover:focus {
+        border-color: rgba(0, 0, 0, 0.2); }
+      .osd spinbutton.vertical button:first-child:focus:disabled, .osd spinbutton.vertical button:first-child:hover:disabled, .osd spinbutton.vertical button:first-child.flat:focus:disabled, .osd spinbutton.vertical button:first-child.flat:hover:disabled,
+      #XfceNotifyWindow spinbutton.vertical button:first-child:focus:disabled,
+      #XfceNotifyWindow spinbutton.vertical button:first-child:hover:disabled,
+      #XfceNotifyWindow spinbutton.vertical button:first-child.flat:focus:disabled,
+      #XfceNotifyWindow spinbutton.vertical button:first-child.flat:hover:disabled {
+        border-color: rgba(0, 0, 0, 0.2); }
+      .osd spinbutton.vertical button:first-child:focus:active:disabled, .osd spinbutton.vertical button:first-child:focus:checked:disabled, .osd spinbutton.vertical button:first-child:hover:active:disabled, .osd spinbutton.vertical button:first-child:hover:checked:disabled, .osd spinbutton.vertical button:first-child.flat:focus:active:disabled, .osd spinbutton.vertical button:first-child.flat:focus:checked:disabled, .osd spinbutton.vertical button:first-child.flat:hover:active:disabled, .osd spinbutton.vertical button:first-child.flat:hover:checked:disabled,
+      #XfceNotifyWindow spinbutton.vertical button:first-child:focus:active:disabled,
+      #XfceNotifyWindow spinbutton.vertical button:first-child:focus:checked:disabled,
+      #XfceNotifyWindow spinbutton.vertical button:first-child:hover:active:disabled,
+      #XfceNotifyWindow spinbutton.vertical button:first-child:hover:checked:disabled,
+      #XfceNotifyWindow spinbutton.vertical button:first-child.flat:focus:active:disabled,
+      #XfceNotifyWindow spinbutton.vertical button:first-child.flat:focus:checked:disabled,
+      #XfceNotifyWindow spinbutton.vertical button:first-child.flat:hover:active:disabled,
+      #XfceNotifyWindow spinbutton.vertical button:first-child.flat:hover:checked:disabled {
+        border-color: rgba(0, 0, 0, 0.2); }
+    .osd spinbutton.vertical button:first-child:active, .osd spinbutton.vertical button:first-child:checked, .osd spinbutton.vertical button:first-child.flat:active, .osd spinbutton.vertical button:first-child.flat:checked,
     #XfceNotifyWindow spinbutton.vertical button:first-child:active,
-    #XfceNotifyWindow spinbutton.vertical button:first-child.flat:checked,
-    #XfceNotifyWindow spinbutton.vertical button:first-child.flat:active {
+    #XfceNotifyWindow spinbutton.vertical button:first-child:checked,
+    #XfceNotifyWindow spinbutton.vertical button:first-child.flat:active,
+    #XfceNotifyWindow spinbutton.vertical button:first-child.flat:checked {
+      background-color: rgba(156, 169, 181, 0.8);
+      background-image: none;
       color: #f5f5f5;
-      box-shadow: none;
-      border-color: #22b3c5;
       background-color: #26c6da; }
-      .osd spinbutton.vertical button:first-child:checked:focus, .osd spinbutton.vertical button:first-child:checked:hover, .osd spinbutton.vertical button:first-child:active:focus, .osd spinbutton.vertical button:first-child:active:hover, .osd spinbutton.vertical button:first-child.flat:checked:focus, .osd spinbutton.vertical button:first-child.flat:checked:hover, .osd spinbutton.vertical button:first-child.flat:active:focus, .osd spinbutton.vertical button:first-child.flat:active:hover,
-      #XfceNotifyWindow spinbutton.vertical button:first-child:checked:focus,
-      #XfceNotifyWindow spinbutton.vertical button:first-child:checked:hover,
+      .osd spinbutton.vertical button:first-child:active:focus, .osd spinbutton.vertical button:first-child:active:hover, .osd spinbutton.vertical button:first-child:checked:focus, .osd spinbutton.vertical button:first-child:checked:hover, .osd spinbutton.vertical button:first-child.flat:active:focus, .osd spinbutton.vertical button:first-child.flat:active:hover, .osd spinbutton.vertical button:first-child.flat:checked:focus, .osd spinbutton.vertical button:first-child.flat:checked:hover,
       #XfceNotifyWindow spinbutton.vertical button:first-child:active:focus,
       #XfceNotifyWindow spinbutton.vertical button:first-child:active:hover,
-      #XfceNotifyWindow spinbutton.vertical button:first-child.flat:checked:focus,
-      #XfceNotifyWindow spinbutton.vertical button:first-child.flat:checked:hover,
+      #XfceNotifyWindow spinbutton.vertical button:first-child:checked:focus,
+      #XfceNotifyWindow spinbutton.vertical button:first-child:checked:hover,
       #XfceNotifyWindow spinbutton.vertical button:first-child.flat:active:focus,
-      #XfceNotifyWindow spinbutton.vertical button:first-child.flat:active:hover {
+      #XfceNotifyWindow spinbutton.vertical button:first-child.flat:active:hover,
+      #XfceNotifyWindow spinbutton.vertical button:first-child.flat:checked:focus,
+      #XfceNotifyWindow spinbutton.vertical button:first-child.flat:checked:hover {
+        background-color: rgba(143, 157, 171, 0.8);
+        background-image: none;
         color: #f5f5f5;
-        border-color: #1e9faf;
         background-color: #26c6da; }
     .osd spinbutton.vertical button:first-child:focus, .osd spinbutton.vertical button:first-child:hover, .osd spinbutton.vertical button:first-child.flat:focus, .osd spinbutton.vertical button:first-child.flat:hover,
     #XfceNotifyWindow spinbutton.vertical button:first-child:focus,
     #XfceNotifyWindow spinbutton.vertical button:first-child:hover,
     #XfceNotifyWindow spinbutton.vertical button:first-child.flat:focus,
     #XfceNotifyWindow spinbutton.vertical button:first-child.flat:hover {
-      color: #ffffff; }
+      color: #939fb4; }
     .osd spinbutton.vertical button:first-child:active:disabled, .osd spinbutton.vertical button:first-child:checked:disabled, .osd spinbutton.vertical button:first-child.flat:active:disabled, .osd spinbutton.vertical button:first-child.flat:checked:disabled,
     #XfceNotifyWindow spinbutton.vertical button:first-child:active:disabled,
     #XfceNotifyWindow spinbutton.vertical button:first-child:checked:disabled,
@@ -3509,7 +4193,6 @@ progressbar.osd {
       background-color: rgba(225, 229, 233, 0.8);
       background-image: none;
       color: mix(rgba(239, 241, 243, 0.8),#939fb4,0.5);
-      border-color: mix(rgba(239, 241, 243, 0.8),#939fb4,0.5);
       box-shadow: none; }
     .osd spinbutton.vertical button:first-child:active,
     #XfceNotifyWindow spinbutton.vertical button:first-child:active {
@@ -4973,29 +5656,47 @@ paned.titlebar {
     .nemo-window toolbar button {
       background-color: white;
       background-image: none;
-      border-color: #cccccc;
+      border-color: rgba(0, 0, 0, 0.12);
       color: #4d4d4d;
       box-shadow: none; }
+      .nemo-window toolbar button:focus, .nemo-window toolbar button:hover {
+        border-color: rgba(0, 0, 0, 0.12); }
+      .nemo-window toolbar button:active, .nemo-window toolbar button:active:hover, .nemo-window toolbar button:active:focus, .nemo-window toolbar button:active:hover:focus, .nemo-window toolbar button:checked, .nemo-window toolbar button:checked:hover, .nemo-window toolbar button:checked:focus, .nemo-window toolbar button:checked:hover:focus {
+        border-color: rgba(0, 0, 0, 0.12); }
+      .nemo-window toolbar button:disabled {
+        border-color: rgba(0, 0, 0, 0.12); }
+      .nemo-window toolbar button:active:disabled, .nemo-window toolbar button:checked:disabled {
+        border-color: rgba(0, 0, 0, 0.12); }
       .nemo-window toolbar button.flat {
         border-color: rgba(255, 255, 255, 0);
         background-color: rgba(255, 255, 255, 0);
         background-image: none;
         box-shadow: none; }
       .nemo-window toolbar button:focus, .nemo-window toolbar button:hover, .nemo-window toolbar button.flat:focus, .nemo-window toolbar button.flat:hover {
-        box-shadow: none;
-        background-color: #26c6da;
-        border-color: #1e9faf; }
-      .nemo-window toolbar button:checked, .nemo-window toolbar button:active, .nemo-window toolbar button.flat:checked, .nemo-window toolbar button.flat:active {
+        background-color: white;
+        background-image: none;
+        border-color: rgba(0, 0, 0, 0.2);
+        box-shadow: none; }
+        .nemo-window toolbar button:focus:focus, .nemo-window toolbar button:focus:hover, .nemo-window toolbar button:hover:focus, .nemo-window toolbar button:hover:hover, .nemo-window toolbar button.flat:focus:focus, .nemo-window toolbar button.flat:focus:hover, .nemo-window toolbar button.flat:hover:focus, .nemo-window toolbar button.flat:hover:hover {
+          border-color: rgba(0, 0, 0, 0.2); }
+        .nemo-window toolbar button:focus:active, .nemo-window toolbar button:focus:active:hover, .nemo-window toolbar button:focus:active:focus, .nemo-window toolbar button:focus:active:hover:focus, .nemo-window toolbar button:focus:checked, .nemo-window toolbar button:focus:checked:hover, .nemo-window toolbar button:focus:checked:focus, .nemo-window toolbar button:focus:checked:hover:focus, .nemo-window toolbar button:hover:active, .nemo-window toolbar button:hover:active:hover, .nemo-window toolbar button:hover:active:focus, .nemo-window toolbar button:hover:active:hover:focus, .nemo-window toolbar button:hover:checked, .nemo-window toolbar button:hover:checked:hover, .nemo-window toolbar button:hover:checked:focus, .nemo-window toolbar button:hover:checked:hover:focus, .nemo-window toolbar button.flat:focus:active, .nemo-window toolbar button.flat:focus:active:hover, .nemo-window toolbar button.flat:focus:active:focus, .nemo-window toolbar button.flat:focus:active:hover:focus, .nemo-window toolbar button.flat:focus:checked, .nemo-window toolbar button.flat:focus:checked:hover, .nemo-window toolbar button.flat:focus:checked:focus, .nemo-window toolbar button.flat:focus:checked:hover:focus, .nemo-window toolbar button.flat:hover:active, .nemo-window toolbar button.flat:hover:active:hover, .nemo-window toolbar button.flat:hover:active:focus, .nemo-window toolbar button.flat:hover:active:hover:focus, .nemo-window toolbar button.flat:hover:checked, .nemo-window toolbar button.flat:hover:checked:hover, .nemo-window toolbar button.flat:hover:checked:focus, .nemo-window toolbar button.flat:hover:checked:hover:focus {
+          border-color: rgba(0, 0, 0, 0.2); }
+        .nemo-window toolbar button:focus:disabled, .nemo-window toolbar button:hover:disabled, .nemo-window toolbar button.flat:focus:disabled, .nemo-window toolbar button.flat:hover:disabled {
+          border-color: rgba(0, 0, 0, 0.2); }
+        .nemo-window toolbar button:focus:active:disabled, .nemo-window toolbar button:focus:checked:disabled, .nemo-window toolbar button:hover:active:disabled, .nemo-window toolbar button:hover:checked:disabled, .nemo-window toolbar button.flat:focus:active:disabled, .nemo-window toolbar button.flat:focus:checked:disabled, .nemo-window toolbar button.flat:hover:active:disabled, .nemo-window toolbar button.flat:hover:checked:disabled {
+          border-color: rgba(0, 0, 0, 0.2); }
+      .nemo-window toolbar button:active, .nemo-window toolbar button:checked, .nemo-window toolbar button.flat:active, .nemo-window toolbar button.flat:checked {
+        background-color: #b3b3b3;
+        background-image: none;
         color: #f5f5f5;
-        box-shadow: none;
-        border-color: #22b3c5;
         background-color: #26c6da; }
-        .nemo-window toolbar button:checked:focus, .nemo-window toolbar button:checked:hover, .nemo-window toolbar button:active:focus, .nemo-window toolbar button:active:hover, .nemo-window toolbar button.flat:checked:focus, .nemo-window toolbar button.flat:checked:hover, .nemo-window toolbar button.flat:active:focus, .nemo-window toolbar button.flat:active:hover {
+        .nemo-window toolbar button:active:focus, .nemo-window toolbar button:active:hover, .nemo-window toolbar button:checked:focus, .nemo-window toolbar button:checked:hover, .nemo-window toolbar button.flat:active:focus, .nemo-window toolbar button.flat:active:hover, .nemo-window toolbar button.flat:checked:focus, .nemo-window toolbar button.flat:checked:hover {
+          background-color: #a6a6a6;
+          background-image: none;
           color: #f5f5f5;
-          border-color: #1e9faf;
           background-color: #26c6da; }
       .nemo-window toolbar button:focus, .nemo-window toolbar button:hover, .nemo-window toolbar button.flat:focus, .nemo-window toolbar button.flat:hover {
-        color: #ffffff; }
+        color: #4d4d4d; }
       .nemo-window toolbar button:active:disabled, .nemo-window toolbar button:checked:disabled, .nemo-window toolbar button.flat:active:disabled, .nemo-window toolbar button.flat:checked:disabled {
         background-color: #e6e6e6;
         background-image: none;
@@ -5005,7 +5706,6 @@ paned.titlebar {
         background-color: #f2f2f2;
         background-image: none;
         color: mix(#f5f5f5,#4d4d4d,0.5);
-        border-color: mix(#f5f5f5,#4d4d4d,0.5);
         box-shadow: none; }
       .nemo-window toolbar button:active {
         color: #4d4d4d; }
@@ -5276,29 +5976,47 @@ SheetStyleDialog.unity-force-quit {
 #login_window button {
   background-color: #eff1f3;
   background-image: none;
-  border-color: #b8c1ca;
+  border-color: rgba(0, 0, 0, 0.12);
   color: #939fb4;
   box-shadow: none; }
+  #login_window button:focus, #login_window button:hover {
+    border-color: rgba(0, 0, 0, 0.12); }
+  #login_window button:active, #login_window button:active:hover, #login_window button:active:focus, #login_window button:active:hover:focus, #login_window button:checked, #login_window button:checked:hover, #login_window button:checked:focus, #login_window button:checked:hover:focus {
+    border-color: rgba(0, 0, 0, 0.12); }
+  #login_window button:disabled {
+    border-color: rgba(0, 0, 0, 0.12); }
+  #login_window button:active:disabled, #login_window button:checked:disabled {
+    border-color: rgba(0, 0, 0, 0.12); }
   #login_window button.flat {
     border-color: rgba(239, 241, 243, 0);
     background-color: rgba(239, 241, 243, 0);
     background-image: none;
     box-shadow: none; }
   #login_window button:focus, #login_window button:hover, #login_window button.flat:focus, #login_window button.flat:hover {
-    box-shadow: none;
-    background-color: #26c6da;
-    border-color: #1e9faf; }
-  #login_window button:checked, #login_window button:active, #login_window button.flat:checked, #login_window button.flat:active {
+    background-color: white;
+    background-image: none;
+    border-color: rgba(0, 0, 0, 0.2);
+    box-shadow: none; }
+    #login_window button:focus:focus, #login_window button:focus:hover, #login_window button:hover:focus, #login_window button:hover:hover, #login_window button.flat:focus:focus, #login_window button.flat:focus:hover, #login_window button.flat:hover:focus, #login_window button.flat:hover:hover {
+      border-color: rgba(0, 0, 0, 0.2); }
+    #login_window button:focus:active, #login_window button:focus:active:hover, #login_window button:focus:active:focus, #login_window button:focus:active:hover:focus, #login_window button:focus:checked, #login_window button:focus:checked:hover, #login_window button:focus:checked:focus, #login_window button:focus:checked:hover:focus, #login_window button:hover:active, #login_window button:hover:active:hover, #login_window button:hover:active:focus, #login_window button:hover:active:hover:focus, #login_window button:hover:checked, #login_window button:hover:checked:hover, #login_window button:hover:checked:focus, #login_window button:hover:checked:hover:focus, #login_window button.flat:focus:active, #login_window button.flat:focus:active:hover, #login_window button.flat:focus:active:focus, #login_window button.flat:focus:active:hover:focus, #login_window button.flat:focus:checked, #login_window button.flat:focus:checked:hover, #login_window button.flat:focus:checked:focus, #login_window button.flat:focus:checked:hover:focus, #login_window button.flat:hover:active, #login_window button.flat:hover:active:hover, #login_window button.flat:hover:active:focus, #login_window button.flat:hover:active:hover:focus, #login_window button.flat:hover:checked, #login_window button.flat:hover:checked:hover, #login_window button.flat:hover:checked:focus, #login_window button.flat:hover:checked:hover:focus {
+      border-color: rgba(0, 0, 0, 0.2); }
+    #login_window button:focus:disabled, #login_window button:hover:disabled, #login_window button.flat:focus:disabled, #login_window button.flat:hover:disabled {
+      border-color: rgba(0, 0, 0, 0.2); }
+    #login_window button:focus:active:disabled, #login_window button:focus:checked:disabled, #login_window button:hover:active:disabled, #login_window button:hover:checked:disabled, #login_window button.flat:focus:active:disabled, #login_window button.flat:focus:checked:disabled, #login_window button.flat:hover:active:disabled, #login_window button.flat:hover:checked:disabled {
+      border-color: rgba(0, 0, 0, 0.2); }
+  #login_window button:active, #login_window button:checked, #login_window button.flat:active, #login_window button.flat:checked {
+    background-color: #9ca9b5;
+    background-image: none;
     color: #f5f5f5;
-    box-shadow: none;
-    border-color: #22b3c5;
     background-color: #26c6da; }
-    #login_window button:checked:focus, #login_window button:checked:hover, #login_window button:active:focus, #login_window button:active:hover, #login_window button.flat:checked:focus, #login_window button.flat:checked:hover, #login_window button.flat:active:focus, #login_window button.flat:active:hover {
+    #login_window button:active:focus, #login_window button:active:hover, #login_window button:checked:focus, #login_window button:checked:hover, #login_window button.flat:active:focus, #login_window button.flat:active:hover, #login_window button.flat:checked:focus, #login_window button.flat:checked:hover {
+      background-color: #8f9dab;
+      background-image: none;
       color: #f5f5f5;
-      border-color: #1e9faf;
       background-color: #26c6da; }
   #login_window button:focus, #login_window button:hover, #login_window button.flat:focus, #login_window button.flat:hover {
-    color: #ffffff; }
+    color: #939fb4; }
   #login_window button:active:disabled, #login_window button:checked:disabled, #login_window button.flat:active:disabled, #login_window button.flat:checked:disabled {
     background-color: #d3d9de;
     background-image: none;
@@ -5308,7 +6026,6 @@ SheetStyleDialog.unity-force-quit {
     background-color: #e1e5e9;
     background-image: none;
     color: mix(#eff1f3,#939fb4,0.5);
-    border-color: mix(#eff1f3,#939fb4,0.5);
     box-shadow: none; }
   #login_window button:active {
     color: #939fb4; }
@@ -5378,29 +6095,47 @@ SheetStyleDialog.unity-force-quit {
 #shutdown_button button {
   background-color: #f44336;
   background-image: none;
-  border-color: #e21b0c;
+  border-color: rgba(0, 0, 0, 0.12);
   color: #f5f5f5;
   box-shadow: none; }
+  #shutdown_button button:focus, #shutdown_button button:hover {
+    border-color: rgba(0, 0, 0, 0.12); }
+  #shutdown_button button:active, #shutdown_button button:active:hover, #shutdown_button button:active:focus, #shutdown_button button:active:hover:focus, #shutdown_button button:checked, #shutdown_button button:checked:hover, #shutdown_button button:checked:focus, #shutdown_button button:checked:hover:focus {
+    border-color: rgba(0, 0, 0, 0.12); }
+  #shutdown_button button:disabled {
+    border-color: rgba(0, 0, 0, 0.12); }
+  #shutdown_button button:active:disabled, #shutdown_button button:checked:disabled {
+    border-color: rgba(0, 0, 0, 0.12); }
   #shutdown_button button.flat {
     border-color: rgba(244, 67, 54, 0);
     background-color: rgba(244, 67, 54, 0);
     background-image: none;
     box-shadow: none; }
   #shutdown_button button:focus, #shutdown_button button:hover, #shutdown_button button.flat:focus, #shutdown_button button.flat:hover {
-    box-shadow: none;
-    background-color: #26c6da;
-    border-color: #1e9faf; }
-  #shutdown_button button:checked, #shutdown_button button:active, #shutdown_button button.flat:checked, #shutdown_button button.flat:active {
+    background-color: #f7786f;
+    background-image: none;
+    border-color: rgba(0, 0, 0, 0.2);
+    box-shadow: none; }
+    #shutdown_button button:focus:focus, #shutdown_button button:focus:hover, #shutdown_button button:hover:focus, #shutdown_button button:hover:hover, #shutdown_button button.flat:focus:focus, #shutdown_button button.flat:focus:hover, #shutdown_button button.flat:hover:focus, #shutdown_button button.flat:hover:hover {
+      border-color: rgba(0, 0, 0, 0.2); }
+    #shutdown_button button:focus:active, #shutdown_button button:focus:active:hover, #shutdown_button button:focus:active:focus, #shutdown_button button:focus:active:hover:focus, #shutdown_button button:focus:checked, #shutdown_button button:focus:checked:hover, #shutdown_button button:focus:checked:focus, #shutdown_button button:focus:checked:hover:focus, #shutdown_button button:hover:active, #shutdown_button button:hover:active:hover, #shutdown_button button:hover:active:focus, #shutdown_button button:hover:active:hover:focus, #shutdown_button button:hover:checked, #shutdown_button button:hover:checked:hover, #shutdown_button button:hover:checked:focus, #shutdown_button button:hover:checked:hover:focus, #shutdown_button button.flat:focus:active, #shutdown_button button.flat:focus:active:hover, #shutdown_button button.flat:focus:active:focus, #shutdown_button button.flat:focus:active:hover:focus, #shutdown_button button.flat:focus:checked, #shutdown_button button.flat:focus:checked:hover, #shutdown_button button.flat:focus:checked:focus, #shutdown_button button.flat:focus:checked:hover:focus, #shutdown_button button.flat:hover:active, #shutdown_button button.flat:hover:active:hover, #shutdown_button button.flat:hover:active:focus, #shutdown_button button.flat:hover:active:hover:focus, #shutdown_button button.flat:hover:checked, #shutdown_button button.flat:hover:checked:hover, #shutdown_button button.flat:hover:checked:focus, #shutdown_button button.flat:hover:checked:hover:focus {
+      border-color: rgba(0, 0, 0, 0.2); }
+    #shutdown_button button:focus:disabled, #shutdown_button button:hover:disabled, #shutdown_button button.flat:focus:disabled, #shutdown_button button.flat:hover:disabled {
+      border-color: rgba(0, 0, 0, 0.2); }
+    #shutdown_button button:focus:active:disabled, #shutdown_button button:focus:checked:disabled, #shutdown_button button:hover:active:disabled, #shutdown_button button:hover:checked:disabled, #shutdown_button button.flat:focus:active:disabled, #shutdown_button button.flat:focus:checked:disabled, #shutdown_button button.flat:hover:active:disabled, #shutdown_button button.flat:hover:checked:disabled {
+      border-color: rgba(0, 0, 0, 0.2); }
+  #shutdown_button button:active, #shutdown_button button:checked, #shutdown_button button.flat:active, #shutdown_button button.flat:checked {
+    background-color: #c6180b;
+    background-image: none;
     color: #f5f5f5;
-    box-shadow: none;
-    border-color: #22b3c5;
     background-color: #26c6da; }
-    #shutdown_button button:checked:focus, #shutdown_button button:checked:hover, #shutdown_button button:active:focus, #shutdown_button button:active:hover, #shutdown_button button.flat:checked:focus, #shutdown_button button.flat:checked:hover, #shutdown_button button.flat:active:focus, #shutdown_button button.flat:active:hover {
+    #shutdown_button button:active:focus, #shutdown_button button:active:hover, #shutdown_button button:checked:focus, #shutdown_button button:checked:hover, #shutdown_button button.flat:active:focus, #shutdown_button button.flat:active:hover, #shutdown_button button.flat:checked:focus, #shutdown_button button.flat:checked:hover {
+      background-color: #b8160a;
+      background-image: none;
       color: #f5f5f5;
-      border-color: #1e9faf;
       background-color: #26c6da; }
   #shutdown_button button:focus, #shutdown_button button:hover, #shutdown_button button.flat:focus, #shutdown_button button.flat:hover {
-    color: #ffffff; }
+    color: #f5f5f5; }
   #shutdown_button button:active:disabled, #shutdown_button button:checked:disabled, #shutdown_button button.flat:active:disabled, #shutdown_button button.flat:checked:disabled {
     background-color: #f2291a;
     background-image: none;
@@ -5410,7 +6145,6 @@ SheetStyleDialog.unity-force-quit {
     background-color: #f33628;
     background-image: none;
     color: mix(#f44336,#f5f5f5,0.5);
-    border-color: mix(#f44336,#f5f5f5,0.5);
     box-shadow: none; }
   #shutdown_button button:active {
     color: #f5f5f5; }
@@ -5429,29 +6163,47 @@ SheetStyleDialog.unity-force-quit {
 #restart_button button {
   background-color: #dca22c;
   background-image: none;
-  border-color: #b5831e;
+  border-color: rgba(0, 0, 0, 0.12);
   color: #f5f5f5;
   box-shadow: none; }
+  #restart_button button:focus, #restart_button button:hover {
+    border-color: rgba(0, 0, 0, 0.12); }
+  #restart_button button:active, #restart_button button:active:hover, #restart_button button:active:focus, #restart_button button:active:hover:focus, #restart_button button:checked, #restart_button button:checked:hover, #restart_button button:checked:focus, #restart_button button:checked:hover:focus {
+    border-color: rgba(0, 0, 0, 0.12); }
+  #restart_button button:disabled {
+    border-color: rgba(0, 0, 0, 0.12); }
+  #restart_button button:active:disabled, #restart_button button:checked:disabled {
+    border-color: rgba(0, 0, 0, 0.12); }
   #restart_button button.flat {
     border-color: rgba(220, 162, 44, 0);
     background-color: rgba(220, 162, 44, 0);
     background-image: none;
     box-shadow: none; }
   #restart_button button:focus, #restart_button button:hover, #restart_button button.flat:focus, #restart_button button.flat:hover {
-    box-shadow: none;
-    background-color: #26c6da;
-    border-color: #1e9faf; }
-  #restart_button button:checked, #restart_button button:active, #restart_button button.flat:checked, #restart_button button.flat:active {
+    background-color: #e4b659;
+    background-image: none;
+    border-color: rgba(0, 0, 0, 0.2);
+    box-shadow: none; }
+    #restart_button button:focus:focus, #restart_button button:focus:hover, #restart_button button:hover:focus, #restart_button button:hover:hover, #restart_button button.flat:focus:focus, #restart_button button.flat:focus:hover, #restart_button button.flat:hover:focus, #restart_button button.flat:hover:hover {
+      border-color: rgba(0, 0, 0, 0.2); }
+    #restart_button button:focus:active, #restart_button button:focus:active:hover, #restart_button button:focus:active:focus, #restart_button button:focus:active:hover:focus, #restart_button button:focus:checked, #restart_button button:focus:checked:hover, #restart_button button:focus:checked:focus, #restart_button button:focus:checked:hover:focus, #restart_button button:hover:active, #restart_button button:hover:active:hover, #restart_button button:hover:active:focus, #restart_button button:hover:active:hover:focus, #restart_button button:hover:checked, #restart_button button:hover:checked:hover, #restart_button button:hover:checked:focus, #restart_button button:hover:checked:hover:focus, #restart_button button.flat:focus:active, #restart_button button.flat:focus:active:hover, #restart_button button.flat:focus:active:focus, #restart_button button.flat:focus:active:hover:focus, #restart_button button.flat:focus:checked, #restart_button button.flat:focus:checked:hover, #restart_button button.flat:focus:checked:focus, #restart_button button.flat:focus:checked:hover:focus, #restart_button button.flat:hover:active, #restart_button button.flat:hover:active:hover, #restart_button button.flat:hover:active:focus, #restart_button button.flat:hover:active:hover:focus, #restart_button button.flat:hover:checked, #restart_button button.flat:hover:checked:hover, #restart_button button.flat:hover:checked:focus, #restart_button button.flat:hover:checked:hover:focus {
+      border-color: rgba(0, 0, 0, 0.2); }
+    #restart_button button:focus:disabled, #restart_button button:hover:disabled, #restart_button button.flat:focus:disabled, #restart_button button.flat:hover:disabled {
+      border-color: rgba(0, 0, 0, 0.2); }
+    #restart_button button:focus:active:disabled, #restart_button button:focus:checked:disabled, #restart_button button:hover:active:disabled, #restart_button button:hover:checked:disabled, #restart_button button.flat:focus:active:disabled, #restart_button button.flat:focus:checked:disabled, #restart_button button.flat:hover:active:disabled, #restart_button button.flat:hover:checked:disabled {
+      border-color: rgba(0, 0, 0, 0.2); }
+  #restart_button button:active, #restart_button button:checked, #restart_button button.flat:active, #restart_button button.flat:checked {
+    background-color: #9f731a;
+    background-image: none;
     color: #f5f5f5;
-    box-shadow: none;
-    border-color: #22b3c5;
     background-color: #26c6da; }
-    #restart_button button:checked:focus, #restart_button button:checked:hover, #restart_button button:active:focus, #restart_button button:active:hover, #restart_button button.flat:checked:focus, #restart_button button.flat:checked:hover, #restart_button button.flat:active:focus, #restart_button button.flat:active:hover {
+    #restart_button button:active:focus, #restart_button button:active:hover, #restart_button button:checked:focus, #restart_button button:checked:hover, #restart_button button.flat:active:focus, #restart_button button.flat:active:hover, #restart_button button.flat:checked:focus, #restart_button button.flat:checked:hover {
+      background-color: #936b18;
+      background-image: none;
       color: #f5f5f5;
-      border-color: #1e9faf;
       background-color: #26c6da; }
   #restart_button button:focus, #restart_button button:hover, #restart_button button.flat:focus, #restart_button button.flat:hover {
-    color: #ffffff; }
+    color: #f5f5f5; }
   #restart_button button:active:disabled, #restart_button button:checked:disabled, #restart_button button.flat:active:disabled, #restart_button button.flat:checked:disabled {
     background-color: #cc9422;
     background-image: none;
@@ -5461,7 +6213,6 @@ SheetStyleDialog.unity-force-quit {
     background-color: #d79c24;
     background-image: none;
     color: mix(#dca22c,#f5f5f5,0.5);
-    border-color: mix(#dca22c,#f5f5f5,0.5);
     box-shadow: none; }
   #restart_button button:active {
     color: #f5f5f5; }

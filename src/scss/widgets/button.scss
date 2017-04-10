@@ -254,11 +254,11 @@
     $border_strength: if(lightness($bg) > 50, 0, .1);
     $shadow_strength: if(lightness($bg) > 50, 0, .1);
 
-    $button_bg: if(hue($bg) == 0deg, shade($bg, 1.08), $bg);
+    $button_bg: if(hue($bg) == 0deg, shade($bg, 1.2), $bg);
 
     @extend %button;
     @include linear-gradient($button_bg);
-    border-color: border_normal($button_bg);
+    @include border(rgba(0, 0, 0, .12 + $border_strength));
 
     color: $fg;
     box-shadow: none;
@@ -272,25 +272,24 @@
 
     &, &.flat {
         &:focus, &:hover {
+            @include linear-gradient(shade($button_bg, 1.2));
+            @include border(rgba(0, 0, 0, .2 + $border_strength));
             box-shadow: none;
-            background-color: $selected_bg_color;
-            border-color: shade($selected_bg_color, .8);
         }
 
-        &:checked, &:active {
+        &:active, &:checked {
+            @include linear-gradient(shade($button_bg, .7), to top);
             color: $white;
-            box-shadow: none;
-            border-color: shade($selected_bg_color, .9);
             background-color: $selected_bg_color;
 
             &:focus, &:hover {
+                @include linear-gradient(shade($button_bg, .65), to top);
                 color: $white;
-                border-color: shade($selected_bg_color, .8);
                 background-color: $selected_bg_color;
             }
         }
 
-        &:focus, &:hover { color: $selected_fg_color; }
+        &:focus, &:hover { color: $fg; }
 
         &:active:disabled, &:checked:disabled {
             @include linear-gradient(shade($button_bg, .9));
@@ -307,7 +306,6 @@
             }
 
             color: mix($bg, $fg, .5);
-            border-color: mix($bg, $fg, .5);
             box-shadow: none;
         }
     }
@@ -332,14 +330,25 @@
 }
 
 @include exports("button") {
+    * {
+        -GtkButton-child-displacement-x: 0;
+        -GtkButton-child-displacement-y: 0;
+        -GtkButton-default-border: 0;
+        -GtkButton-image-spacing: 0;
+        -GtkButton-inner-border: 1;
+        -GtkButton-interior-focus: true;
+        -GtkButtonBox-child-min-height: 24;
+        -GtkButtonBox-child-internal-pad-y: 1;
+        -GtkToolButton-icon-spacing: 6;
+    }
+
     %close_button {
-        border: 1px solid transparent;
+        border: none;
         background-color: transparent;
         background-image: none;
         box-shadow: none;
 
         &:focus, &:hover {
-            border: 1px solid alpha($bg_color, .1);
             background-color: alpha($white, .2);
             background-image: none;
             box-shadow: none;
