@@ -1,4 +1,5 @@
-# # # HAZE GTK THEME...
+# Nomad GTK theme.
+# Luis Lavaire.
 
 gtk-color-scheme = "bg_color:#f5f5f5"
 gtk-color-scheme = "fg_color:#555555"
@@ -485,9 +486,6 @@ style "bold-panel-item" {
 
 widget "*Panel*MenuBar*" style "bold-panel-item"
 widget "*gimmie*" style "bold-panel-item"
-
-# widget_class "*Mail*" style "murrine-panel" # Disabled to fix Evolution bug
-# class "*Panel*" style "murrine-panel" # Disabled to fix bug
 
 # XFCE Styles
 

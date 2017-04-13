@@ -1817,8 +1817,9 @@ headerbar.selection-mode,
     color: #1a8b99; }
 
 calendar {
-  padding: 1px 3px;
+  padding: 3px;
   outline-offset: -1px;
+  margin: -2px;
   color: #f5f5f5; }
   calendar:selected {
     border-radius: 2px; }
@@ -1839,11 +1840,11 @@ calendar {
     color: mix(#d3d3d3,#4b4b4c,0.5); }
   calendar.highlight, calendar.highlight:backdrop {
     font-size: smaller;
+    background-color: #535354;
     color: #26c6da; }
   calendar:backdrop {
     color: mix(#535354,#f5f5f5,0.8); }
 
-/* gnome-calendar */
 .calendar-view {
   background-color: #535354;
   color: #f5f5f5; }
@@ -3146,7 +3147,7 @@ notebook {
         padding-top: 0;
         padding-bottom: 0; }
   notebook > stack:not(:only-child) {
-    background-color: #535354; }
+    background-color: #4b4b4c; }
   notebook > header {
     padding: 2px;
     background-color: #4b4b4c; }
@@ -3161,51 +3162,55 @@ notebook {
     notebook > header.top {
       padding-bottom: 0; }
       notebook > header.top > tabs > tab {
+        background-color: #505051;
+        border: 1px solid #424243;
         padding: 2px 10px;
         min-width: 20px;
         min-height: 20px;
+        transition: all .13s ease-in;
         outline-offset: -4px;
-        border: 1px solid transparent;
-        border-bottom: none;
-        border-radius: 1px 1px 0 0; }
+        border-radius: 2px 2px 0 0; }
         notebook > header.top > tabs > tab + tab {
-          margin-left: -1px; }
+          margin-left: 4px; }
     notebook > header.bottom {
       padding-top: 0; }
       notebook > header.bottom > tabs > tab {
+        background-color: #505051;
+        border: 1px solid #424243;
         padding: 2px 10px;
         min-width: 20px;
         min-height: 20px;
+        transition: all .13s ease-in;
         outline-offset: -4px;
-        border: 1px solid transparent;
-        border-top: none;
-        border-radius: 0 0 1px 1px; }
+        border-radius: 0 0 2px 2px; }
         notebook > header.bottom > tabs > tab + tab {
-          margin-left: -1px; }
+          margin-left: 4px; }
     notebook > header.right {
       padding-left: 0; }
       notebook > header.right > tabs > tab {
+        background-color: #505051;
+        border: 1px solid #424243;
         padding: 2px 10px;
         min-width: 20px;
         min-height: 20px;
+        transition: all .13s ease-in;
         outline-offset: -4px;
-        border: 1px solid transparent;
-        border-left: none;
-        border-radius: 0 1px 1px 0; }
+        border-radius: 0 2px 2px 0; }
         notebook > header.right > tabs > tab + tab {
-          margin-top: -1px; }
+          margin-top: 4px; }
     notebook > header.left {
       padding-right: 0; }
       notebook > header.left > tabs > tab {
+        background-color: #505051;
+        border: 1px solid #424243;
         padding: 2px 10px;
         min-width: 20px;
         min-height: 20px;
+        transition: all .13s ease-in;
         outline-offset: -4px;
-        border: 1px solid transparent;
-        border-right: none;
-        border-radius: 1px 0 0 1px; }
+        border-radius: 2px 0 0 2px; }
         notebook > header.left > tabs > tab + tab {
-          margin-top: -1px; }
+          margin-top: 4px; }
     notebook > header.top > tabs > arrow.up, notebook > header.bottom > tabs > arrow.up {
       -gtk-icon-source: -gtk-icontheme("pan-end-symbolic"); }
       notebook > header.top > tabs > arrow.up:last-child, notebook > header.bottom > tabs > arrow.up:last-child {
@@ -3230,28 +3235,21 @@ notebook {
         color: #d3d3d3; }
       notebook > header > tabs > arrow:disabled {
         color: rgba(211, 211, 211, 0.7); }
-    notebook > header.top > tabs > tab:hover:not(:checked) {
-      box-shadow: inset 0 -1px #424243; }
-    notebook > header.bottom > tabs > tab:hover:not(:checked) {
-      box-shadow: inset 0 1px #424243; }
-    notebook > header.left > tabs > tab:hover:not(:checked) {
-      box-shadow: inset -1px 0 #424243; }
-    notebook > header.right > tabs > tab:hover:not(:checked) {
-      box-shadow: inset 1px 0 #424243; }
     notebook > header > tabs > tab {
-      color: mix(#d3d3d3,#4b4b4c,0.5);
-      background-color: rgba(83, 83, 84, 0); }
+      color: #d3d3d3;
+      background-color: #535354; }
       notebook > header > tabs > tab:hover:not(:checked) {
-        color: mix(#d3d3d3,#4b4b4c,0.5);
-        background-color: rgba(83, 83, 84, 0.5);
+        color: #d3d3d3;
+        background-color: #646465;
         border-color: #424243; }
       notebook > header > tabs > tab:checked {
-        color: #d3d3d3;
-        background-color: #535354;
-        border-color: #424243; }
+        color: #ffffff;
+        background-color: #26c6da;
+        border-color: #20abbc; }
       notebook > header > tabs > tab button.flat {
-        min-height: 22px;
+        min-height: 16px;
         min-width: 16px;
+        margin-left: 8px;
         padding: 0;
         color: #4b4b4c; }
         notebook > header > tabs > tab button.flat:hover {
@@ -4278,9 +4276,6 @@ scrolledwindow overshoot.right {
 
 scrolledwindow undershoot.top {
   background-color: transparent;
-  /*background-image: linear-gradient(to $_gradient_dir, // this is the dashed line
-                                         $_undershoot_color_light 50%,
-                                         $_undershoot_color_dark 50%);*/
   padding-top: 1px;
   background-size: 10px 1px;
   background-repeat: repeat-x;
@@ -4291,9 +4286,6 @@ scrolledwindow undershoot.top {
 
 scrolledwindow undershoot.bottom {
   background-color: transparent;
-  /*background-image: linear-gradient(to $_gradient_dir, // this is the dashed line
-                                         $_undershoot_color_light 50%,
-                                         $_undershoot_color_dark 50%);*/
   padding-bottom: 1px;
   background-size: 10px 1px;
   background-repeat: repeat-x;
@@ -4304,9 +4296,6 @@ scrolledwindow undershoot.bottom {
 
 scrolledwindow undershoot.left {
   background-color: transparent;
-  /*background-image: linear-gradient(to $_gradient_dir, // this is the dashed line
-                                         $_undershoot_color_light 50%,
-                                         $_undershoot_color_dark 50%);*/
   padding-left: 1px;
   background-size: 1px 10px;
   background-repeat: repeat-y;
@@ -4317,9 +4306,6 @@ scrolledwindow undershoot.left {
 
 scrolledwindow undershoot.right {
   background-color: transparent;
-  /*background-image: linear-gradient(to $_gradient_dir, // this is the dashed line
-                                         $_undershoot_color_light 50%,
-                                         $_undershoot_color_dark 50%);*/
   padding-right: 1px;
   background-size: 1px 10px;
   background-repeat: repeat-y;
@@ -4751,7 +4737,7 @@ placessidebar row {
     color: #26c6da; }
   placessidebar row:drop(active):not(:disabled) {
     color: #009b7c;
-    box-shadow: inset 0 1px #009b7c, inset 0 -1px #009b7c; }
+    box-shadow: none; }
     placessidebar row:drop(active):not(:disabled):selected {
       color: #ffffff;
       background-color: #009b7c; }
@@ -5177,11 +5163,9 @@ placesview > actionbar > revealer > box > label {
   padding-right: 8px; }
 
 decoration {
-  border-radius: 2px 2px 0 0;
-  border-width: 0;
-  box-shadow: 0 3px 9px 1px rgba(11, 11, 11, 0.7), 0 0 0 1px transparent;
-  /* this is used for the resize cursor area */
-  margin: 15px; }
+  border: solid 1px black;
+  box-shadow: none;
+  margin: 25px; }
   decoration:backdrop {
     box-shadow: 0 3px 9px 1px transparent, 0 2px 6px 2px rgba(11, 11, 11, 0.4), 0 0 0 1px transparent;
     transition: 200ms ease-out; }
@@ -5198,13 +5182,13 @@ decoration {
     box-shadow: none; }
   .csd.popup decoration {
     border-radius: 0;
-    box-shadow: 0 1px 2px rgba(11, 11, 11, 0.2), 0 0 0 1px rgba(66, 66, 67, 0.8); }
+    box-shadow: 0 1px 2px rgba(11, 11, 11, 0.2), 0 0 0 1px rgba(66, 66, 67, 0.9); }
   tooltip.csd decoration {
     border-radius: 2px;
     box-shadow: none; }
   messagedialog.csd decoration {
     border-radius: 2px;
-    box-shadow: 0 1px 2px rgba(11, 11, 11, 0.2), 0 0 0 1px rgba(66, 66, 67, 0.8); }
+    box-shadow: 0 1px 2px rgba(11, 11, 11, 0.2), 0 0 0 1px rgba(66, 66, 67, 0.9); }
 
 /***********************
  ! Fallback mode panel *

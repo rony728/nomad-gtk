@@ -1,7 +1,8 @@
 @include exports("calendar") {
     calendar {
-        padding: 1px 3px;
+        padding: 3px;
         outline-offset: -1px;
+        margin: -2px;
 
         color: $text_color;
 
@@ -52,6 +53,7 @@
         &.highlight,
         &.highlight:backdrop {
             font-size: smaller;
+            background-color: $base_color;
             color: $selected_bg_color;
         }
 
@@ -60,7 +62,6 @@
         }
     }
 
-    /* gnome-calendar */
     .calendar-view {
         background-color: $base_color;
         color: $text_color;
