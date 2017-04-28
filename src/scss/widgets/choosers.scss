@@ -60,7 +60,7 @@
 
             &:hover { border-color: if($variant == 'light', transparentize($black, .2), $borders_color); }
 
-            &:backdrop { color: $backdrop_selected_fg_color; }
+            & { color: $backdrop_selected_fg_color; }
         }
 
         &.light overlay {
@@ -68,7 +68,7 @@
 
             &:hover { border-color: if($variant == 'light', transparentize($black, .5), $borders_color); }
 
-            &:backdrop { color: $backdrop_text_color; }
+            & { color: $backdrop_text_color; }
         }
 
         &:drop(active) {
@@ -95,8 +95,8 @@
                             inset 0 -1px transparentize($black, .8);
             }
 
-            &:backdrop,
-            &:backdrop:hover {
+            &,
+            &:hover {
                 border-color: if($variant == 'light', transparentize($black, .7), $borders_color);
                 box-shadow: none;
             }
@@ -124,7 +124,7 @@
 
                 &:hover { background-color: shade($bg_color, .9); }
 
-                &:backdrop { background-color: shade($backdrop_bg_color, .95); }
+                & { background-color: shade($backdrop_bg_color, .95); }
             }
         }
 
@@ -146,7 +146,7 @@
 
         @if $variant == 'light' {
             &:disabled,
-            &:backdrop,
+            &,
             &:active,
             &:checked { colorswatch:only-child { box-shadow: none; } }
         }
@@ -159,7 +159,7 @@
         .dialog-action-box {
             border-top: 1px solid $borders_color;
 
-            &:backdrop { border-top-color: $backdrop_borders_color; }
+            & { border-top-color: $backdrop_borders_color; }
         }
 
         #pathbarbox { border-bottom: 1px solid $bg_color; }

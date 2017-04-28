@@ -7,7 +7,7 @@
         color: $text_color;
 
         &.view {
-            &, &:backdrop { @extend %undecorated_button; }
+            &, & { @extend %undecorated_button; }
         }
 
         &:selected {
@@ -20,7 +20,7 @@
             border-bottom: 1px solid transparentize($black, .9);
             border-radius: 0;
 
-            &:backdrop { border-color: transparentize($black, .9); }
+            & { border-color: transparentize($black, .9); }
         }
 
         &.button {
@@ -34,7 +34,7 @@
                 color: $fg_color;
             }
 
-            &:backdrop {
+            & {
                 @extend %undecorated_button;
 
                 color: alpha($backdrop_fg_color, .55);
@@ -48,16 +48,16 @@
         }
 
         &:indeterminate,
-        &:indeterminate:backdrop { color: mix($fg_color, $bg_color, .5); }
+        &:indeterminate { color: mix($fg_color, $bg_color, .5); }
 
         &.highlight,
-        &.highlight:backdrop {
+        &.highlight {
             font-size: smaller;
             background-color: $base_color;
             color: $selected_bg_color;
         }
 
-        &:backdrop {
+        & {
             color: $backdrop_text_color;
         }
     }

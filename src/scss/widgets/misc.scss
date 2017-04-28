@@ -42,7 +42,7 @@
             background: $white;
             padding: 0;
 
-            &:backdrop {
+            & {
                 color: $backdrop_fg_color;
                 border-color: $backdrop_borders_color;
             }
@@ -173,7 +173,6 @@
 }
 
 @include exports("gnome-bluetooth") {
-    // Base code: https://github.com/GNOME/gnome-bluetooth/blob/a93575c4b590e2b831da32f739294bb2f197d420/lib/bluetooth-settings.css
     entry.entry.pin-entry {
         font-style: normal;
         font-size: 50px;
@@ -188,7 +187,6 @@
 }
 
 @include exports("keycap") {
-    // shortcut window keys
     .keycap {
         min-width: 20px;
         min-height: 24px;
@@ -205,7 +203,7 @@
         box-shadow: if($variant == 'light', inset 0 -3px mix($base_color, $bg_color, .2), inset 0 -3px mix($borders_color, $base_color, .6));
         font-size: smaller;
 
-        &:backdrop {
+        & {
             background-color: $backdrop_base_color;
             color: $backdrop_fg_color;
             transition: 200ms ease-out;
@@ -215,9 +213,9 @@
 
 @include exports("stackswitcher") {
     stackswitcher button {
-        &.text-button { min-width: 80px; } // FIXME aggregate with buttons
+        &.text-button { min-width: 80px; }
 
-        &.circular {  // FIXME aggregate with buttons
+        &.circular {
             min-width: 28px;
             min-height: 28px;
             padding: 0;
@@ -236,8 +234,8 @@
 
             &:disabled { color: mix($selected_fg_color, $selected_bg_color, .5); }
 
-            &:backdrop {
-                background-color: $backdrop_selected_bg_color; // Fixed Issue #430
+            & {
+                background-color: $backdrop_selected_bg_color;
                 color: $backdrop_selected_fg_color;
 
                 &:disabled { color: mix($backdrop_selected_fg_color, $selected_bg_color, .3); }

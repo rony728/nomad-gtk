@@ -1,10 +1,9 @@
 @include exports("scrollbar") {
     scrollbar {
         $_slider_min_length: 40px;
-        $_slider_normal_width: 7px;
-        $_slider_small_width: 4px;
+        $_slider_normal_width: 10px;
+        $_slider_small_width: 10px;
 
-        // disable steppers
         @at-root * {
             -GtkScrollbar-has-backward-stepper: false;
             -GtkScrollbar-has-forward-stepper: false;
@@ -13,13 +12,7 @@
         background-color: $scrollbar_bg_color;
         transition: 300ms ease-out;
 
-        // scrollbar border on the content side
-        &.top { border-bottom: 1px solid $borders_color; }
-        &.bottom { border-top: 1px solid $borders_color; }
-        &.left { border-right: 1px solid $borders_color; }
-        &.right { border-left: 1px solid $borders_color; }
-
-        &:backdrop {
+        & {
             background-color: $backdrop_scrollbar_bg_color;
             border-color: $backdrop_borders_color;
             transition: 400ms ease-in;
@@ -35,7 +28,7 @@
 
             &:hover { background-color: $scrollbar_slider_hover_color; }
             &:hover:active { background-color: $scrollbar_slider_active_color; }
-            &:backdrop { background-color: $backdrop_scrollbar_slider_color; }
+            & { background-color: $backdrop_scrollbar_slider_color; }
             &:disabled { background-color: transparent; }
         }
 
@@ -81,24 +74,22 @@
             }
         }
 
-        // stepper styling
         button {
             min-width: $_slider_normal_width;
             min-height: $_slider_normal_width;
             padding: 0;
             border: 0;
             border-radius: 0;
-            border-color: $borders_color; // FIXME overwritten by global button definition
+            border-color: $borders_color;
             background-color: transparent;
             box-shadow: none;
             color: $scrollbar_slider_color;
 
             &:hover { color: $scrollbar_slider_hover_color; }
             &:active, &:checked { color: $scrollbar_slider_active_color; }
-            &:backdrop { color: $backdrop_scrollbar_slider_color; }
+            & { color: $backdrop_scrollbar_slider_color; }
         }
 
-        // button icons
         &.vertical {
             button {
                 &.down {

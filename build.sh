@@ -1,10 +1,23 @@
-#! /bin/mksh
+#! /bin/sh
+
+# This script listens for changes in the files contained 
+# in the 'src' folder.
+# Whenever a file is added or modified; the theme is
+# rebuilt.
+# 
+# If you want to modify the images, first you must delete
+# the old file from the 'src/img' directory and then
+# modify the 
 
 _render() {
 	for i in `cat "src/index"`; do
-		if [ ! -f "gtk-3.0/img/$i.png" ]; then
-			inkscape --export-png="gtk-3.0/img/$i.png" "src/img/$i.svg" > /dev/null
-			inkscape --export-dpi=192 --export-png="gtk-3.0/img/$i@2.png" "src/img/$i.svg" > /dev/null
+
+		img="gtk-3.0/img/$i"
+		src="src/img/$i.svg"
+
+		if [ ! -f "$img.png" ]; then
+			inkscape -e "$img.png" "$src" > /dev/null
+			inkscape -d 192 -e "$img@2.png" "$src" > /dev/null
 		fi
 	done
 }
@@ -23,7 +36,14 @@ _success() {
 	echo -e "\033[38;5;5m $1 \n"
 }
 
-echo ''
+_main() {
+	_render  ||
+	_error ' --- FAILED RENDERING IMAGES.' &&
+	_success ' --- DONE RENDERING IMAGES.'
 
-_render  || _error ' --- FAILED RENDERING IMAGES.' && _success ' --- DONE RENDERING IMAGES.'
-_compile || _error ' --- FAILED COMPILING SCSS.'   && _success ' --- DONE COMPILING SCSS.'
+	_compile ||
+	_error ' --- FAILED COMPILING SCSS.' &&
+	_success ' --- DONE COMPILING SCSS.'
+}
+
+ls --color=never -d src/scss/* | entr -cdpr _main

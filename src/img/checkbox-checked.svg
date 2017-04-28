@@ -14,7 +14,7 @@
    viewBox="0 0 16 16"
    version="1.1"
    id="svg8"
-   inkscape:version="0.92.0 r"
+   inkscape:version="0.92.1 r"
    sodipodi:docname="checkbox-checked.svg">
   <defs
      id="defs2" />
@@ -26,8 +26,8 @@
      inkscape:pageopacity="0.0"
      inkscape:pageshadow="2"
      inkscape:zoom="24"
-     inkscape:cx="8.8796127"
-     inkscape:cy="5.7373437"
+     inkscape:cx="2.4837794"
+     inkscape:cy="9.070677"
      inkscape:document-units="px"
      inkscape:current-layer="layer1"
      showgrid="false"
@@ -84,8 +84,8 @@
        y="293.76666"
        ry="0.69999999" />
     <path
-       style="display:inline;opacity:1;fill:none;fill-rule:evenodd;stroke:#f5f5f5;stroke-width:1.52381611;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
-       d="m 3.7697275,301.71906 2.3619911,2.28573 6.0951874,-6.09525"
+       style="display:inline;opacity:1;fill:none;fill-rule:evenodd;stroke:#f5f5f5;stroke-width:1.56189203;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
+       d="m 3.7889608,301.5744 2.3522236,2.41135 6.0699816,-6.43025"
        id="path4581"
        inkscape:connector-curvature="0"
        sodipodi:nodetypes="ccc" />

@@ -15,7 +15,7 @@
    version="1.1"
    id="svg8"
    inkscape:version="0.92.0 r"
-   sodipodi:docname="menuitem-checkbox-checked.svg">
+   sodipodi:docname="menuitem-checkbox-checked-hover.svg">
   <defs
      id="defs2" />
   <sodipodi:namedview
@@ -68,7 +68,7 @@
        y="289.63315"
        ry="0" />
     <rect
-       style="display:inline;opacity:1;fill:#00acc1;fill-opacity:1;stroke:none;stroke-width:0.79999995;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1"
+       style="display:inline;opacity:1;fill:#c3c9d6;fill-opacity:1;stroke:none;stroke-width:0.79999995;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1"
        id="rect4619"
        width="16"
        height="16"
@@ -76,7 +76,7 @@
        y="292.76666"
        ry="1.4545456" />
     <rect
-       style="display:inline;opacity:1;fill:#26c6da;fill-opacity:1;stroke:none;stroke-width:0.77777779;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1"
+       style="display:inline;opacity:1;fill:#f5f5f5;fill-opacity:1;stroke:none;stroke-width:0.77777779;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1"
        id="rect4621"
        width="14"
        height="14"
@@ -84,7 +84,7 @@
        y="293.76666"
        ry="0.69999999" />
     <path
-       style="display:inline;opacity:1;fill:none;fill-rule:evenodd;stroke:#f5f5f5;stroke-width:1.52380955;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
+       style="display:inline;opacity:1;fill:none;fill-rule:evenodd;stroke:#26c6da;stroke-width:1.52380955;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
        d="m 3.7697242,301.71909 2.361981,2.28571 6.0951618,-6.09522"
        id="path4581-2"
        inkscape:connector-curvature="0"

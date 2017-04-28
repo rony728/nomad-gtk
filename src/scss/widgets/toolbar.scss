@@ -1,10 +1,5 @@
 @import "button";
 
-
-/*********
- ! Toolbar
-**********/
-
 @mixin toolbar($bg, $fg) {
     @include linear-gradient($bg);
     @include border($bg);
@@ -56,7 +51,7 @@
     border-color: $borders_color;
     background-color: mix($borders_color, $bg_color, .7);
 
-    &:backdrop {
+    & {
         border-color: $backdrop_borders_color;
         background-color: $backdrop_dark_fill;
         transition: 200ms ease-out;
@@ -65,7 +60,7 @@
     button { @include button($toolbar_bg_color, $toolbar_fg_color); }
 
     toolbutton,
-    toolbutton:backdrop {
+    toolbutton {
         > button.flat { @extend %linked_middle; }
 
         &:first-child > button.flat { @extend %linked_button:first-child; }
@@ -91,7 +86,6 @@
         border-width: 0 0 1px;
         border-style: solid;
 
-        // add vertical margins to common widget on the headerbar to avoid them spanning the whole height
         entry,
         spinbutton,
         separator,
@@ -106,9 +100,9 @@
         }
 
         window:not(.tiled):not(.maximized) separator:first-child + &, // tackles the paned container case
-        window:not(.tiled):not(.maximized) &:first-child { &:backdrop, & { border-top-left-radius: $roundness; } }
+        window:not(.tiled):not(.maximized) &:first-child { &, & { border-top-left-radius: $roundness; } }
 
-        window:not(.tiled):not(.maximized) &:last-child { &:backdrop, & { border-top-right-radius: $roundness; } }
+        window:not(.tiled):not(.maximized) &:last-child { &, & { border-top-right-radius: $roundness; } }
     }
 
     %titlebar { // Default headerbar and titlebar code.
@@ -120,14 +114,14 @@
         padding: 0 $spacing;
         min-height: 42px;
 
-        &:backdrop {
+        & {
             @include linear-gradient($titlebar_bg_color);
 
             color: mix($titlebar_fg_color, $titlebar_bg_color, .6);
             text-shadow: none;
         }
 
-        &.default-decoration { // Default titlebar (old metacity)
+        &.default-decoration {
             min-height: 24px;
             box-shadow: none;
             border: 0;
@@ -141,7 +135,7 @@
         }
 
         .tiled &,
-        .maximized & { &:backdrop, & { border-radius: 0; } } // squared corners when the window is maximized or tiled
+        .maximized { border-radius: 0; }
 
         .title { font-weight: bold; }
 
@@ -173,7 +167,7 @@
                 box-shadow: none;
             }
 
-            &:backdrop {
+            & {
                 background: none;
                 color: mix($titlebar_fg_color, $titlebar_bg_color, .6);
                 -gtk-icon-shadow: none;
@@ -198,7 +192,6 @@
 
     .titlebar:not(headerbar) {
         window.csd > & {
-            // in csd we assume every titlebar is a headerbar so reset anything, this is needed for split toolbars cases
             padding: 0;
             background-color: transparent;
             background-image: none;
@@ -207,20 +200,20 @@
             box-shadow: none;
         }
 
-        > separator { background-color: shade($titlebar_bg_color, .88); }  // $borders_color
+        > separator { background-color: shade($titlebar_bg_color, .88); }
 
         @extend %titlebar;
     }
 
     .background:not(.tiled):not(.maximized) .titlebar {
-        &:backdrop, & {
+        &, & {
             border-top-left-radius: $roundness;
             border-top-right-radius: $roundness;
         }
     }
 
     .background:not(.csd):not(.ssd):not(.solid-csd) headerbar {
-        &, &:backdrop {
+        &, & {
             &, &:not(:last-child) {
                 border-radius: 0;
                 border-top-color: transparent;

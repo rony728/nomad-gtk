@@ -6,7 +6,7 @@
     spinner {
         background-image: none;
         color: $selected_bg_color;
-        opacity: 0; // non spinning spinner makes no sense
+        opacity: 0;
 
         -gtk-icon-source: -gtk-icontheme("process-working-symbolic");
 

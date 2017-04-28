@@ -4,7 +4,7 @@
         background-color: $base_color;
         border-color: $borders_color;
 
-        &:backdrop {
+        & {
             background-color: $backdrop_base_color;
             border-color: $backdrop_borders_color;
         }
@@ -17,7 +17,7 @@
 
         &:hover { transition: none; }
 
-        &:backdrop { transition: 200ms ease-out; }
+        & { transition: 200ms ease-out; }
 
         &.activatable {
             &.has-open-popup, // this is for indicathing which row generated a popover see https://bugzilla.gnome.org/show_bug.cgi?id=754411
@@ -26,7 +26,7 @@
 
             &:active { box-shadow: inset 0 2px 2px -2px transparentize($black, .8); }
 
-            &:backdrop:hover { background-color: transparent; }
+            &:hover { background-color: transparent; }
 
             &:selected {
                 &:active { box-shadow: inset 0 2px 3px -1px transparentize($black, .5); }
@@ -34,7 +34,7 @@
                 &.has-open-popup,
                 &:hover { background-color: mix($selected_bg_color, $fg_color, .1); }
 
-                &:backdrop { background-color: $selected_bg_color; }
+                & { background-color: $selected_bg_color; }
             }
         }
 

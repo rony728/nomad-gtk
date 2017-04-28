@@ -6,7 +6,7 @@
         padding: $spacing;
         border-top: 1px solid $borders_color;
 
-        &:backdrop { border-color: $backdrop_borders_color; }
+        & { border-color: $backdrop_borders_color; }
     }
 }
 
@@ -47,13 +47,13 @@
                 &.suggested-action { @extend .suggested-action; }
             }
 
-            &:backdrop {
+            & {
                 background-color: $backdrop_selected_bg_color;
                 background-image: none;
             }
 
             .selection-menu {
-                &:backdrop, & {
+                &, & {
                     color: shade($selected_bg_color, $contrast);
                     background-color: transparent;
                     background-image: none;

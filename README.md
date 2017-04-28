@@ -1,4 +1,4 @@
-# nomad-gtk-theme
+# Nomad GTK theme
 
 Default Nomad shell GTK theme.
 

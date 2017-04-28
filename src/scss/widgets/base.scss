@@ -37,11 +37,6 @@
     background-color: $bg_color;
     color: $fg_color;
 
-    &:backdrop {
-        text-shadow: none;
-        -gtk-icon-shadow: none;
-    }
-
     &.csd { background-color: $bg_color; }
 }
 
@@ -77,7 +72,7 @@ label {
 
         color: $fg_color;
 
-        &:backdrop { color: $backdrop_fg_color; }
+        & { color: $backdrop_fg_color; }
     }
 
     row:selected &,
@@ -93,13 +88,13 @@ label {
 
         selection { @extend %selected_items:disabled; }
 
-        &:backdrop { color: $backdrop_insensitive_color; }
+        & { color: $backdrop_insensitive_color; }
     }
 
-    &:backdrop {
+    & {
         color: $backdrop_fg_color;
 
-        selection { @extend %selected_items:backdrop; }
+        selection { @extend %selected_items; }
     }
 }
 
@@ -108,7 +103,7 @@ assistant {
         background-color: $base_color;
         border-top: 1px solid $borders_color;
 
-        &:backdrop {
+        & {
             background-color: $backdrop_base_color;
             border-color: $backdrop_borders_color;
         }
