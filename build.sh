@@ -48,4 +48,4 @@ _main() {
 
 _main
 
-ls --color=never -d src/*/* | entr -cdps ${PWD}/build.sh
+find 'src/' | entr -c -d -p -s ${PWD}/build.sh
