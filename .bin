@@ -1,13 +1,10 @@
-#! /bin/sh
+#! /bin/bash
 
 # This script listens for changes in the files contained 
 # in the 'src' folder.
 # Whenever a file is added or modified; the theme is
 # rebuilt.
 # 
-# If you want to modify the images, first you must delete
-# the old file from the 'src/img' directory and then
-# modify the 
 
 _render() {
 	for i in `cat "src/index"`; do
@@ -29,23 +26,19 @@ _compile() {
 }
 
 _error() {
-	echo -e "\033[38;5;1m $@ \n"
+	echo -e "\033[38;5;1m $1 \n"
 }
 
 _success() {
-	echo -e "\033[38;5;5m $@ \n"
+	echo -e "\033[38;5;5m $1 \n"
 }
 
 _main() {
 	_render  ||
-	_error ' - FAILED RENDERING IMAGES.' &&
-	_success ' - DONE RENDERING IMAGES.'
+	_error ' --- FAILED RENDERING IMAGES.' &&
+	_success ' --- DONE RENDERING IMAGES.'
 
 	_compile ||
-	_error ' - FAILED COMPILING SCSS.' &&
-	_success ' - DONE COMPILING SCSS.'
+	_error ' --- FAILED COMPILING SCSS.' &&
+	_success ' --- DONE COMPILING SCSS.'
 }
-
-_main
-
-ls --color=never -d src/*/* | entr -cdps ${PWD}/build.sh
