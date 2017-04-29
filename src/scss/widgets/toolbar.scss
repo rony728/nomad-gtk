@@ -83,18 +83,18 @@
     }
 
     %headerbar {
-        border-width: 0 0 1px;
-        border-style: solid;
+        border: solid shade($borders_color, 1.1);
+        border-bottom-width: 1px;
 
         entry,
         spinbutton,
         separator,
-        button { // Size height
+        button {
             margin-top: $spacing + 3px;
             margin-bottom: $spacing + 3px;
         }
 
-        switch { // Size height
+        switch {
             margin-top: $spacing + 1px;
             margin-bottom: $spacing + 1px;
         }
@@ -105,7 +105,7 @@
         window:not(.tiled):not(.maximized) &:last-child { &, & { border-top-right-radius: $roundness; } }
     }
 
-    %titlebar { // Default headerbar and titlebar code.
+    %titlebar {
         @include toolbar($titlebar_bg_color, $titlebar_fg_color);
         @include linear-gradient($titlebar_bg_color);
 

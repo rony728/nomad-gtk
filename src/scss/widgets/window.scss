@@ -1,14 +1,22 @@
 @include exports("window") {
 	decoration {
-		border-radius: if($variant=='light', 4px 4px 0 0, 3px 3px 0 0);
-		border-width: 0px;
 
 		$_wm_border: if($variant=='light', transparentize(black, 0.9), transparentize(black, 0.45));
 
+		border-radius: if($variant=='light', 4px 4px 0 0, 3px 3px 0 0);
+		border: solid 1px $fg_color;
+
 		box-shadow: 0 0 0 1px if($variant == 'dark', darken($bg_color, 7%), $_wm_border),
-					0 8px 8px 0 if($variant == 'light', opacify($_wm_border, 0.1), transparentize($_wm_border, 0.2));		
+					0 8px 8px 0 if($variant == 'light', opacify($_wm_border, 0.1), transparentize($_wm_border, 0.2));
+
 		margin: 10px;
 
+		&:backdrop {
+			box-shadow: 0 0 0 1px if($variant == 'dark', transparentize(darken($bg_color, 7%), 0.1), $_wm_border),
+		                0 8px 8px 0 transparent,
+		                0 5px 5px 0 if($variant == 'light', opacify($_wm_border, 0.1), transparentize($_wm_border, 0.2));
+		}
+		
 		.fullscreen &,
 		.tiled & {
 			border-radius: 0;

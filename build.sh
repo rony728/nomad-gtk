@@ -48,4 +48,4 @@ _main() {
 
 _main
 
-find 'src/' | entr -c -d -p -s ${PWD}/build.sh
+find 'src/' | entr -r -c -d -p -s ${PWD}/build.sh
