@@ -10,6 +10,9 @@
 # modify the 
 
 _render() {
+
+	# - - - GTK-3
+
 	for i in `cat "src/index"`; do
 
 		img="gtk-3.0/img/$i"
@@ -20,6 +23,10 @@ _render() {
 			inkscape -d 192 -e "$img@2.png" "$src" > /dev/null
 		fi
 	done
+
+	# - - - GTK-2
+
+	./gtk-2.0/render.sh
 }
 
 _compile() {

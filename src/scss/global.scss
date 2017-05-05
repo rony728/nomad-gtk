@@ -1,7 +1,7 @@
 @import "functions";
 
 // default color scheme
-$bg_color: if($variant == "dark", #4b4b4c, #fafafa);
+$bg_color: if($variant == "dark", #4b4b4b, #fafafa);
 $fg_color: if($variant == "dark", #d3d3d3, #4d4d4d);
 $base_color: if($variant == "dark", #535354, #fafafa);
 $text_color: if($variant == "dark", #f5f5f5, #0b0b0b);
