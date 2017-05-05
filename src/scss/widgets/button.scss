@@ -42,7 +42,7 @@
         border-width: 1px;
         border-style: solid;
         border-radius: $roundness;
-        transition: all 150ms ease;
+        transition: all .12s ease-in;
         outline-color: transparent;
     }
 
@@ -206,44 +206,25 @@
     
     color: $fg;
 
-
-    &.flat {
-        border-color: alpha($button_bg, 0);
-        background-color: alpha($button_bg, 0);
-        background-image: none;
-        box-shadow: none;
-    }
-
     &, &.flat {
-        &:focus, &:hover {
-            @if (lightness($button_bg) > 50) {
-                border-color: border_active($button_bg);
-                @include linear-gradient(shade($button_bg, 1.11));
-            } @else {
-                @include linear-gradient(shade($button_bg, 1.2));
-                @include border(rgba(0, 0, 0, .2 + $border_strength));
-            }
-        }
-            
 
         &:checked, &:active {
             background-color: $selected_bg_color;
             border-color: $selected_borders_color;
             color: $selected_fg_color;
 
-            &:focus, &:hover {
-				
-                color: $fg_color;
+            label {
+            	color: $selected_fg_color;
+            	transition: all .12s ease-out;
             }
+
         }
 
-        &:focus, &:hover { color: $fg_color }
+        &:focus, &:hover { color: $fg_color; }
 
         &:active:disabled, &:checked:disabled {
             border-color: $borders_color;
-
             color: $fg_color;
-            box-shadow: none;
         }
 
         &:disabled:disabled {
@@ -267,6 +248,13 @@
             color: mix($bg, $fg, .5);
             box-shadow: none;
         }
+    }
+
+    &.flat {
+        border-color: alpha($button_bg, 0);
+        background-color: alpha($button_bg, 0);
+        background-image: none;
+        box-shadow: none;
     }
 
     &.separator, .separator {
@@ -326,10 +314,6 @@
             &:active, &:checked, &:hover { color: $text_color; }
 
             &:disabled { color: alpha($insensitive_fg_color, .8); }
-
-            //&:backdrop { color: mix($backdrop_base_color, $backdrop_fg_color, .9); }
-
-            //&:backdrop:disabled { color: $backdrop_insensitive_color; }
         }
 
         &:not(.vertical) {

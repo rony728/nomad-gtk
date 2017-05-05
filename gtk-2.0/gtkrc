@@ -113,15 +113,15 @@ style "murrine-default" {
 		border_shades = { 1.0, 1.0 } # gradient to draw on border
 		colorize_scrollbar = FALSE
 		comboboxstyle = 0 # 0 = normal combobox, 1 = colorized combobox below arrow
-		contrast = 0.8 # overal contrast with borders
-		focusstyle = 1 # 0 = none, 1 = grey dotted, 2 = colored with fill, 3 = colored glow
+		contrast = 1.0 # overal contrast with borders
+		focusstyle = 0 # 0 = none, 1 = grey dotted, 2 = colored with fill, 3 = colored glow
 		glazestyle = 0 # 0 = flat highlight, 1 = curved highlight, 2 = concave, 3 = top curved highlight, 4 = beryl highlight
-		glowstyle = 0 # 0 = glow on top, 1 = glow on bottom, 2 = glow on top and bottom, 3 = glow on middle vertically, 4 = glow on middle horizontally, 5 = glow on all sides
+		glowstyle = 1 # 0 = glow on top, 1 = glow on bottom, 2 = glow on top and bottom, 3 = glow on middle vertically, 4 = glow on middle horizontally, 5 = glow on all sides
 		glow_shade = 1.0 # amount of glow
 		gradient_shades = { 1.0, 1.0, 1.0, 1.0 } # gradient to draw on widgets
 		highlight_shade = 1.0 # amount of highlight
 		lightborder_shade = 1.0 # amount of inset light border
-		lightborderstyle = 1 # 0 = lightborder on top side, 1 = lightborder on all sides
+		lightborderstyle = 0 # 0 = lightborder on top side, 1 = lightborder on all sides
 		listviewheaderstyle = 0 # 0 = flat, 1 = glassy, 2 = raised
 		listviewstyle = 0 # 0 = none, 1 = dotted, 2 = line
 		menubaritemstyle = 0 # 0 = menuitem look, 1 = button look
@@ -165,7 +165,7 @@ style "murrine-notebook" = "murrine-notebook-bg" {
 	ythickness = 2
 
 	engine "murrine" {
-		roundness = 2
+		roundness = 0
 	}
 }
 
@@ -481,9 +481,6 @@ style "bold-panel-item" {
 widget "*Panel*MenuBar*" style "bold-panel-item"
 widget "*gimmie*" style "bold-panel-item"
 
-# widget_class "*Mail*" style "murrine-panel" # Disabled to fix Evolution bug
-# class "*Panel*" style "murrine-panel" # Disabled to fix bug
-
 # XFCE Styles
 
 style "workspace-switcher" = "murrine-panel" {
@@ -523,10 +520,10 @@ style "xfdesktop-icon-view" {
 
 style "xfwm-tabwin" {
 	Xfwm4TabwinWidget::border-width = 1
-        Xfwm4TabwinWidget::border-alpha = 1.0
+    Xfwm4TabwinWidget::border-alpha = 1.0
 	Xfwm4TabwinWidget::icon-size = 64
-        Xfwm4TabwinWidget::alpha = 1.0
-        Xfwm4TabwinWidget::border-radius = 2
+    Xfwm4TabwinWidget::alpha = 1.0
+    Xfwm4TabwinWidget::border-radius = 2
 
 	bg[NORMAL] = @menu_bg_color
 	bg[SELECTED] = @menu_bg_color
@@ -540,7 +537,7 @@ style "xfwm-tabwin" {
 }
 
 style "xfwm-tabwin-button" {
-        font_name = "bold"
+    font_name = "bold"
 
 	bg[SELECTED] = @selected_bg_color
 }
@@ -792,3 +789,14 @@ widget "xfwm4-tabwin*" style "xfwm-tabwin"
 widget "xfwm4-tabwin*GtkButton*" style "xfwm-tabwin-button"
 widget_class "*XfsmLogoutDialog*" style "xfsm-logout"
 widget_class "*XfsmLogoutDialog*GtkButton" style "xfsm-logout-button"
+
+style "thunar" {
+	engine "murrine" {
+		roundness = 0
+		contrast = 0.0
+	}
+}
+
+widget_class "*ExoIconView*" style "thunar"
+widget "*ExoIconView*" style "thunar"
+class "*ExoIconView*" style "thunar"

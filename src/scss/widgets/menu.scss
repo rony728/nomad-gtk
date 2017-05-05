@@ -297,16 +297,17 @@
     menuitem.button.flat {
         padding: ($spacing - 1px) ($spacing + 1px);
         outline-color: transparent;
-        transition: none;
+        transition: all .12s ease-in;
+        border-radius: $roundness;
 
         @extend %undecorated_button;
 
         &:hover {
-            background-color: $selected_bg_color;
-            color: $selected_fg_color;
+            background-color: shade($bg_color, .9);
+            color: $fg_color;
         }
 
-        &:active, &:selected { &, arrow { @extend %selected_items; } }
+        &:active, &:selected { &, arrow { @extend %selected_items; transition: all .06s ease-in; } }
 
         &:checked { color: $fg_color; }
 
@@ -316,7 +317,6 @@
             &.right { -gtk-icon-source: -gtk-icontheme("pan-end-symbolic"); }
         }
 
-        // FIXME: temporary workaround
         check:last-child,
         radio:last-child { margin-left: 8px; }
 

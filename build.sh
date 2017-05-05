@@ -44,6 +44,8 @@ _main() {
 	_compile ||
 	_error ' - FAILED COMPILING SCSS.' &&
 	_success ' - DONE COMPILING SCSS.'
+
+	gtk3-widget-factory
 }
 
 _main
