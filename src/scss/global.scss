@@ -3,7 +3,7 @@
 // default color scheme
 $bg_color: if($variant == "dark", #4b4b4b, #fafafa);
 $fg_color: if($variant == "dark", #d3d3d3, #4d4d4d);
-$base_color: if($variant == "dark", #535354, #fafafa);
+$base_color: if($variant == "dark", #535354, #f5f5f5);
 $text_color: if($variant == "dark", #f5f5f5, #0b0b0b);
 $selected_bg_color: if($variant == "dark", #136a90, #26c6da);
 $selected_fg_color: #fafafa;
@@ -29,7 +29,7 @@ $light_shadow: #f5f5f5;
 
 // white and black
 $black: #0b0b0b;
-$white: #f5f5f5;
+$white: #fafafa;
 
 $button_border: $borders_color;
 $entry_border: $borders_color;
