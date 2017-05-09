@@ -88,8 +88,8 @@ style "murrine-default" {
 	GtkWidget::focus-padding = 3
 
 	GtkWidget::wide-separators = 1
-	GtkWidget::separator-width = 1
-	GtkWidget::separator-height = 1
+	GtkWidget::separator-width = 0
+	GtkWidget::separator-height = 0
 
 	GtkWindow::resize-grip-height = 0
 	GtkWindow::resize-grip-width = 0
@@ -458,7 +458,8 @@ widget_class "*Toolbar*.*Separator*" style "murrine-toolbar"
 # Panels
 
 style "murrine-panel" = "murrine-thin" {
-	xthickness = 2
+	xthickness = 10
+	ythickness = 10
 
 	bg[NORMAL] = @panel_bg_color
 	bg[PRELIGHT] =  mix (0.21, @panel_fg_color, @panel_bg_color)
