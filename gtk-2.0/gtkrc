@@ -524,9 +524,6 @@ style "bold-panel-item" {
 widget "*Panel*MenuBar*" style "bold-panel-item"
 widget "*gimmie*" style "bold-panel-item"
 
-# widget_class "*Mail*" style "murrine-panel" # Disabled to fix Evolution bug
-# class "*Panel*" style "murrine-panel" # Disabled to fix bug
-
 # XFCE Styles
 
 style "workspace-switcher" = "murrine-panel" {
