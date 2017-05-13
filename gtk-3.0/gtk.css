@@ -222,39 +222,39 @@ spinbutton button:active, spinbutton button:checked, spinbutton button:hover { c
 
 spinbutton button:disabled { color: alpha(mix(#4d4d4d,#fafafa,0.5),0.8); }
 
-spinbutton:not(.vertical) { border: 1px solid #c8c8c8; background-color: transparent; background-image: none; box-shadow: inset 1px 0 #dddddd; padding: 0; color: #0b0b0b; caret-color: #0b0b0b; }
+spinbutton:not(.vertical) { border: 1px solid #c3c9d6; background-color: transparent; background-image: none; box-shadow: none; padding: 0; color: #0b0b0b; caret-color: #0b0b0b; border-radius: 2px; }
 
-spinbutton:not(.vertical):focus, spinbutton:not(.vertical):active { border-color: #8692ac; }
+spinbutton:not(.vertical):focus, spinbutton:not(.vertical):active { border-color: #20a9ba; }
 
 spinbutton:not(.vertical):disabled { background-color: #dddddd; background-image: none; color: mix(#f5f5f5,#0b0b0b,0.5); }
 
-spinbutton:not(.vertical) entry { border: 0; border-radius: 0; box-shadow: none; }
+spinbutton:not(.vertical) entry { border: 0; border-radius: 2px; box-shadow: none; }
 
-spinbutton:not(.vertical) button { border-radius: 0; border-color: rgba(195, 201, 214, 0.8); border-style: none none none solid; background-image: none; box-shadow: none; background-color: white; }
+spinbutton:not(.vertical) button { border-radius: 0; border-color: rgba(195, 201, 214, 0.8); border-style: none; background-image: none; box-shadow: none; }
+
+spinbutton:not(.vertical) button:hover:active { color: #fafafa; }
 
 spinbutton:not(.vertical) button:hover { background-color: white; }
 
-spinbutton:not(.vertical) button:dir(rtl) { border-style: none solid none none; }
-
-spinbutton:not(.vertical) button:active { box-shadow: inset 0 2px 3px -1px rgba(11, 11, 11, 0.2); }
-
-spinbutton:not(.vertical) button:backdrop { border-color: rgba(195, 201, 214, 0.8); }
-
-spinbutton:not(.vertical) button:backdrop:disabled { border-style: none none none solid; }
-
-spinbutton:not(.vertical) button:backdrop:disabled:dir(rtl) { border-style: none solid none none; }
+spinbutton:not(.vertical) button:dir(rtl) { border-style: none; }
 
 spinbutton:not(.vertical) button:dir(rtl):first-child { border-radius: 2px 0 0 2px; }
 
 spinbutton:not(.vertical) button:dir(ltr):last-child { border-radius: 0 2px 2px 0; }
 
-spinbutton.vertical button, spinbutton.vertical entry { min-width: 0; padding-left: 3px; padding-right: 3px; }
+spinbutton.vertical { border: 1px solid #c3c9d6; border-radius: 2px; }
 
-spinbutton.vertical entry { border-radius: 0; }
+spinbutton.vertical:focus, spinbutton.vertical:active { border-color: #20a9ba; }
 
-spinbutton.vertical button.up { border-style: solid solid none solid; border-radius: 2px 2px 0 0; }
+spinbutton.vertical button, spinbutton.vertical entry { padding: 3px 1px; }
 
-spinbutton.vertical button.down { border-style: none solid solid solid; border-radius: 0 0 2px 2px; }
+spinbutton.vertical entry { border-radius: 0; border: 1px solid transparent; }
+
+spinbutton.vertical button { background-color: transparent; border-style: none; }
+
+spinbutton.vertical button.up { border-radius: 2px 2px 0 0; }
+
+spinbutton.vertical button.down { border-radius: 0 0 2px 2px; }
 
 combobox button.combo { min-width: 0; }
 
@@ -1862,7 +1862,7 @@ paned.titlebar > separator { background-image: image(#d6d6d6); }
 
 spinner { background-image: none; color: #26c6da; opacity: 0; -gtk-icon-source: -gtk-icontheme("process-working-symbolic"); }
 
-spinner:checked { opacity: 1; animation: spin 1s linear infinite; }
+spinner:checked { opacity: 1; animation: spin 1.6s ease infinite; }
 
 spinner:checked:disabled { opacity: .5; }
 
@@ -2078,21 +2078,21 @@ placesview row.activatable:hover { background-color: transparent; }
 
 placesview > actionbar > revealer > box > label { padding-left: 8px; padding-right: 8px; }
 
-decoration { border-radius: 4px 4px 0 0; border: solid 1px #4d4d4d; box-shadow: 0 0 0 1px rgba(0, 0, 0, 0.1), 0 8px 8px 0 rgba(0, 0, 0, 0.2); margin: 10px; }
+decoration { border-radius: 4px 4px 0 0; border: solid 1px #4d4d4d; box-shadow: 0 0 0 1px #222222, 0 8px 8px 0 #222222; margin: 10px; }
 
-decoration:backdrop { box-shadow: 0 0 0 1px rgba(0, 0, 0, 0.1), 0 8px 8px 0 transparent, 0 5px 5px 0 rgba(0, 0, 0, 0.2); }
+decoration:backdrop { box-shadow: 0 0 0 1px #222222, 0 8px 8px 0 transparent, 0 5px 5px 0 #222222; }
 
 .fullscreen decoration, .tiled decoration { border-radius: 0; }
 
 .popup decoration { box-shadow: none; border-radius: 0; }
 
-.ssd decoration { border-radius: 4px 4px 0 0; box-shadow: 0 0 0 1px rgba(0, 0, 0, 0.1); }
+.ssd decoration { border-radius: 4px 4px 0 0; box-shadow: 0 0 0 1px #222222; }
 
 .ssd decoration.maximized { border-radius: 0; }
 
-.csd.popup decoration { border-radius: 2px; box-shadow: 0 3px 6px rgba(0, 0, 0, 0.1), 0 0 0 1px rgba(0, 0, 0, 0.1); }
+.csd.popup decoration { border-radius: 2px; box-shadow: 0 3px 6px #222222, 0 0 0 1px #222222; }
 
-tooltip.csd decoration { border-radius: 2px; box-shadow: 0 1px 3px 1px rgba(0, 0, 0, 0.1); }
+tooltip.csd decoration { border-radius: 2px; box-shadow: 0 1px 3px 1px #222222; }
 
 messagedialog.csd decoration { border-radius: 3px; }
 

@@ -1,7 +1,7 @@
 @include exports("window") {
 	decoration {
 
-		$_wm_border: transparentize(black, 0.9);
+		$_wm_border: #222222;
 
 		border-radius: 4px 4px 0 0;
 		border: solid 1px $fg_color;
