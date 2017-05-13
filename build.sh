@@ -2,33 +2,23 @@
 
 # This script listens for changes in the files contained 
 # in the 'src' folder.
-# Whenever a file is added or modified; the theme is
-# rebuilt.
-# 
-# If you want to modify the images, first you must delete
-# the old file from the 'src/img' directory and then
-# modify the 
+# Whenever a file is modified; the theme is rebuilt.
 
 _render() {
-
-	# - - - GTK-3
-
 	for i in `cat "src/index"`; do
 
 		img="gtk-3.0/img/$i"
-		src="src/img/$i.svg"
+		src="src/img.svg"
 
 		if [ ! -f "$img.png" ]; then
-			inkscape -e "$img.png" "$src" > /dev/null
-			inkscape -d 192 -e "$img@2.png" "$src" > /dev/null
+			inkscape -ji $i -e "$img.png" "$src" > /dev/null
+			inkscape -ji $i -d 192 -e "$img@2.png" "$src" > /dev/null
 		fi
 	done
 }
 
 _compile() {
-	for t in "" "-dark"; do
-		sassc "src/scss/gtk${t}.scss" "gtk-3.0/gtk${t}.css"
-	done
+	sassc --style compact "src/scss/gtk.scss" "gtk-3.0/gtk.css"
 }
 
 _error() {
@@ -41,14 +31,12 @@ _success() {
 
 _main() {
 	_render  ||
-	_error ' - FAILED RENDERING IMAGES.' &&
+	(_error ' - FAILED RENDERING IMAGES.'; exit) &&
 	_success ' - DONE RENDERING IMAGES.'
 
 	_compile ||
-	_error ' - FAILED COMPILING SCSS.' &&
-	_success ' - DONE COMPILING SCSS.'
-
-	gtk3-widget-factory
+	(_error ' - FAILED COMPILING SCSS.'; exit) &&
+	(_success ' - DONE COMPILING SCSS.'; gtk3-widget-factory)
 }
 
 _main

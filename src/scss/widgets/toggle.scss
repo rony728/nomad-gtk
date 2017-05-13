@@ -1,33 +1,31 @@
-$suffix: if($variant == "dark", "-dark", "");
-
 @mixin toggle($type) {
     background-image: none;
 
-    -gtk-icon-source: -gtk-scaled(url("img/#{$type}-unchecked#{$suffix}.png"),
-                                  url("img/#{$type}-unchecked#{$suffix}@2.png"));
+    -gtk-icon-source: -gtk-scaled(url("img/#{$type}-unchecked.png"),
+                                  url("img/#{$type}-unchecked@2.png"));
 
-    &:disabled { -gtk-icon-source: -gtk-scaled(url("img/#{$type}-unchecked-insensitive#{$suffix}.png"),
-                                               url("img/#{$type}-unchecked-insensitive#{$suffix}@2.png")); }
+    &:disabled { -gtk-icon-source: -gtk-scaled(url("img/#{$type}-unchecked-disabled.png"),
+                                               url("img/#{$type}-unchecked-disabled@2.png")); }
 
     &:checked, &:active {
-        -gtk-icon-source: -gtk-scaled(url("img/#{$type}-checked#{$suffix}.png"),
-                                      url("img/#{$type}-checked#{$suffix}@2.png"));
+        -gtk-icon-source: -gtk-scaled(url("img/#{$type}-checked.png"),
+                                      url("img/#{$type}-checked@2.png"));
 
-        &:disabled { -gtk-icon-source: -gtk-scaled(url("img/#{$type}-checked-insensitive#{$suffix}.png"),
-                                                   url("img/#{$type}-checked-insensitive#{$suffix}@2.png")); }
+        &:disabled { -gtk-icon-source: -gtk-scaled(url("img/#{$type}-checked-disabled.png"),
+                                                   url("img/#{$type}-checked-disabled@2.png")); }
     }
 
     &:indeterminate {
-        -gtk-icon-source: -gtk-scaled(url("img/#{$type}-mixed#{$suffix}.png"),
-                                      url("img/#{$type}-mixed#{$suffix}@2.png"));
+        -gtk-icon-source: -gtk-scaled(url("img/#{$type}-mixed.png"),
+                                      url("img/#{$type}-mixed@2.png"));
 
-        &:disabled { -gtk-icon-source: -gtk-scaled(url("img/#{$type}-mixed-insensitive#{$suffix}.png"),
-                                                   url("img/#{$type}-mixed-insensitive#{$suffix}@2.png")); }
+        &:disabled { -gtk-icon-source: -gtk-scaled(url("img/#{$type}-mixed-disabled.png"),
+                                                   url("img/#{$type}-mixed-disabled@2.png")); }
     }
 
     menuitem &, modelbutton & {
-        -gtk-icon-source: -gtk-scaled(url("img/menuitem-#{$type}-checked-insensitive.png"),
-                                      url("img/menuitem-#{$type}-checked-insensitive@2.png"));
+        -gtk-icon-source: -gtk-scaled(url("img/menuitem-#{$type}-checked-disabled.png"),
+                                      url("img/menuitem-#{$type}-checked-disabled@2.png"));
 
         &:disabled { -gtk-icon-source: none; }
 
@@ -38,8 +36,8 @@ $suffix: if($variant == "dark", "-dark", "");
             &:hover { -gtk-icon-source: -gtk-scaled(url("img/menuitem-#{$type}-checked-hover.png"),
                                                     url("img/menuitem-#{$type}-checked-hover@2.png")); }
 
-            &:disabled { -gtk-icon-source: -gtk-scaled(url("img/menuitem-#{$type}-checked-insensitive.png"),
-                                                       url("img/menuitem-#{$type}-checked-insensitive@2.png")); }
+            &:disabled { -gtk-icon-source: -gtk-scaled(url("img/menuitem-#{$type}-checked-disabled.png"),
+                                                       url("img/menuitem-#{$type}-checked-disabled@2.png")); }
         }
 
         &:indeterminate {
@@ -49,8 +47,8 @@ $suffix: if($variant == "dark", "-dark", "");
             &:hover { -gtk-icon-source: -gtk-scaled(url("img/menuitem-#{$type}-mixed-hover.png"),
                                                     url("img/menuitem-#{$type}-mixed-hover@2.png")); }
 
-            &:disabled { -gtk-icon-source: -gtk-scaled(url("img/menuitem-#{$type}-mixed-insensitive.png"),
-                                                       url("img/menuitem-#{$type}-mixed-insensitive@2.png")); }
+            &:disabled { -gtk-icon-source: -gtk-scaled(url("img/menuitem-#{$type}-mixed-disabled.png"),
+                                                       url("img/menuitem-#{$type}-mixed-disabled@2.png")); }
         }
     }
 }
@@ -58,15 +56,15 @@ $suffix: if($variant == "dark", "-dark", "");
 @include exports("checkradio") {
     radio {
         @include toggle("radio");
-        min-width: 16px;
-        min-height: 16px;
+        min-width: 20px;
+        min-height: 20px;
         margin-right: $spacing;
     }
 
     check {
         @include toggle("checkbox");
-        min-width: 16px;
-        min-height: 16px;
+        min-width: 20px;
+        min-height: 20px;
         margin-right: $spacing;
     }
 
@@ -85,8 +83,8 @@ $suffix: if($variant == "dark", "-dark", "");
                   (':checked', '-checked') {
         .view.content-view.check#{$s}:not(list) {
             -gtk-icon-shadow: none;
-            -gtk-icon-source: -gtk-scaled(url("img/grid-selection#{$as}#{$suffix}.png"),
-                                          url("img/grid-selection#{$as}#{$suffix}@2.png"));
+            -gtk-icon-source: -gtk-scaled(url("img/grid-selection#{$as}.png"),
+                                          url("img/grid-selection#{$as}@2.png"));
             background-color: transparent;
         }
     }

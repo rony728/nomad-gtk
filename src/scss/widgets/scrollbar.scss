@@ -10,7 +10,7 @@
         }
 
         background-color: $scrollbar_bg_color;
-        transition: 300ms ease-out;
+        transition: all .3s ease-out;
 
         & {
             background-color: $backdrop_scrollbar_bg_color;
@@ -21,15 +21,28 @@
         slider {
             min-width: $_slider_normal_width;
             min-height: $_slider_normal_width;
-            border: 1px solid transparent;
+            border: 1px solid $borders_color;
             border-radius: $roundness;
             background-clip: padding-box;
             background-color: $scrollbar_slider_color;
+            transition: all .3s ease-in;
 
-            &:hover { background-color: $scrollbar_slider_hover_color; }
-            &:hover:active { background-color: $scrollbar_slider_active_color; }
-            & { background-color: $backdrop_scrollbar_slider_color; }
-            &:disabled { background-color: transparent; }
+            &:hover { 
+            	background-color: $scrollbar_slider_hover_color;
+            }
+
+            &:hover:active {
+            	background-color: $scrollbar_slider_active_color;
+            	border-color: $selected_borders_color;
+            }
+
+            & {
+            	background-color: $scrollbar_slider_color;
+            }
+
+            &:disabled {
+            	background-color: transparent;
+            }
         }
 
         &.horizontal slider { min-width: $_slider_min_length; }
@@ -51,10 +64,9 @@
                     min-width: $_slider_small_width;
                     min-height: $_slider_small_width;
                     background-color: $fg_color;
-                    border: 1px solid if($variant == 'light', $white, $black);
+                    border: 1px solid $white;
                 }
 
-                // hide steppers
                 button {
                     min-width: $_slider_small_width;
                     min-height: $_slider_small_width;

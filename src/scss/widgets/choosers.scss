@@ -1,17 +1,9 @@
 @include exports("colorchooser") {
     colorswatch {
-        // This widget is made of two boxes one on top of the other, the lower box is colorswatch {} the other one
-        // is colorswatch overlay {}, colorswatch has the programmatically set background, so most of the style is
-        // applied to the overlay box.
 
-        &:drop(active), & { border-style: none; } // FIXME: implement a proper drop(active) state
+        &:drop(active), & { border-style: none; }
 
         $_colorswatch_radius: $roundness;
-
-        // base color corners rounding
-        // to avoid the artifacts caused by rounded corner anti-aliasing the base color
-        // sports a bigger radius.
-        // nth-child is needed by the custom color strip.
 
         &.top {
             border-top-left-radius: $_colorswatch_radius + .5px;
@@ -58,7 +50,7 @@
         &.dark overlay {
             color: $selected_fg_color;
 
-            &:hover { border-color: if($variant == 'light', transparentize($black, .2), $borders_color); }
+            &:hover { border-color: transparentize($black, .2); }
 
             & { color: $backdrop_selected_fg_color; }
         }
@@ -66,7 +58,7 @@
         &.light overlay {
             color: $text_color;
 
-            &:hover { border-color: if($variant == 'light', transparentize($black, .5), $borders_color); }
+            &:hover { border-color: transparentize($black, .5); }
 
             & { color: $backdrop_text_color; }
         }
@@ -76,19 +68,19 @@
 
             &.light overlay {
                 border-color: $drop_target_color;
-                box-shadow: inset 0 0 0 2px if($variant == 'light', darken($drop_target_color, 7%), $borders_color),
+                box-shadow: inset 0 0 0 2px darken($drop_target_color, 7%),
                             inset 0 0 0 1px $drop_target_color;
             }
 
             &.dark overlay {
                 border-color: $drop_target_color;
-                box-shadow: inset 0 0 0 2px if($variant == 'light', transparentize($black, .7), $borders_color),
+                box-shadow: inset 0 0 0 2px transparentize($black, .7),
                             inset 0 0 0 1px $drop_target_color;
             }
         }
 
         overlay {
-            border: 1px solid if($variant == 'light', transparentize($black, .7), $borders_color);
+            border: 1px solid transparentize($black, .7);
 
             &:hover {
                 box-shadow: inset 0 1px transparentize($white, .6),
@@ -97,7 +89,7 @@
 
             &,
             &:hover {
-                border-color: if($variant == 'light', transparentize($black, .7), $borders_color);
+                border-color: transparentize($black, .7);
                 box-shadow: none;
             }
         }
@@ -140,22 +132,18 @@
 
         colorswatch:only-child {
             &, overlay { border-radius: 0; }
-
-            @if $variant == 'light' { box-shadow: 0 1px _text_shadow_color(); }
+            box-shadow: 0 1px _text_shadow_color();
         }
 
-        @if $variant == 'light' {
-            &:disabled,
-            &,
-            &:active,
-            &:checked { colorswatch:only-child { box-shadow: none; } }
-        }
+        &:disabled,
+        &,
+        &:active,
+        &:checked { colorswatch:only-child { box-shadow: none; } }
     }
 }
 
 @include exports("miscchoosers") {
     filechooser {
-        /* for fallback when header bar not used */
         .dialog-action-box {
             border-top: 1px solid $borders_color;
 

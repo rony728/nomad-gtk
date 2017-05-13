@@ -8,13 +8,11 @@
     button.color {
         .osd colorswatch:only-child { box-shadow: none; }
 
-        @if $variant == 'light' {
-            .osd & {
-                &:disabled,
-                &,
-                &:active,
-                &:checked { colorswatch:only-child { box-shadow: none; } }
-            }
+        .osd & {
+            &:disabled,
+            &,
+            &:active,
+            &:checked { colorswatch:only-child { box-shadow: none; } }
         }
     }
 
@@ -29,7 +27,6 @@
         }
     }
 
-    // stand-alone OSD toolbars
     toolbar.osd {
         -GtkToolbar-button-relief: normal;
 
@@ -45,10 +42,10 @@
         &.left,
         &.right,
         &.top,
-        &.bottom { border-radius: 0; } // positional classes for `attached` osd toolbars
+        &.bottom { border-radius: 0; }
     }
 
-    progressbar.osd { // progressbar.osd used for epiphany page loading progress
+    progressbar.osd {
         margin: 2px;
         min-height: 2px;
         min-width: 2px;
@@ -87,7 +84,6 @@
 
         entry { @include entry($osd_base, $osd_text_color, $osd_borders_color); }
 
-        /* used by gnome-settings-daemon's media-keys OSD */
         trough,
         &.trough {
             background-color: alpha($osd_fg, .3);
@@ -98,7 +94,6 @@
             background-color: $osd_fg;
         }
 
-        // Old GTK 3.0 code
         scale {
             slider {
                 @include linear-gradient(shade($osd_bg, 1.08));
@@ -126,16 +121,13 @@
             }
         }
 
-        // New GTK 3.20 code
         scale {
-            //OSD troughs
             trough {
                 background-color: lighten($osd_bg, 7%);
 
                 highlight { background-color: $selected_bg_color; }
             }
 
-            // OSD sliders
             slider {
                 background-clip: border-box;
                 background-color: $selected_bg_color;
@@ -184,7 +176,6 @@
             }
         }
 
-        /* used by Documents */
         .page-thumbnail {
             border: 1px solid shade($osd_bg, .9);
             /* when there's no pixbuf yet */
@@ -203,7 +194,6 @@
         }
 
         spinbutton {
-            // OSD horizontal
             &:not(.vertical) {
                 @include linear-gradient($osd_base, to top);
                 @include border($osd_base);
@@ -243,7 +233,7 @@
                     &:disabled {
                         color: alpha($backdrop_insensitive_color, .8);
 
-                        border-style: none none none solid; // It is needed or it gets overridden
+                        border-style: none none none solid;
 
                         &:dir(rtl) { border-style: none solid none none; }
                     }
@@ -254,7 +244,6 @@
                 }
             }
 
-            // OSD vertical
             &.vertical button:first-child {
                 @include button($osd_bg, $osd_fg);
             }
