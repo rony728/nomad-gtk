@@ -6,14 +6,15 @@
     }
 
     spinner {
-        background-image: none;
         color: $selected_bg_color;
         opacity: 0;
         -gtk-icon-source: -gtk-icontheme("process-working-symbolic");
 
         &:checked {
             opacity: 1;
-            animation: spin 1.6s ease infinite;
+            animation: spin .7s cubic-bezier(.3, .4, .3, .2) infinite;
+            min-height: 20px;
+            min-width: 20px;
 
             &:disabled { opacity: .5; }
         }

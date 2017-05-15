@@ -93,32 +93,33 @@
 @include exports("switch") {
     switch {
         border-radius: $roundness;
-        padding: $spacing - 2px;
-        border: none;
+        padding: 1px;
+        border: solid 1px $borders_color;
         outline: none;
-        transition: all .12s ease-in;
-        min-width: 48px;
+        transition: all .2s ease-in;
+        min-width: 32px;
         min-height: 16px;
         background-color: $switch_bg_color;
         color: $switch_fg_color;
-        box-shadow: inset 1px -1px 0 alpha($dark_shadow, .06), inset -1px 1px 0 alpha($dark_shadow, .06);
+        box-shadow: none;
 
         slider {
             background-color: $switch_slider_bg_color;
-            transition: all .12s ease-out;
-            box-shadow: 0 1px 2px 0 alpha($dark_shadow, .07), 1px 0 2px 0 alpha($dark_shadow, .07);
+            transition: all .2s ease-out;
             border-radius: $roundness;
+            border: 1px solid $borders_color;
         }
 
         &:checked {
             background-color: $selected_bg_color;
             background-image: none;
-            border-color: $selected_bg_color;
+            border: 1px solid $selected_borders_color;
             color: $base_color;
 
             slider {
                 background-color: $white;
-                box-shadow: 0 1px 3px 0 alpha($dark_shadow, .1);
+                box-shadow: none;
+                border: 1px solid $selected_borders_color;
             }
         }
 

@@ -1860,9 +1860,9 @@ paned.titlebar > separator { background-image: image(#d6d6d6); }
 
 @keyframes spin { to { -gtk-icon-transform: rotate(1turn); } }
 
-spinner { background-image: none; color: #26c6da; opacity: 0; -gtk-icon-source: -gtk-icontheme("process-working-symbolic"); }
+spinner { color: #26c6da; opacity: 0; -gtk-icon-source: -gtk-icontheme("process-working-symbolic"); }
 
-spinner:checked { opacity: 1; animation: spin 1.6s ease infinite; }
+spinner:checked { opacity: 1; animation: spin 0.7s cubic-bezier(0.3, 0.4, 0.3, 0.2) infinite; min-height: 20px; min-width: 20px; }
 
 spinner:checked:disabled { opacity: .5; }
 
@@ -1940,13 +1940,13 @@ radio:dir(rtl), check:dir(rtl) { margin-right: 0; margin-left: 5px; }
 
 .view.content-view.check:checked:not(list), iconview.content-view.check:checked:not(list) { -gtk-icon-shadow: none; -gtk-icon-source: -gtk-scaled(url("img/grid-selection-checked.png"), url("img/grid-selection-checked@2.png")); background-color: transparent; }
 
-switch { border-radius: 2px; padding: 3px; border: none; outline: none; transition: all .12s ease-in; min-width: 48px; min-height: 16px; background-color: #f5f5f5; color: #4d4d4d; box-shadow: inset 1px -1px 0 rgba(11, 11, 11, 0.06), inset -1px 1px 0 rgba(11, 11, 11, 0.06); }
+switch { border-radius: 2px; padding: 1px; border: solid 1px #c3c9d6; outline: none; transition: all .2s ease-in; min-width: 32px; min-height: 16px; background-color: #f5f5f5; color: #4d4d4d; box-shadow: none; }
 
-switch slider { background-color: #fafafa; transition: all .12s ease-out; box-shadow: 0 1px 2px 0 rgba(11, 11, 11, 0.07), 1px 0 2px 0 rgba(11, 11, 11, 0.07); border-radius: 2px; }
+switch slider { background-color: #fafafa; transition: all .2s ease-out; border-radius: 2px; border: 1px solid #c3c9d6; }
 
-switch:checked { background-color: #26c6da; background-image: none; border-color: #26c6da; color: #f5f5f5; }
+switch:checked { background-color: #26c6da; background-image: none; border: 1px solid #20a9ba; color: #f5f5f5; }
 
-switch:checked slider { background-color: #fafafa; box-shadow: 0 1px 3px 0 rgba(11, 11, 11, 0.1); }
+switch:checked slider { background-color: #fafafa; box-shadow: none; border: 1px solid #20a9ba; }
 
 switch:disabled { background-color: mix(#fafafa,#f5f5f5,0.6); background-image: none; border-color: #c3c9d6; color: mix(#4d4d4d,#fafafa,0.5); box-shadow: none; }
 
