@@ -190,7 +190,7 @@ style "murrine-notebook-bg" {
 	bg[ACTIVE] = shade (0.94, @base_color)
 }
 
-style "murrine-notebook" {
+style "murrine-notebook" = "murrine-notebook-bg" {
 	bg[NORMAL] = @bg_color
 	bg[ACTIVE] = shade (0.94, @base_color)
 
@@ -200,16 +200,18 @@ style "murrine-notebook" {
 
 # Various Standard Widgets
 
-style "murrine-button"  = "murrine-wider" {
-	bg[NORMAL] = shade (1.08, @bg_color)
-	bg[PRELIGHT] = shade (1.10, @bg_color)
+style "murrine-button" = "murrine-wider" {
+	bg[NORMAL] = @bg_color
+	bg[PRELIGHT] = @selected_bg_color
 	bg[ACTIVE] = @selected_bg_color
 	bg[INSENSITIVE] = shade (0.85, @bg_color)
 
-	fg[NORMAL] = @selected_fg_color
+	fg[NORMAL] = @fg_color
+	fg[ACTIVE] = @selected_fg_color
 	fg[PRELIGHT] = @selected_fg_color
 
   	engine "murrine" {
+		border_shades = { 1.2, 1.2 }
 	}
 }
 
@@ -242,8 +244,7 @@ style "murrine-scale" = "murrine-thin" {
 	engine "murrine" {
 		roundness = 12
 		border_shades = { 0.96, 0.96 }
-		trough_shades = { 0.8, 0.8 }
-		trough_border_shades = { 2.0, 2.0 }
+		trough_shades = { 0.96, 0.96 }
 	}
 }
 
@@ -304,6 +305,7 @@ style "murrine-radiocheck" = "murrine-default" {
 	bg[PRELIGHT] = @bg_color
 
 	text[NORMAL] = @selected_bg_color
+	text[ACTIVE] = @selected_bg_color
 	text[PRELIGHT] = @selected_bg_color
 }
 
@@ -708,8 +710,14 @@ class "GtkScrollbar" style "murrine-scrollbar"
 class "GtkVScrollbar" style "murrine-vscrollbar"
 class "GtkHScrollbar" style "murrine-hscrollbar"
 
-class "GtkRadio*" style "murrine-radiocheck"
-class "GtkCheck*" style "murrine-radiocheck"
+class "GtkButton" style "murrine-button"
+widget_class "*<GtkButton>*<GtkLabel>" style "murrine-button"
+class "GtkToggleButton" style "murrine-button"
+
+class "GtkRadioButton" style "murrine-radiocheck"
+widget_class "*<GtkRadioButton>*<GtkLabel>*" style "murrine-radiocheck"
+class "GtkCheckButton" style "murrine-radiocheck"
+widget_class "*<GtkCheckButton>*<GtkLabel>*" style "murrine-radiocheck"
 
 class "GtkEntry" style "murrine-entry"
 
@@ -719,7 +727,6 @@ widget_class "*<GtkNotebook>*<GtkDrawingArea>" style "murrine-notebook-bg"
 widget_class "*<GtkNotebook>*<GtkLayout>" style "murrine-notebook-bg"
 widget_class "*.GtkNotebook.*.GtkViewport" style "murrine-notebook"
 
-widget_class "*<GtkButton>" style "murrine-button"
 widget_class "*<GtkStatusbar>*" style "murrine-statusbar"
 widget_class "*<GtkProgress>" style "murrine-progressbar"
 widget_class "*<GtkProgressBar>" style "murrine-progressbar"
