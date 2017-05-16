@@ -762,6 +762,14 @@ widget_class "*.<GtkCList>.<GtkButton>" style "treeview-header"
 
 widget "gtk-tooltip*" style "tooltips"
 
+style "thunar-icon-view" {
+	engine "murrine" {
+		contrast = 0.0
+	}
+}
+
+class "ThunarIconView*" style "thunar-icon-view"
+
 widget_class "*<GtkScrolledWindow>*<OsScrollbar>" style "overlay-scrollbar"
 
 style "text-is-fg-color-workaround" {
