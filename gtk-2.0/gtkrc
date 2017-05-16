@@ -24,7 +24,7 @@ gtk-color-scheme = "panel_bg_color: #f5f5f5"
 gtk-color-scheme = "panel_fg_color: #4d4d4d"
 gtk-color-scheme = "link_color: #40abd3"
 
-style "murrine-default" {
+style "default" {
 	GtkArrow::arrow-scaling= 0.6
 
 	GtkButton::child-displacement-x = 0
@@ -75,7 +75,7 @@ style "murrine-default" {
 	GtkScrollbar::has-secondary-forward-stepper = 0
 	GtkScrollbar::min-slider-length = 80
 	GtkScrollbar::slider-width = 10
-	GtkScrollbar::trough-border = 0
+	GtkScrollbar::trough-border = 1
 
 	GtkScrolledWindow::scrollbar-spacing = 0
 	GtkScrolledWindow::scrollbars-within-bevel = 1
@@ -168,29 +168,29 @@ style "murrine-default" {
    }
 }
 
-style "murrine-wide" {
+style "wide" {
 	xthickness = 2
 	ythickness = 2
 }
 
-style "murrine-wider" {
+style "wider" {
 	xthickness = 3
 	ythickness = 3
 }
 
-style "murrine-thin" {
+style "thin" {
 	xthickness = 0
 	ythickness = 0
 }
 
 # Notebook
 
-style "murrine-notebook-bg" {
+style "notebook-bg" {
 	bg[NORMAL] = @bg_color
 	bg[ACTIVE] = shade (0.94, @base_color)
 }
 
-style "murrine-notebook" = "murrine-notebook-bg" {
+style "notebook" = "notebook-bg" {
 	bg[NORMAL] = @bg_color
 	bg[ACTIVE] = shade (0.94, @base_color)
 
@@ -200,34 +200,34 @@ style "murrine-notebook" = "murrine-notebook-bg" {
 
 # Various Standard Widgets
 
-style "murrine-button" = "murrine-wider" {
+style "button" = "wider" {
 	bg[NORMAL] = @bg_color
-	bg[PRELIGHT] = @selected_bg_color
+	bg[PRELIGHT] = shade (0.96, @bg_color)
 	bg[ACTIVE] = @selected_bg_color
 	bg[INSENSITIVE] = shade (0.85, @bg_color)
 
 	fg[NORMAL] = @fg_color
 	fg[ACTIVE] = @selected_fg_color
-	fg[PRELIGHT] = @selected_fg_color
 
   	engine "murrine" {
 		border_shades = { 1.2, 1.2 }
+		textstyle = 0
 	}
 }
 
-style "murrine-scrollbar" {
+style "scrollbar" {
 	bg[NORMAL] = mix (0.15, @fg_color, @bg_color)
 	bg[PRELIGHT] = mix (0.25, @fg_color, @bg_color)
 	bg[ACTIVE] = @selected_bg_color
 
 	engine "murrine" {
-		roundness = 0
-		contrast = 0.0
-		trough_border_shades = { 1.0, 1.0 }
+		roundness = 2
+		contrast = 0.5
+		trough_border_shades = { 0.8, 0.8 }
 	}
 }
 
-style "murrine-overlay-scrollbar" {
+style "overlay-scrollbar" {
 	bg[ACTIVE] = shade (0.8, @bg_color)
 	bg[INSENSITIVE] = shade (0.97, @bg_color)
 
@@ -235,7 +235,7 @@ style "murrine-overlay-scrollbar" {
 	base[INSENSITIVE] = shade (0.85, @base_color)
 }
 
-style "murrine-scale" = "murrine-thin" {
+style "scale" = "thin" {
 	bg[NORMAL] = @bg_color
 	bg[ACTIVE] = @bg_color
 	bg[SELECTED] = @selected_bg_color
@@ -243,12 +243,14 @@ style "murrine-scale" = "murrine-thin" {
 
 	engine "murrine" {
 		roundness = 12
-		border_shades = { 0.96, 0.96 }
-		trough_shades = { 0.96, 0.96 }
+		contrast = 0.5
+		border_shades = { 0.86, 0.86 }
+		trough_shades = { 0.86, 0.86 }
+		trough_border_shades = { 1.0, 1.0 }
 	}
 }
 
-style "murrine-progressbar" = "murrine-thin" {
+style "progressbar" = "thin" {
 	bg[NORMAL] = @bg_color
 	bg[ACTIVE] = shade (1.08, @bg_color)
 
@@ -261,25 +263,25 @@ style "murrine-progressbar" = "murrine-thin" {
 	}
 }
 
-style "murrine-treeview-header" = "murrine-button" {
+style "treeview-header" = "button" {
 	engine "murrine" {
 		roundness = 0
-		contrast = 0.0
+		contrast = 1.0
 	}
 }
 
-style "murrine-treeview" {
+style "treeview" {
   	engine "murrine" {
 		roundness = 0
 		contrast = 0.0
 	}
 }
 
-style "murrine-frame-title" {
+style "frame-title" {
 	fg[NORMAL] = @fg_color
 }
 
-style "murrine-tooltips" {
+style "tooltips" {
 	xthickness = 5
 	ythickness = 5
 
@@ -295,12 +297,14 @@ style "murrine-tooltips" {
 	}
 }
 
-style "murrine-spinbutton" = "murrine-button" {
-	engine "murrine" {
-	}
+style "spinbutton" = "default" {
+	xthickness = 6
+	ythickness = 4
+
+	fg[INSENSITIVE] = shade (0.8, @bg_color)
 }
 
-style "murrine-radiocheck" = "murrine-default" {
+style "radiocheck" = "default" {
 	bg[SELECTED] = @bg_color
 	bg[PRELIGHT] = @bg_color
 
@@ -309,18 +313,18 @@ style "murrine-radiocheck" = "murrine-default" {
 	text[PRELIGHT] = @selected_bg_color
 }
 
-style "murrine-entry" = "murrine-wider" {
+style "entry" = "wider" {
 	engine "murrine" {
 		textstyle = 0
-		contrast = 0.5
+		contrast = 0.4
 	}
 }
 
-style "metacity-frame" = "murrine-default" {
+style "metacity-frame" = "default" {
 	bg[SELECTED] = @selected_bg_color
 }
 
-style "murrine-statusbar" {
+style "statusbar" {
 	engine "murrine" {
 		contrast = 0.0
 		border_shades = { 2.0, 2.0 }
@@ -329,15 +333,15 @@ style "murrine-statusbar" {
 	}
 }
 
-style "murrine-comboboxentry" = "murrine-entry" { }
-style "murrine-hscale" = "murrine-scale" { }
-style "murrine-vscale" = "murrine-scale" { }
-style "murrine-hscrollbar" = "murrine-scrollbar" { }
-style "murrine-vscrollbar" = "murrine-scrollbar" { }
+style "comboboxentry" = "entry" { }
+style "hscale" = "scale" { }
+style "vscale" = "scale" { }
+style "hscrollbar" = "scrollbar" { }
+style "vscrollbar" = "scrollbar" { }
 
 # Menus
 
-style "murrine-menu" = "murrine-thin" {
+style "menu" = "thin" {
 	bg[NORMAL] = @menu_bg_color
 	bg[PRELIGHT] = @selected_bg_color
 	bg[SELECTED] = @selected_bg_color
@@ -362,7 +366,7 @@ style "murrine-menu" = "murrine-thin" {
 	}
 }
 
-style "murrine-menu-item" = "murrine-wider" {
+style "menu-item" = "wider" {
 	xthickness = 6
 	ythickness = 3
 
@@ -383,9 +387,9 @@ style "murrine-menu-item" = "murrine-wider" {
 	}
 }
 
-style "murrine-separator-menu-item" = "murrine-thin" { }
+style "separator-menu-item" = "thin" { }
 
-style "murrine-menubar" {
+style "menubar" {
 	bg[NORMAL] = @menubar_bg_color
 	bg[PRELIGHT] =  mix (0.21, @menubar_fg_color, @menubar_bg_color)
 	bg[SELECTED] =  mix (0.21, @menubar_fg_color, @menubar_bg_color)
@@ -403,7 +407,7 @@ style "murrine-menubar" {
 	}
 }
 
-style "murrine-menubaritem" {
+style "menubaritem" {
 	bg[NORMAL] = @menubar_bg_color
 	bg[PRELIGHT] =  mix (0.21, @menubar_fg_color, @menubar_bg_color)
 	bg[SELECTED] =  mix (0.21, @menubar_fg_color, @menubar_bg_color)
@@ -423,7 +427,7 @@ style "murrine-menubaritem" {
 
 # Toolbars
 
-style "murrine-toolbar" = "murrine-thin" {
+style "toolbar" = "thin" {
 	bg[NORMAL] = @bg_color
 	bg[PRELIGHT] = shade (1.02, @bg_color)
 	bg[SELECTED] = @selected_bg_color
@@ -440,7 +444,10 @@ style "murrine-toolbar" = "murrine-thin" {
 	}
 }
 
-style "murrine-toolbutton" = "murrine-button" {
+style "toolbutton" = "button" {
+	xthickness = 4
+	ythickness = 4
+
 	bg[NORMAL] = shade (1.08, @bg_color)
 	bg[PRELIGHT] = shade (1.10, @bg_color)
 	bg[SELECTED] = @selected_bg_color
@@ -457,13 +464,13 @@ style "murrine-toolbutton" = "murrine-button" {
 	}
 }
 
-class "GtkToolbar" style "murrine-toolbar"
-class "GtkHandleBox" style "murrine-toolbar"
-widget_class "*Toolbar*.*Separator*" style "murrine-toolbar"
+class "GtkToolbar" style "toolbar"
+class "GtkHandleBox" style "toolbar"
+widget_class "*Toolbar*.*Separator*" style "toolbar"
 
 # Panels
 
-style "murrine-panel" = "murrine-thin" {
+style "panel" {
 	xthickness = 10
 	ythickness = 10
 
@@ -496,27 +503,26 @@ style "murrine-panel" = "murrine-thin" {
 	}
 }
 
-widget "*PanelWidget*" style "murrine-panel"
-widget "*PanelApplet*" style "murrine-panel"
-widget "*fast-user-switch*" style "murrine-panel"
-widget "*CPUFreq*Applet*" style "murrine-panel"
-widget "*indicator-applet*" style "murrine-panel"
-class "PanelApp*" style "murrine-panel"
-class "PanelToplevel*" style "murrine-panel"
-widget_class "*PanelToplevel*" style "murrine-panel"
-widget_class "*notif*" style "murrine-panel"
-widget_class "*Notif*" style "murrine-panel"
-widget_class "*Tray*" style "murrine-panel"
-widget_class "*tray*" style "murrine-panel"
-widget_class "*computertemp*" style "murrine-panel"
-widget_class "*Applet*Tomboy*" style "murrine-panel"
-widget_class "*Applet*Netstatus*" style "murrine-panel"
-widget "*gdm-user-switch-menubar*" style "murrine-panel"
+widget "*PanelWidget*" style "panel"
+widget "*PanelApplet*" style "panel"
+widget "*fast-user-switch*" style "panel"
+widget "*CPUFreq*Applet*" style "panel"
+widget "*indicator-applet*" style "panel"
+class "PanelApp*" style "panel"
+class "PanelToplevel*" style "panel"
+widget_class "*PanelToplevel*" style "panel"
+widget_class "*notif*" style "panel"
+widget_class "*Notif*" style "panel"
+widget_class "*Tray*" style "panel"
+widget_class "*tray*" style "panel"
+widget_class "*computertemp*" style "panel"
+widget_class "*Applet*Tomboy*" style "panel"
+widget_class "*Applet*Netstatus*" style "panel"
+widget "*gdm-user-switch-menubar*" style "panel"
 
-# LXPanel (code based on Lubuntu-default theme's gtkrc file)
-widget "*.tclock.*" style "murrine-panel"
-widget "*.taskbar.*" style "murrine-panel"
-widget_class "*GtkBgbox*" style "murrine-panel"
+widget "*.tclock.*" style "panel"
+widget "*.taskbar.*" style "panel"
+widget_class "*GtkBgbox*" style "panel"
 
 style "bold-panel-item" {
 	font_name = "Bold"
@@ -531,7 +537,7 @@ widget "*gimmie*" style "bold-panel-item"
 
 # XFCE Styles
 
-style "workspace-switcher" = "murrine-panel" {
+style "workspace-switcher" = "panel" {
 	bg[ACTIVE] = @selected_bg_color
 	bg[SELECTED] = @selected_bg_color
 }
@@ -616,8 +622,8 @@ style "xfsm-logout-button" {
 
 widget "*Pager*" style "workspace-switcher"
 
-widget "*Xfce*Panel*" style "murrine-panel"
-class "*Xfce*Panel*" style "murrine-panel"
+widget "*Xfce*Panel*" style "panel"
+class "*Xfce*Panel*" style "panel"
 
 # Thunar Styles
 
@@ -630,7 +636,7 @@ style "sidepane" {
 
 widget_class "*ThunarShortcutsView*" style "sidepane"
 widget_class "*ThunarTreeView*" style "sidepane"
-widget_class "*ThunarLocationEntry*" style "murrine-entry"
+widget_class "*ThunarLocationEntry*" style "entry"
 
 style "whiskermenu" {
 	bg[NORMAL] = @menu_bg_color
@@ -642,7 +648,7 @@ style "whiskermenu" {
 	fg[PRELIGHT] = @menu_fg_color
 }
 
-style "whiskermenu-scrollbar" = "murrine-scrollbar" {
+style "whiskermenu-scrollbar" = "scrollbar" {
 	bg[NORMAL] = mix (0.21, @fg_color, @bg_color)
 	bg[PRELIGHT] = mix (0.31, @fg_color, @bg_color)
 	bg[ACTIVE] = @selected_bg_color
@@ -659,7 +665,7 @@ widget "*whisker*GtkVScrollbar" style "whiskermenu-scrollbar"
 # Gtk2 Open-File Dialog
 
 widget_class "*GtkFileChooserWidget.GtkFileChooserDefault.GtkVBox.GtkHPaned.GtkVBox.GtkScrolledWindow.GtkTreeView*" style "sidepane"
-widget_class "*GtkFileChooserWidget.GtkFileChooserDefault.GtkVBox.GtkHPaned.GtkVBox.GtkScrolledWindow.<GtkTreeView>.<GtkButton>" style "murrine-treeview-header"
+widget_class "*GtkFileChooserWidget.GtkFileChooserDefault.GtkVBox.GtkHPaned.GtkVBox.GtkScrolledWindow.<GtkTreeView>.<GtkButton>" style "treeview-header"
 
 style "chromium-toolbar-button" {
 	engine "murrine" {
@@ -692,71 +698,71 @@ widget_class "*Chrom*Button*" style "chromium-toolbar-button"
 
 # General Styles
 
-class "GtkWidget" style "murrine-default"
+class "GtkWidget" style "default"
 
-class "GtkFrame" style "murrine-wide"
+class "GtkFrame" style "wide"
 class "MetaFrames" style "metacity-frame"
 class "GtkWindow" style "metacity-frame"
 
-class "GtkSeparator" style "murrine-wide"
-class "GtkCalendar" style "murrine-wide"
+class "GtkSeparator" style "wide"
+class "GtkCalendar" style "wide"
 
-class "GtkSpinButton" style "murrine-spinbutton"
+class "GtkSpinButton" style "spinbutton"
 
-class "GtkScale" style "murrine-scale"
-class "GtkVScale" style "murrine-vscale"
-class "GtkHScale" style "murrine-hscale"
-class "GtkScrollbar" style "murrine-scrollbar"
-class "GtkVScrollbar" style "murrine-vscrollbar"
-class "GtkHScrollbar" style "murrine-hscrollbar"
+class "GtkScale" style "scale"
+class "GtkVScale" style "vscale"
+class "GtkHScale" style "hscale"
+class "GtkScrollbar" style "scrollbar"
+class "GtkVScrollbar" style "vscrollbar"
+class "GtkHScrollbar" style "hscrollbar"
 
-class "GtkButton" style "murrine-button"
-widget_class "*<GtkButton>*<GtkLabel>" style "murrine-button"
-class "GtkToggleButton" style "murrine-button"
+class "GtkButton" style "button"
+widget_class "*<GtkButton>*<GtkLabel>" style "button"
+class "GtkToggleButton" style "button"
 
-class "GtkRadioButton" style "murrine-radiocheck"
-widget_class "*<GtkRadioButton>*<GtkLabel>*" style "murrine-radiocheck"
-class "GtkCheckButton" style "murrine-radiocheck"
-widget_class "*<GtkCheckButton>*<GtkLabel>*" style "murrine-radiocheck"
+class "GtkRadioButton" style "radiocheck"
+widget_class "*<GtkRadioButton>*<GtkLabel>*" style "radiocheck"
+class "GtkCheckButton" style "radiocheck"
+widget_class "*<GtkCheckButton>*<GtkLabel>*" style "radiocheck"
 
-class "GtkEntry" style "murrine-entry"
+class "GtkEntry" style "entry"
 
-widget_class "*<GtkNotebook>" style "murrine-notebook"
-widget_class "*<GtkNotebook>*<GtkEventBox>" style "murrine-notebook-bg"
-widget_class "*<GtkNotebook>*<GtkDrawingArea>" style "murrine-notebook-bg"
-widget_class "*<GtkNotebook>*<GtkLayout>" style "murrine-notebook-bg"
-widget_class "*.GtkNotebook.*.GtkViewport" style "murrine-notebook"
+widget_class "*<GtkNotebook>" style "notebook"
+widget_class "*<GtkNotebook>*<GtkEventBox>" style "notebook-bg"
+widget_class "*<GtkNotebook>*<GtkDrawingArea>" style "notebook-bg"
+widget_class "*<GtkNotebook>*<GtkLayout>" style "notebook-bg"
+widget_class "*.GtkNotebook.*.GtkViewport" style "notebook"
 
-widget_class "*<GtkStatusbar>*" style "murrine-statusbar"
-widget_class "*<GtkProgress>" style "murrine-progressbar"
-widget_class "*<GtkProgressBar>" style "murrine-progressbar"
+widget_class "*<GtkStatusbar>*" style "statusbar"
+widget_class "*<GtkProgress>" style "progressbar"
+widget_class "*<GtkProgressBar>" style "progressbar"
 
-widget_class "*<GtkComboBoxEntry>*" style "murrine-comboboxentry"
-widget_class "*<GtkCombo>*" style "murrine-comboboxentry"
+widget_class "*<GtkComboBoxEntry>*" style "comboboxentry"
+widget_class "*<GtkCombo>*" style "comboboxentry"
 
-widget_class "*<GtkMenu>*" style "murrine-menu"
-widget_class "*<GtkMenuItem>*" style "murrine-menu-item"
-widget_class "*<GtkSeparatorMenuItem>*" style "murrine-separator-menu-item"
-widget_class "*Menu*.*Sepa*"  style "murrine-separator-menu-item"
-widget_class "*<GtkMenuBar>*" style "murrine-menubar"
-widget_class "*<GtkMenuBar>*<GtkMenuItem>*" style "murrine-menubaritem"
+widget_class "*<GtkMenu>*" style "menu"
+widget_class "*<GtkMenuItem>*" style "menu-item"
+widget_class "*<GtkSeparatorMenuItem>*" style "separator-menu-item"
+widget_class "*Menu*.*Sepa*"  style "separator-menu-item"
+widget_class "*<GtkMenuBar>*" style "menubar"
+widget_class "*<GtkMenuBar>*<GtkMenuItem>*" style "menubaritem"
 
-widget_class "*GtkToolButton*" style "murrine-toolbutton"
-widget_class "*GtkToggleToolButton*" style "murrine-toolbutton"
-widget_class "*GtkMenuToolButton*" style "murrine-toolbutton"
-widget_class "*GtkToolbar*Button" style "murrine-toolbutton"
+widget_class "*GtkToolButton*" style "toolbutton"
+widget_class "*GtkToggleToolButton*" style "toolbutton"
+widget_class "*GtkMenuToolButton*" style "toolbutton"
+widget_class "*GtkToolbar*Button" style "toolbutton"
 
-widget_class "*.<GtkFrame>.<GtkLabel>" style "murrine-frame-title"
+widget_class "*.<GtkFrame>.<GtkLabel>" style "frame-title"
 
-widget_class "*.<GtkTreeView>*" style "murrine-treeview"
-widget_class "*.<GtkTreeView>.<GtkButton>" style "murrine-treeview-header"
-widget_class "*.<GtkCTree>.<GtkButton>" style "murrine-treeview-header"
-widget_class "*.<GtkList>.<GtkButton>" style "murrine-treeview-header"
-widget_class "*.<GtkCList>.<GtkButton>" style "murrine-treeview-header"
+widget_class "*.<GtkTreeView>*" style "treeview"
+widget_class "*.<GtkTreeView>.<GtkButton>" style "treeview-header"
+widget_class "*.<GtkCTree>.<GtkButton>" style "treeview-header"
+widget_class "*.<GtkList>.<GtkButton>" style "treeview-header"
+widget_class "*.<GtkCList>.<GtkButton>" style "treeview-header"
 
-widget "gtk-tooltip*" style "murrine-tooltips"
+widget "gtk-tooltip*" style "tooltips"
 
-widget_class "*<GtkScrolledWindow>*<OsScrollbar>" style "murrine-overlay-scrollbar"
+widget_class "*<GtkScrolledWindow>*<OsScrollbar>" style "overlay-scrollbar"
 
 style "text-is-fg-color-workaround" {
 	text[NORMAL] = @text_color
@@ -780,13 +786,13 @@ widget_class "*<GtkListItem>*" style "fg-is-text-color-workaround"
 widget_class "*<GtkCList>" style "fg-is-text-color-workaround"
 widget_class "*<EelEditableLabel>" style "fg-is-text-color-workaround"
 
-style "murrine-evo-new-button-workaround" {
+style "evo-new-button-workaround" {
 	engine "murrine" {
 		toolbarstyle = 0
 	}
 }
 
-widget_class "EShellWindow.GtkVBox.BonoboDock.BonoboDockBand.BonoboDockItem*" style "murrine-evo-new-button-workaround"
+widget_class "EShellWindow.GtkVBox.BonoboDock.BonoboDockBand.BonoboDockItem*" style "evo-new-button-workaround"
 
 style "inkscape-toolbar-fix" {
 	engine "murrine" {
